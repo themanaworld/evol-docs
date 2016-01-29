@@ -49,3 +49,54 @@ Disable camera moving mode in client and set camera to default position.
 Example:
     restorecam;
 
+---------------------------------------
+
+*npctalk3 text
+
+Send chat message from current npc, visible only for attached player.
+Npc name will be translated.
+
+Example:
+    npctalk3 "hello";
+
+---------------------------------------
+
+*closedialog
+
+Will close npc dialog in client. If npc script will continue after this command,
+dialog can be opened again.
+
+Example:
+    closedialog;
+
+---------------------------------------
+
+*shop npcName
+
+Open if exists for attached player npc shop from npc with name "npcName"
+
+Example:
+    shop "bag";
+
+---------------------------------------
+
+*getitemlink itemName [, cardName1 [, cardName2 [, cardName3 [, cardName4]]]]
+*getitemlink itemId [, cardName1 [, cardName2 [, cardName3 [, cardName4]]]]
+
+Return link for item id "itemId" or name "itemName" with cards.
+This link after can be used in mes or other commands what show messages in npc dialog.
+
+Example:
+    mes "Acorn link: " + getitemlink(Acorn);
+    mes getitemlink(VneckJumper, MintCashmereDye);
+
+---------------------------------------
+
+*getinvindexlink index
+
+Return link to item by player inventory index. Also return cards in link.
+This link after can be used in mes or other commands what show messages in npc dialog.
+Inventory index counted from 0.
+
+Example:
+    mes "link here: " + getinvindexlink(3);
