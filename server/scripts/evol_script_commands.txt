@@ -1,0 +1,51 @@
+====== Evol script commands ======
+
+*chatjoin chatId [, char [,password]]
+
+Force player to join chat with id chatId.
+
+Example:
+    chatjoin .chat;
+
+---------------------------------------
+
+*setcamnpc [npcName [, x, y]]
+
+Enable camera moving mode in client and move camera to npc with name "npcName"
+and move relative from it in x and y pixels.
+If "npcName" is missing, using attached npc.
+If x and y missing, it count as 0.
+
+Example:
+    setcamnpc 32, 0;
+    setcamnpc "npc1";
+
+---------------------------------------
+
+*setcam x, y
+
+Move camera to absolute position x,y in pixels.
+
+Example:
+    setcam 0, 0;
+    setcam 2000, 512;
+
+---------------------------------------
+
+*movecam x, y
+
+Enable camera moving mode in client and move camera relative to player
+position by x and y pixels.
+
+Example:
+    movecam 10, 20;
+
+---------------------------------------
+
+*restorecam
+
+Disable camera moving mode in client and set camera to default position.
+
+Example:
+    restorecam;
+
