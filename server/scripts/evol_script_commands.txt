@@ -100,3 +100,251 @@ Inventory index counted from 0.
 
 Example:
     mes "link here: " + getinvindexlink(3);
+
+---------------------------------------
+
+*l text [, param1, ...]
+
+Return translated formatted string.
+Player must be attached.
+
+Example:
+    mes l("test line");
+    mes l("give me @@.", getitemlink(Acorn));
+
+---------------------------------------
+
+*lg femaleText, makeText, [, param1, ...]
+*lg text
+
+Return translated formatted string based on gender.
+Player must be attached.
+Translators will give text with #N.
+
+Example:
+    // translators will get two strings "i went to shop.#0" and "i went to shop.#1"
+    // with #0 for female and #1 for male
+    lg("i went to shop.");
+    lg("call her @@.", "call him @@.", "test");
+
+---------------------------------------
+
+*requestlang
+
+Return selected language in client to server.
+Player must be attached.
+
+Example:
+    .@lang = requestlang();
+
+---------------------------------------
+
+*requestitem
+
+Return selected item id by player. In client player move this item to npc.
+Player must be attached.
+
+Example:
+    .@item = requestitem();
+    mes "You gave me " + getitemlink(.@item);
+
+---------------------------------------
+
+*requestitems [n]
+
+Return n items from player what he moved to npc inventory separated by ";".
+If n missing it mean 1.
+Better not use this command. Better use requestcraft.
+Player must be attached.
+
+Example:
+    .@str$ = requestitems();
+    .@str$ = requestitems(3);
+
+---------------------------------------
+
+*requestitemindex
+
+Return inventory index for selected item by player. In client player move this item to npc.
+Player must be attached.
+
+Example:
+    .@item = requestitemindex();
+
+---------------------------------------
+
+*requestitemsindex [n]
+
+Return inventory indexes for n items from player what he moved to npc inventory separated by ";".
+If n missing it mean 1.
+Player must be attached.
+
+Example:
+    .@str$ = requestitemsindex();
+    .@str$ = requestitemsindex(3);
+
+---------------------------------------
+
+*requestcraft [n]
+
+Request selected craft items in string format.
+n is craft inventory size. If n missing, it mean 1.
+After this string must be validated and converted to craft object
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+
+---------------------------------------
+
+*initcraft str
+
+Create craft object based on craft string sent from client.
+Return craft object id. Or -1 on error.
+After using, craft object must be deleted with function deletecraft.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*dumpcraft id
+
+Dump to server console given craft object with id 'id'.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    dumpcraft(.@craft);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*deletecraft id
+
+Delete craft object.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*findcraftentry id, flag
+
+Search craft entry in craft db for craft object with id 'id' and flag 'flag'.
+Retrun craft entry id what was found. If error happend, return -1.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    .@entry = findcraftentry(.@craft, 0);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*usecraft id
+
+This command can be used after checked craft object and found craft entry.
+It apply craft entry. May delete or give items and do other things.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    .@entry = findcraftentry(.@craft, 0);
+    usecraft .@craft;
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*getcraftcode id
+
+After craft object was used by function usecraft, this function based on craft entry id
+can return special number configured for craft entry in craft db.
+Based on this value script may do additional things.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    .@entry = findcraftentry(.@craft, 0);
+    usecraft .@craft;
+    .@code = getcraftcode(.@entry);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*getcraftslotid id, slot
+
+Return item id selected in craft object 'id' and in slot 'slot'.
+On error return 0.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    .@item = getcraftslotid(.@craft, 0);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*getcraftslotamount id, slot
+
+Return amount selected in craft object 'id' and in slot 'slot'.
+On error return 0.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    .@item = getcraftslotid(.@craft, 0);
+    .@amount = getcraftslotamount(.@craft, 0);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*validatecraft id
+
+Validate craft object and current player inventory.
+It can be used after "next" command between init and use craft.
+Return 0 if craft object now invalid, 1 if craft object can be used for player.
+Player must be attached.
+
+Example:
+    .@str$ = requestcraft(9);
+    .@craft = initcraft(.@str$);
+    next;
+    if (valudatecraft(.@craft) == 0)
+    {
+        deletecraft(.@craft);
+        close;
+    }
+    .@item = getcraftslotid(.@craft, 1);
+    deletecraft(.@craft);
+
+---------------------------------------
+
+*getq quest
+
+Return quest state for attached player.
+
+Example:
+    mes getq(ShipQuests_Julia);
+
+---------------------------------------
+
+*setq quest, value
+
+Set quest state for attached player.
+
+Example:
+    setq ShipQuests_Julia, 1;
+
