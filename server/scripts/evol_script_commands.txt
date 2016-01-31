@@ -65,9 +65,20 @@ Example:
 
 Will close npc dialog in client. If npc script will continue after this command,
 dialog can be opened again.
+Player must be attached.
 
 Example:
     closedialog;
+
+---------------------------------------
+
+*clear
+
+Clear from text npc dialog for attached npc.
+Player must be attached.
+
+Example:
+    clear;
 
 ---------------------------------------
 
@@ -347,4 +358,357 @@ Set quest state for attached player.
 
 Example:
     setq ShipQuests_Julia, 1;
+
+---------------------------------------
+
+*setnpcdir [npc,] dir
+
+Set direction 'dir' for npc with name 'npc' or attached npc.
+
+Example:
+    setnpcdir DOWN;
+    setnpcdir "npc1", LEFT;
+
+---------------------------------------
+
+*npcsit [name]
+
+Set npc it sit state. 'name' is npc name. If 'name' missing it using attached npc.
+
+Example:
+    npcsit;
+    npcsit "alige";
+
+---------------------------------------
+
+*npcstand [name]
+
+Set npc it stand state. 'name' is npc name. If 'name' missing it using attached npc.
+
+Example:
+    npcstand;
+    npcstand "alige";
+
+---------------------------------------
+
+*setnpcsex npcName, gender
+
+Set gender 'gender' for npc 'npcName'
+Supported genders:
+    G_FEMALE - female
+    G_MALE   - male
+    G_OTHER  - no gender or other
+
+Example:
+    setnpcsex "npc1", G_MALE;
+
+---------------------------------------
+
+*npcwalkto x, y
+
+This command start walking attached npc to position x,y.
+
+Example:
+    npcwalkto 10, 10;
+
+---------------------------------------
+
+*setnpcdialogtitle title
+
+Set dialog title for attached npc to 'title'.
+Player must be attached.
+
+Example:
+    setnpcdialogtitle "Hello";
+
+---------------------------------------
+
+*rif condition, trueValue [, falseValue]
+
+Check condition and if it true, then return 'trueValue' string
+If condition false, it return 'falseValue' if present, or empty string.
+This command can be used in menu and select commands. Empty lines in this commands hidden.
+
+Example:
+    .@ret = select(rif(countitem(Acorn) > 0, "I can give you acorn."),
+        "Nothing");
+
+---------------------------------------
+
+*misceffect effect [, name]
+*misceffect effect [, id]
+
+Start paritcle effect with id 'effect' on any being with name 'name' or with id 'id'.
+
+Example:
+    misceffect 4, getcharid(3);
+
+---------------------------------------
+
+*setmapmask mapName, mask
+
+Allow change map mask. Based on this mask layers in client can be visible or hidden.
+Command 'setmapmask' set mask for 'mapName' to value 'mask'.
+Default mask is 1.
+
+Example:
+    setmapmask "test", 1;  // default
+    setmapmask "test", 3;  // 1 + 2
+
+---------------------------------------
+
+*addmapmask mapName, mask
+
+Allow change map mask. Based on this mask layers in client can be visible or hidden.
+Command 'addmapmask' add bit mask 'mask' to map 'mapName'.
+Default mask is 1.
+
+Example:
+    setmapmask "test", 1;  // now mask 1
+    addmapmask "test", 2;  // now mask is 1|2 = 3
+    addmapmask "test", 2;  // now mask is 3|2 = 3
+
+---------------------------------------
+
+*removemapmask mapName, mask
+
+Allow change map mask. Based on this mask layers in client can be visible or hidden.
+Command 'removemapmask' remove bit mask 'mask' from map 'mapName'.
+Default mask is 1.
+
+Example:
+    setmapmask "test", 1;  // now mask 1
+    addmapmask "test", 2;  // now mask is 1|2 = 3
+    removemapmask "test", 1;  // now mask is 3|1^1 = 2
+    removemapmask "test", 1;  // now mask is 2|1^1 = 2
+
+---------------------------------------
+
+*getmapmask mapName
+
+Return current mask what was set to map 'mapName'.
+
+Example:
+    mes "test map mask: " + getmapmask("test");
+
+---------------------------------------
+
+*showavatar [id]
+
+Show avatar in npc dialog for attached npc.
+if 'id' misisng or 0 it hide avatar.
+Player must be attached.
+
+Example:
+    showavatar 1;  // show 1
+    showavatar;  // hide
+
+---------------------------------------
+
+*setavatardir dir
+
+Set avatar direction 'dir' in npc dialog for attached npc.
+Player must be attached.
+
+Example:
+    setavatardir UPRIGHT;
+
+---------------------------------------
+
+*setavataraction action
+
+Set avatar action to 'action' in npc dialog for attached npc.
+Player must be attached.
+
+Example:
+    setavataraction ACTION_SIT;
+
+---------------------------------------
+
+*changemusic map, file
+
+Change background music on map 'map' to file 'file'.
+
+Example:
+    changemusic "music1.ogg";
+
+---------------------------------------
+
+*getmapname
+
+Return attached player current map name.
+
+Example:
+    mes "You located in map: " + getmapname();
+
+---------------------------------------
+
+*unequipbyid id
+
+Unequip from attached player item with id 'id'.
+
+Example:
+    unequipbyid VneckJumper;
+
+---------------------------------------
+
+*ispcdead
+
+Return true if attached player is dead. In other cases return false.
+
+---------------------------------------
+
+*areatimer mapName, x1, y1, x2, y2, time, eventLabel
+
+Create one time timer in map 'mapName' for players in rectangle (x1,y1) - (x2,y2)
+Timer will call label 'eventLabel' after time 'time'.
+This function probably will be removed in future.
+
+Example:
+    areatimer "test", 10, 10, 20, 20, 5, "npc1:AreaLabel"
+
+---------------------------------------
+
+*getareadropitem mapName, x1, y1, x2, y2, itemId [, delFlag]
+*getareadropitem mapName, x1, y1, x2, y2, itemName [, delFlag]
+
+Return number of floor items with id 'itemId' or name 'itemName' in map 'mapName'
+in rectangle (x1,y1) - (x2,y2). If delFlag set to 1, it also delete floor items.
+This function probably will be removed in future.
+
+Example:
+    mes "Acorns amount: " + getareadropitem("test", 10, 10, 20, 20, Acorn);
+
+---------------------------------------
+
+*clientcommand command
+
+Send client side command to client. It allow send only safe commands.
+Player must be attached.
+
+Example:
+    clientcommand "emote 1";  // show first emote on attached player
+
+---------------------------------------
+
+*isunitwalking [unitId]
+
+Return true if unit with id 'unitId' in walking progress.
+If 'unitId' missing it using attached npc.
+This function can be used in walking npc scripts.
+
+Example:
+    mes "Current npc walking? " + (isunitwalking() ? "yes" : "no");
+
+---------------------------------------
+
+*failedrefindex index
+
+This function do fail refine action on item with inventory index 'index'.
+Index start count from 0.
+Player must be attached.
+
+Example:
+    failedrefindex 3;
+
+---------------------------------------
+
+*downrefindex index, levels
+
+This function lower refine item level with inventory index 'index' for 'levels' levels.
+Index start count from 0.
+Player must be attached.
+
+Example:
+    downrefindex 3, 1;
+
+---------------------------------------
+
+*successrefindex index, levels
+
+This function up refine item level with inventory index 'index' for 'levels' levels.
+Index start count from 0.
+Player must be attached.
+
+Example:
+    successrefindex 3, 1;
+
+---------------------------------------
+
+*isstr var
+
+Return true if 'var' is string, in other case return false.
+Can be usefull for check functions arguments.
+
+Example:
+    mes "is string is string? " + isstr("text");
+
+---------------------------------------
+
+*setbgteam bgId, teamId;
+
+Set id 'teamId' for battle ground group 'bgId'.
+After battle ground start, teamId will be sent to client.
+
+Example:
+    $@bgid1 = waitingroom2bg("testbg", 10, 10, "bgnpc1::OnLogout","bgnpc1:OnDie");
+    setbgteam $@bgid1, 1;
+    bg_warp $@bgid1, "testbg", 10, 10;
+
+---------------------------------------
+
+*checknpccell 
+
+Check given cell in map for flag for attached npc.
+Most time it used for check is this cell walkable for npc or not.
+
+Example:
+    .@canWalk = checknpccell("test", 10, 10, cell_chkpass);
+
+---------------------------------------
+
+*setcells mapName, x1, y1, x2, y2, mask, wallName
+
+Add to map with name 'mapName' new "wall" in rectangle (x1,y1) - (x2,y2).
+Set to this rectangle mask 'mask'. 'wallName' is name for this "wall".
+Mask is client side collision types.
+After it can be removed by this name.
+
+Example:
+    setcells "test", 14, 11, 17, 11, 3, "wall1";
+
+---------------------------------------
+
+*delcells wallName
+
+Remove wall created by command setcells.
+
+Example:
+    setcells "test", 14, 11, 17, 11, 3, "wall1";
+    delcells "wall1";
+
+---------------------------------------
+
+*setmount id
+
+Set mount (horse) for attached player.
+If id is zero, mount removed.
+
+Example:
+    setmount 1;
+
+---------------------------------------
+
+*setskin name
+
+Set skin with name 'name' for attached npc for attached player.
+
+Example:
+    setskin "test2";
+
+---------------------------------------
+
+*emotion id [, flag [, name]]
+
+This command works same like hercules emotion command, except it removed limit for emotes.
 
