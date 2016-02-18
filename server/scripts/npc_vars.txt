@@ -1,0 +1,40 @@
+====== Special NPC variables. ======
+
+The following NPC variables have special meaning. They exist to simplify access to internal NPC settings.
+
+You can access these variables even outside NPC. If you use them in external functions, they are applied to current NPC.
+
+
+====== List of special NPC variables. ======
+^ Variable      ^ Access ^ Affects          ^ Alias               ^
+| .dir          | r/w    | direction        | getnpcdir/setnpcdir |
+| .class        | r/w    | class            | getnpcclass/?       |
+| .map$         | r/o    | current map name | getmapxy            |
+| .x            | r/o    | X coordinate     | getmapxy            |
+| .y            | r/o    | Y coordinate     | getmapxy            |
+| .speed        | r/w    | speed            | npcspeed            |
+| .sex          | r/w    | gender           | setnpcsex           |
+| .distance     | r/w    | minimal distance from player to activate it | setnpcdistance |
+| .chat         | r/o    | chat ID          | ?                   |
+| .name$        | r/w    | name             | strnpcinfo(0)       |
+| .extname$     | r/o    | extended name    | strnpcinfo(3)       |
+| .sit          | r/w    | sit flag         | npcsit              |
+| .stand        | r/w    | stand flag       | npcstand            |
+| .walkmask     | r/w    | walk mask (see WALK_* in const.txt) |  |
+| .lang         | r/w    | default language | ?                   |
+| .alwaysVisible| r/w    | allow see npc from any distance |      |
+
+
+====== Example ======
+<code>
+function<tab>script<tab>testFunc<tab>{
+    .class = 100; // will change class of the NPC
+    return;
+}
+
+<NPC header> {
+    .dir = 2;  // turn to left;
+    mes "NPC current coordinates: " + .x + "," + .y;
+    testFunc();
+}
+</code>
