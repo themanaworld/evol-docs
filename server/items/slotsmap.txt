@@ -1,0 +1,101 @@
+How map server item_db.conf "Loc" field to slot in client.
+Loc mean one of EQP_* constants from below.
+Client using named slots from below "slot name"
+Example:
+    get Loc = 256
+    1. this mean EQP_* with value 256
+    2. this is EQP_HEAD_TOP
+    3. is second table found EQP_HEAD_TOP and near EquipSlot
+    4. this is HEAD_SLOT
+    5. in last table near HEAD_SLOT find slot name.
+    6. this is "hat"
+    In other words if set Loc in item_db.conf to 256 it can be visible in equipment window in slot with name "hat"
+
+---------------------------------------------------------------------------------------
+
+EQP to LOOK mapping
+
+map server
+eqp                     id              look/sprite      id     used
+EQP_HAND_R              2               LOOK_WEAPON      2      +
+EQP_HAND_L              32              LOOK_SHIELD      8      +
+EQP_HEAD_LOW            1               LOOK_HEAD_BOTTOM 3      +
+EQP_HEAD_TOP            256             LOOK_HEAD_TOP    4      +
+EQP_HEAD_MID            512             LOOK_HEAD_MID    5      +
+EQP_GARMENT             4               LOOK_ROBE        12     +
+EQP_SHOES               64              LOOK_SHOES       9      +
+EQP_COSTUME_HEAD_TOP    1024                             13     +
+EQP_COSTUME_HEAD_MID    2048                             14     +
+EQP_COSTUME_HEAD_LOW    4096                             15     +
+EQP_COSTUME_GARMENT     8192                             16     +
+EQP_ARMOR               16                               17     +
+EQP_ACC_R               128                              18     +
+EQP_ACC_L               8                                19     +
+UNUSED_COSTUME_FLOOR    16384           ?                       -
+EQP_AMMO                32768           ?                       -
+                                        LOOK_HAIR_COLOR  6      +
+                                        LOOK_CLOTHES_COLOR 7    ?
+                                        LOOK_BODY        10     ?
+                                        LOOK_FLOOR       11     ?
+                                        LOOK_BASE        0      +
+                                        LOOK_HAIR        1      +
+
+---------------------------------------------------------------------------------------
+EQI to EQP and to EquipSlot
+                                                                                server data
+equip_index             EQI id          EQP                     EQP id  used    used for        EquipSlot
+EQI_ACC_L               0               EQP_ACC_L               8       +       ?               RING2_SLOT
+EQI_ACC_R               1               EQP_ACC_R,              128     +       ?               NECK_SLOT
+EQI_SHOES               2               EQP_SHOES               64      +       shoes           FEET_SLOT
+EQI_GARMENT             3               EQP_GARMENT             4       +       armbands        GLOVES_SLOT
+EQI_HEAD_LOW            4               EQP_HEAD_LOW            1       +       pants           LEGS_SLOT
+EQI_HEAD_MID            5               EQP_HEAD_MID            512     +       torso           TORSO_SLOT
+EQI_HEAD_TOP            6               EQP_HEAD_TOP            256     +       hat             HEAD_SLOT
+EQI_ARMOR               7               EQP_ARMOR               16      +       ?               RING1_SLOT
+EQI_HAND_L              8               EQP_HAND_L              32      +       shield          FIGHT2_SLOT
+EQI_HAND_R              9               EQP_HAND_R              2       +       weapon          FIGHT1_SLOT
+EQI_COSTUME_TOP         10              EQP_COSTUME_HEAD_TOP    1024    +       ?               EVOL_RING1_SLOT
+EQI_COSTUME_MID         11              EQP_COSTUME_HEAD_MID    2048    +       ?               EVOL_RING2_SLOT
+EQI_COSTUME_LOW         12              EQP_COSTUME_HEAD_LOW    4096    +       ?               PROJECTILE_SLOT
+EQI_COSTUME_GARMENT     13              EQP_COSTUME_GARMENT     8192    +       ?               COSTUME_ROBE_SLOT
+EQI_AMMO                14              EQP_AMMO                32768   -       ?               PROJECTILE_SLOT
+EQI_SHADOW_ARMOR        15              EQP_SHADOW_ARMOR        65536   -       ?               SHADOW_ARMOR_SLOT
+EQI_SHADOW_WEAPON       16              EQP_SHADOW_WEAPON       131072  -       ?               SHADOW_WEAPON_SLOT
+EQI_SHADOW_SHIELD       17              EQP_SHADOW_SHIELD       262144  -       ?               SHADOW_SHIELD_SLOT
+EQI_SHADOW_SHOES        18              EQP_SHADOW_SHOES        524288  -       ?               SHADOW_SHOES_SLOT
+EQI_SHADOW_ACC_R        19              EQP_SHADOW_ACC_R        1048576 -       ?               SHADOW_ACCESSORY2_SLOT
+EQI_SHADOW_ACC_L        20              EQP_SHADOW_ACC_L        2097152 -       ?               SHADOW_ACCESSORY1_SLOT
+                                        UNUSED_COSTUME_FLOOR    16384   -       ?               PROJECTILE_SLOT
+
+this is how many slot supported by server
+EQI_MAX                 21
+
+---------------------------------------------------------------------------------------
+client slot mappings.
+slot names is equipment window slots.
+slot enum can be renamed. Slot cant be renamed
+
+slot enum                id     slot name               used
+TORSO_SLOT               0      torso                   +
+GLOVES_SLOT              1      gloves                  +
+HEAD_SLOT                2      hat                     +
+LEGS_SLOT                3      bottomclothes/pants     +
+FEET_SLOT                4      shoes                   +
+RING1_SLOT               5      cape                    +
+RING2_SLOT               6      wings                   +
+NECK_SLOT                7      scarf                   +
+FIGHT1_SLOT              8      weapon                  +
+FIGHT2_SLOT              9      shield                  +
+PROJECTILE_SLOT          10     arrows                  +
+EVOL_RING1_SLOT          11     amulet                  +
+EVOL_RING2_SLOT          12     ring                    +
+COSTUME_ROBE_SLOT        13     slot13                  +
+MISSING1_SLOT            14     slot14                  -
+MISSING2_SLOT            15     slot15                  -
+SHADOW_ARMOR_SLOT        16     slot16                  +
+SHADOW_WEAPON_SLOT       17     slot17                  +
+SHADOW_SHIELD_SLOT       18     slot18                  +
+SHADOW_SHOES_SLOT        19     slot19                  +
+SHADOW_ACCESSORY1_SLOT   20     slot20                  +
+SHADOW_ACCESSORY2_SLOT   21     slot21                  +
+VECTOREND
