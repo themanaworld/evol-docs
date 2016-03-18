@@ -1,0 +1,37 @@
+TF_STEAL
+http://renewal.go-ro.ru/database/skill/tf_steal/
+Max Level: 10 
+Type: Active 
+SP Cost: 10 
+Target: 1 Monster 
+Range: Melee 
+Cast Time: Instant 
+Cool Down: 1 sec 
+Duration: Instant 
+Effect: Attempts to "steal" an item from the targeted monster. Only items dropped by the monster can be stolen. A successful Steal attempt will not affect what is dropped when the monster dies.
+After success, it is not possible to Steal again from the same monster. Boss, Frozen and Stone Cursed monsters cannot be robed.
+The formula for stealing is: DropRatio*(DEX - MonsterDEX + 10 + 3*SkillLV + )/100 where DropRatio is the percent chance of a particular item being dropped.
+If the result of the steal check is lower than the AdjustedDropRatio for an item, then it is possible that item will be stolen. 
+[LV 1] Success Chance 10% 
+[LV 2] Success Chance 16% 
+[LV 3] Success Chance 22% 
+[LV 4] Success Chance 28% 
+[LV 5] Success Chance 34% 
+[LV 6] Success Chance 40% 
+[LV 7] Success Chance 46% 
+[LV 8] Success Chance 52% 
+[LV 9] Success Chance 58% 
+[LV 10] Success Chance 64% 
+
+
+RG_STEALCOIN
+http://renewal.go-ro.ru/database/skill/rg_stealcoin/
+Max Level: 10 
+Type: Active 
+Target: Monster 
+SP Cost: 15 
+Range: Melee 
+Cast Time: Instant 
+Cool Down: None 
+Duration: Instant 
+Effect: Steals Zeny from a monster, affected by DEX, LUK, and SkillLV, amount stolen is based on monsters level. Can only be used to steal Zeny once, however it is possible to steal Zeny from monsters that the user stole items before. (1*SkillLV)% chance to steal. 

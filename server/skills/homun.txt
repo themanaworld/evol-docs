@@ -1,0 +1,8 @@
+AM_RESURRECTHOMUN
+http://renewal.go-ro.ru/database/skill/am_resurrecthomun/
+Resurrect Homunculus
+Max Level: 5 
+Type: Active 
+SP Cost: 80 - 6*SkillLV 
+Target: Homunculus 
+Effect: Resurrect a killed Homunculus. 
