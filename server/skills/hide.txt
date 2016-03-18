@@ -1,0 +1,13 @@
+NC_STEALTHFIELD
+http://renewal.go-ro.ru/database/skill/nc_stealthfield/
+Max Level: 3
+Type: Active
+SP Cost: 50+50*SkillLV
+Target: Self
+Cast Time: 0+0.5*SkillLV sec
+Duration: 10+5*SkillLV sec
+Catalyst: 2 Magic Gear Fuel
+Effect: Generates a energy field around you, cloaking all allies in its radius. Allies that are cloaked appear semi-transparent and can't be targeted with physical or magic attacks. The skill constantly drains SP and reduces your movement speed by 30%. If two stealth fields overlap, it cancels the effect. Requires the magic gear equipment Optic Camouflage Generator equipped.
+[LV 1] Radius 3x3
+[LV 2] Radius 3x3
+[LV 3] Radius 3x3

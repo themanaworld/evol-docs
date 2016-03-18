@@ -1,0 +1,52 @@
+TF_DOUBLE
+Max Level: 10 
+Type: Passive 
+Effect: Gives chance to double swing a Dagger class weapon with a chance equal to (5*SkillLV)%, and adds +1 HIT per SkillLV (that only applies in double attacks). In the case of an Assassin wielding two Dagger class weapons, it applies to the right-hand weapon only.
+It also boosts the off-hand (left hand) damage of a Katar weapon by (1+2*SkillLV)% ATK. 
+[LV 1] 5% Chance, +1 HIT, +3% Katar DMG 
+[LV 2] 10% Chance, +2 HIT, +5% Katar DMG 
+[LV 3] 15% Chance, +3 HIT, +7% Katar DMG 
+[LV 4] 20% Chance, +4 HIT, +9% Katar DMG 
+[LV 5] 25% Chance, +5 HIT, +11% Katar DMG 
+[LV 6] 30% Chance, +6 HIT, +13% Katar DMG 
+[LV 7] 35% Chance, +7 HIT, +15% Katar DMG 
+[LV 8] 40% Chance, +8 HIT, +17% Katar DMG 
+[LV 9] 45% Chance, +9 HIT, +19% Katar DMG 
+[LV 10] 50% Chance, +10 HIT, +21% Katar DMG 
+
+
+TF_SPRINKLESAND
+http://renewal.go-ro.ru/database/skill/tf_sprinklesand/
+Type: Offensive 
+SP Cost: 9 
+Target: 1 Enemy 
+Range: Melee 
+ATK Type: Earth Physical 
+Cast Time: Instant 
+Cool Down: None 
+Duration: Instant 
+Effect: An attack with 130% normal ATK and with a 20% chance to cause blind effect. Although it has no Cast Time or Cool Down it can't be spamed. 
+
+
+WZ_VERMILION
+http://renewal.go-ro.ru/database/skill/wz_vermilion/
+Lord of Vermillion
+Max Level: 10 
+Type: Offensive 
+SP Cost: 56 + 4*SkillLV 
+Target: Area 7x7 
+Range: 9 cells 
+Cast Time: 15.55 - 0.5*SkillLV sec 
+Cool Down: 5 sec 
+Duration: Instant 
+Effect: Hits the target area with a strong lightning attack that does 4 sets of hits with 10 hits each set (total 40 hits) and each hit doing (8+(2*SkillLV))% MATK damage. It also has a (4*SkillLV)% chance to blind the targets. 
+[LV 1] 4% BlindChance, 10% MATK/Bolt 
+[LV 2] 8% BlindChance, 12% MATK/Bolt 
+[LV 3] 12% BlindChance, 14% MATK/Bolt 
+[LV 4] 16% BlindChance, 16% MATK/Bolt 
+[LV 5] 20% BlindChance, 18% MATK/Bolt 
+[LV 6] 24% BlindChance, 20% MATK/Bolt 
+[LV 7] 28% BlindChance, 22% MATK/Bolt 
+[LV 8] 32% BlindChance, 24% MATK/Bolt 
+[LV 9] 36% BlindChance, 26% MATK/Bolt 
+[LV 10] 40% BlindChance, 28% MATK/Bolt 

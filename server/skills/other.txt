@@ -1,0 +1,33 @@
+NV_BASIC
+http://renewal.go-ro.ru/database/skill/nv_basic/
+Max Level: 9 
+Type: Passive 
+Enable to apply Basic Interface Skills. 
+[LV 1] Enable to initialize Trade.
+Allow to Trade items with another Character. 
+[LV 2] Enable to express Emotions.
+Using Alt+0~9 keys, Allow to express one's emotions. For emotions list push Alt+M. 
+[LV 3] Enable to Sit
+Allow to regenerate HP/SP two times faster with a sit gesture. To use type /sit or hit Insert. 
+[LV 4] Enable to open one's own Chat Room
+Allow to open a Chat Room. Push Alt+C to create. 
+[LV 5] Enable to join a Party
+Allow to join a party.
+[LV 6] Enable to use Kafra Storage
+Allow to use an extra inventory that can hold 300 types of items. Talk to a Kafra to access it. All town Kafras offer this service, but some located in the wilderness may not. 
+[LV 7] Enable to organize one's own Party
+Allow to organize a party.
+[LV 9] Enable to Transform into the 1st profession
+Allow to change one's Job into the 1st profession.
+
+
+NV_TRICKDEAD
+http://renewal.go-ro.ru/database/skill/nv_trickdead/
+Max Level: 1 
+Type: Active 
+SP Cost: 5 
+Target: Self 
+Cast Time: Instant 
+Cool Down: None 
+Effect: You lay on the ground like you were dead and aggressive monsters won't target you. You can't recover HP or SP while pretending to be dead. You can Trick Dead as long as you want.
+Casting Trick Dead a second time cancels it, letting you move again. Once you choose another Job, you lose the ability to use this skill. 

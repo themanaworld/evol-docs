@@ -1,0 +1,15 @@
+KN_AUTOCOUNTER
+Max Level: 5 
+Type: Active 
+SP Cost: 3 
+Target: Self 
+Cast Time: Instant 
+Cool Down: ASPD 
+Duration: 0.4*SkillLV sec 
+Effect: Puts character into the counter stance until duration expires. If attacked from the front while in counter stance, character will block the attack and counterattack. While in the counter stance, the character cannot move.
+The counterattack doubles Critical Rate but that doesn't mean the user can hit the target without failure. 
+[LV 1] 0.4 Seconds 
+[LV 2] 0.8 Seconds 
+[LV 3] 1.2 Seconds 
+[LV 4] 1.6 Seconds 
+[LV 5] 2.0 Seconds 
