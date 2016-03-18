@@ -1,0 +1,139 @@
+NV_FIRSTAID
+http://renewal.go-ro.ru/database/skill/nv_firstaid/
+Max Level: 1 
+Type: Active 
+SP Cost: 3 
+Target: Self 
+Cast Time: Instant 
+Cool Down: 0.1 sec 
+Duration: Instant 
+Effect: Heal yourself for 5 HP. Not a crazy powerful skill, but mages seem to like it for saving money on healing items. 
+
+
+AL_HEAL
+http://renewal.go-ro.ru/database/skill/al_heal/
+Max Level: 10 
+Type: Active, Level Selectable 
+SP Cost: 10 + 3*SkillLV 
+Target: 1 Ally/ 1 Enemy w.
+Range: 9 cells 
+Cast Time: Instant 
+Cool Down: 1 sec 
+Duration: Instant 
+Effect: Heals a target's HP for [(BaseLV+INT)/8]*(4+8*SkillLV). When used against Undead property monsters, it is a holy attack that ignores MDEF and INT, but deals only half damage (that is, HealValue*ElementModifier/2).
+
+
+NPC_ALLHEAL
+http://renewal.go-ro.ru/database/skill/npc_allheal/
+heal 100%
+
+
+AB_CHEAL
+http://renewal.go-ro.ru/database/skill/ab_cheal/
+Max Level: 3
+Type: Support
+SP Cost: 115+15*SkillLV 
+Target: Ally / Self 
+Cast Time: ?? 
+Cool Down: 1*SkillLV sec
+Effect: Casts the skill 'Heal' on the target and any party members within a radius of that target.
+[LV 1] Area of Effect Around Target 7x7
+[LV 2] Area of Effect Around Target 15x15
+[LV 3] Area of Effect Around Target 31x31
+
+
+AB_HIGHNESSHEAL
+http://renewal.go-ro.ru/database/skill/ab_highnessheal/
+Max Level: 5
+Type: Support
+SP Cost: 40+20*SkillLV
+Target: Ally / Self
+Cast Time: Instant
+Effect: Heals a target for much more than the normal 'Heal' skill.
+[LV 1] Heal Recovery Rate 2 times
+[LV 2] Heal Recovery Rate 2.3 times
+[LV 3] Heal Recovery Rate 2.6 times
+[LV 4] Heal Recovery Rate 2.9 times
+[LV 5] Heal Recovery Rate 3.2 times
+
+
+HLIF_HEAL
+http://renewal.go-ro.ru/database/skill/hlif_heal/
+Max Level: 5 
+Type: Active 
+SP Cost: 10 + 3*SkillLV 
+Target: Ally 
+Cast Time: Instant 
+Cool Down: 1 sec 
+Duration: Instant 
+Effect: This works exactly like the Acolyte's Heal skill, healing the target HP. The healed amount depends only on the Homunculus's LV and INT. 
+Each cast requires 1 Condensed Red Potion. 
+
+
+SM_RECOVERY
+http://renewal.go-ro.ru/database/skill/sm_recovery/
+Max Level: 10 
+Type: Passive 
+Effect: Heals ((5*SkillLV) + (Maximum HP*0.002*SkillLV)) HP per 10 full seconds spent standing on one cell. Increases the effect of healing items by (10*SkillLV)% (cumulative with the increase from VIT). 
+[LV 1] Every 10 secs/HP +5 
+[LV 2] Every 10 secs/HP +10 
+[LV 3] Every 10 secs/HP +15 
+[LV 4] Every 10 secs/HP +20 
+[LV 5] Every 10 secs/HP +25 
+[LV 6] Every 10 secs/HP +30 
+[LV 7] Every 10 secs/HP +35 
+[LV 8] Every 10 secs/HP +40 
+[LV 9] Every 10 secs/HP +45 
+[LV 10] Every 10 secs/HP +50 
+
+
+MG_SRECOVERY
+http://renewal.go-ro.ru/database/skill/mg_srecovery/
+Max Level: 10 
+Type: Passive 
+Effect: Recovers (Maximum SP/500 + 3)*SkillLV SP per 10 full seconds when standing still and increases the efficiency of SP recovering items by +2% per SkillLV. 
+[LV 1] +3SP/10sec,items +2% 
+[LV 2] +6SP/10sec,items +4% 
+[LV 3] +9SP/10sec,items +6% 
+[LV 4] +12SP/10sec,items +8% 
+[LV 5] +15SP/10sec,items +10% 
+[LV 6] +18SP/10sec,items +12% 
+[LV 7] +21SP/10sec,items +14% 
+[LV 8] +24SP/10sec,items +16% 
+[LV 9] +27SP/10sec,items +18% 
+[LV 10] +30SP/10sec,items +20% 
+
+
+PR_STRECOVERY
+http://renewal.go-ro.ru/database/skill/pr_strecovery/
+Max Level: 1 
+Type: Active 
+SP Cost: 5 
+Target: 1 Ally 
+Range: 9 cells 
+Cast Time: Instant 
+Cool Down: 2 sec 
+Effect: Cures Frozen and Stunned effects on players. Causes non-Undead property monsters to lose their target. Passive monsters will stop attacking, while aggressive monsters will choose a new target.
+Recovery may inflict Blind effect on Undead property monsters. The chance of this occurring is equal to (100 - (MonsterINT/2 + MonsterVIT/3 + MonsterLUK/10)) %. A successful blinding will be accompanied by the usual chirping sound.
+The duration of the Blind effect is believed to be 30 * (100 - (MonsterINT + MonsterVIT)/2)/100 seconds. One Blind effect cannot overlap another. 
+
+
+SM_MOVINGRECOVERY
+http://renewal.go-ro.ru/database/skill/sm_movingrecovery/
+Max Level: 1 
+Type: Passive 
+Effect: Character regenerates HP while walking. Rate is 50% of standing recovery, and not affected by Increase Recuperative Power skill. 
+
+
+MO_SPIRITSRECOVERY
+http://renewal.go-ro.ru/database/skill/mo_spiritsrecovery/
+Max Level: 5 
+Type: Passive 
+Effect: Recovers HP and SP every 10 seconds while sitting (not while standing). Recovery is every 20 seconds when overweight and it works even when recuperating from Asura Strike, but without the natural recuperation bonuses
+(e.g. at LV 2 you will only regenerate at +8/+4 per 10 sec after an Asura Strike, regardless of INT and VIT).
+Base HP recovery is 4 HP per SkillLV, modified by Maximum HP/500. Base SP recovery is 2 SP per SkillLV modified by Maximum SP/100. 
+[LV 1] +4 HP & 2 SP 
+[LV 2] +8 HP & 4 SP 
+[LV 3] +12 HP & 6 SP 
+[LV 4] +16 HP & 8 SP 
+[LV 5] +20 HP & 10 SP 

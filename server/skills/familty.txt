@@ -1,0 +1,41 @@
+WE_MALE
+http://renewal.go-ro.ru/database/skill/we_male/
+I'll save you
+Type: Wedding Skill 
+Restores HP of one's partner by consuming 10% of one's total HP amount.
+Partner must have at least 10% of his HP in order to cast this skill.
+
+
+WE_FEMALE
+I'll sacrifice myself for you
+Type: Wedding Skill 
+Restores SP of one's partner by consuming 10% of one's total SP amount.
+Partner must have at least 10% of his SP in order to cast this skill.
+
+
+WE_CALLPARTNER
+I miss you
+Type: Wedding Skill 
+Summons one's marital partner to caster's location.
+Both partners must equip their Wedding Rings to activate this skill.
+It might not be possible to use this skill in some places such as Guild Siege maps.
+
+
+WE_BABY
+http://renewal.go-ro.ru/database/skill/we_baby/
+Mom, Dad, I love you!
+Type: Support 
+Effect: Caster's parent characters will not lose any experience points when they die.
+Caster consumes 10% of Maximum SP for each use. 
+
+
+WE_CALLPARENT
+Mom, Dad, I miss you!
+Type: Support 
+Effect: Child character summons parents to a spot next to where child is standing. 
+
+
+WE_CALLBABY
+Come to me, honey~
+Type: Support 
+Effect: Parent character summons adopted child to a spot adjacent to parent's current location. 
