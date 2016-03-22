@@ -1,0 +1,12 @@
+MG_SIGHT
+http://renewal.go-ro.ru/database/skill/mg_sight/
+Sight
+Max Level: 1 
+Type: Active 
+SP Cost: 10 
+Target: Self 
+Area: 7x7 cells 
+Cast Time: Instant 
+Cool Down: None 
+Duration: 10 sec 
+Effect: Nullifies the Hide, Tunnel Drive and Cloaking effects within range. 

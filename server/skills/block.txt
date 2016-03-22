@@ -1,0 +1,24 @@
+MG_STONECURSE
+http://renewal.go-ro.ru/database/skill/mg_stonecurse/
+Stone Curse
+Max Level: 10 
+Type: Active 
+SP Cost: 26 - SkillLV 
+Target: 1 Enemy 
+Range: 2 cells 
+Cast Time: 1 sec 
+Cool Down: None 
+Duration: 9 + SkillLV sec 
+Catalyst: 1 Red Gemstone 
+Effect: Has a (20+4*SkillLV)% chance of causing the Stone Curse effect to the targeted enemy. The Stone Curse effect changes the targets element into Earth 1, gives +25% MDEF and -50% Def and reduces the targets HP by 1% of Maximum HP every 5 seconds (cannot drop below 25% of Maximum HP).
+Boss monsters cannot be Stone Cursed. Lex Aeterna and Steal cannot be used on a Stone Cursed target. Range is 2!! cells. From LV 6 on it no longer uses up a Gemstone if it fails. 
+[LV 1] 24% Success Chance 25 SP 
+[LV 2] 28% Success Chance 24 SP 
+[LV 3] 32% Success Chance 23 SP 
+[LV 4] 36% Success Chance 22 SP 
+[LV 5] 40% Success Chance 21 SP 
+[LV 6] 44% Success Chance 20 SP 
+[LV 7] 48% Success Chance 19 SP 
+[LV 8] 52% Success Chance 18 SP 
+[LV 9] 56% Success Chance 17 SP 
+[LV 10] 60% Success Chance 16 SP 

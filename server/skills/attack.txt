@@ -50,3 +50,51 @@ Effect: Hits the target area with a strong lightning attack that does 4 sets of 
 [LV 8] 32% BlindChance, 24% MATK/Bolt 
 [LV 9] 36% BlindChance, 26% MATK/Bolt 
 [LV 10] 40% BlindChance, 28% MATK/Bolt 
+
+
+SM_MAGNUM
+Magnum Break
+Max Level: 10 
+Type: Offensive 
+SP Cost: 30 
+Target: Self 
+Area: 5x5 cells 
+Cast Time: Instant 
+Cool Down: None, 2 sec for the next Magnum Break 
+Duration: Instant 
+Effect: 5x5 cells, Fire property splash attack with ATK of (100+20*SkillLV)% and a +10*SkillLV bonus to HIT. Enemies hit by the attack are pushed back 2 cells. Drains 15 HP per use, but cannot kill character.
+After usage, it adds a 20% Fire-elemental bonus to ATK that lasts for 10 seconds. After the cast the attack sequence is not interrupted. 
+[LV 1] ATK 120%, +10 HIT 
+[LV 2] ATK 140%, +20 HIT 
+[LV 3] ATK 160%, +30 HIT 
+[LV 4] ATK 180%, +40 HIT 
+[LV 5] ATK 200%, +50 HIT 
+[LV 6] ATK 220%, +60 HIT 
+[LV 7] ATK 240%, +70 HIT 
+[LV 8] ATK 260%, +80 HIT 
+[LV 9] ATK 280%, +90 HIT 
+[LV 10] ATK 300%, +100 HIT 
+
+
+SM_ENDURE
+Magnum Break
+Max Level: 10 
+Type: Offensive 
+SP Cost: 30 
+Target: Self 
+Area: 5x5 cells 
+Cast Time: Instant 
+Cool Down: None, 2 sec for the next Magnum Break 
+Duration: Instant 
+Effect: 5x5 cells, Fire property splash attack with ATK of (100+20*SkillLV)% and a +10*SkillLV bonus to HIT. Enemies hit by the attack are pushed back 2 cells. Drains 15 HP per use, but cannot kill character.
+After usage, it adds a 20% Fire-elemental bonus to ATK that lasts for 10 seconds. After the cast the attack sequence is not interrupted. 
+[LV 1] ATK 120%, +10 HIT 
+[LV 2] ATK 140%, +20 HIT 
+[LV 3] ATK 160%, +30 HIT 
+[LV 4] ATK 180%, +40 HIT 
+[LV 5] ATK 200%, +50 HIT 
+[LV 6] ATK 220%, +60 HIT 
+[LV 7] ATK 240%, +70 HIT 
+[LV 8] ATK 260%, +80 HIT 
+[LV 9] ATK 280%, +90 HIT 
+[LV 10] ATK 300%, +100 HIT 

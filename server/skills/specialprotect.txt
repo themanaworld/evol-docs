@@ -1,0 +1,15 @@
+AL_PNEUMA
+http://renewal.go-ro.ru/database/skill/al_pneuma/
+Pneuma
+Max Level: 1 
+Type: Active 
+SP Cost: 10 
+Target: 1 cell 
+Range: 9 cells 
+Cast Time: Instant 
+Cool Down: 1 sec 
+Duration: 10 sec 
+Effect: Creates a 3x3 cell cloud (although the animation only appears to cover the center cell!) around the target cell that blocks all ranged Physical attacks.
+This means that it also blocks the bow attacks of players, so take care not to prevent any Hunters or Bow Thieves in the party from being able to do damage!
+Monsters count as being "ranged" if their attack has a range of 4 or more cells. Pneuma cannot be cast if it is targeted to overlap an already existing Pneuma area or a Safety Wall cell.
+Does not block splash damage or negate the Flee reducing effects of having multiple targets attacking you. Do note that although you can see the animation on top of a Land Protector, Pneuma will have no effect. 
