@@ -712,3 +712,22 @@ Example:
 
 This command works same like hercules emotion command, except it removed limit for emotes.
 
+---------------------------------------
+
+successremovecardsindex index
+
+This command remove all cards from item by inventory index and put all cards in inventory.
+Also show status effect 3.
+
+---------------------------------------
+
+failedremovecardsindex index, flag
+
+This command remove all cards from item by inventory index.
+Also show status effect 2.
+It also may remove item or cards depend on flag.
+flag value:
+    0 - will remove item and cards.
+    1 - will remove cards and keep item.
+    2 - will remove item and keep cards.
+    3 - do nothing except status effect.
