@@ -731,3 +731,118 @@ flag value:
     1 - will remove cards and keep item.
     2 - will remove item and keep cards.
     3 - do nothing except status effect.
+
+---------------------------------------
+
+*htnew
+
+Create a new hash table (hash map, associative array), and return it's ID.
+All hashtable functions (htdelete, htget, htput, htclear, htsize, htiterator)
+will use this ID (as first argument). Remember to use htdelete to free memory,
+when you don't need the hash table anymore.
+
+Example:
+    .@ht_id = htnew;
+
+---------------------------------------
+
+*htdelete id
+
+Delete a hashtable with given ID, and free the memory.
+
+Example:
+    .@ht_id = htnew;
+    htdelete(.@ht_id);
+
+---------------------------------------
+
+*htget id, key [, default]
+
+Return the value, associated with the given key. If there is no such value,
+return 0. If the (optional) third argument is given, and no value was found,
+return this third argument.
+
+Example:
+    .@val1 = htget(.@ht_id, "key1");
+    .@val2 = htget(.@ht_id, "key2", 7);
+    .@val3$ = htget(.@ht_id, "key3", "");
+
+---------------------------------------
+
+*htput id, key, newval
+
+Set a new value, associated with given key. If a previous value existed,
+it will be replaced. If newval is empty string or 0, the given key and
+it's associated value are removed.
+
+Example:
+    htput(.@ht_id, "key1", 77);
+    htput(.@ht_id, "key1", "test");
+    htput(.@ht_id, "key1", 0);      // delete given entry from hashtable
+
+---------------------------------------
+
+*htsize id
+
+Get the number of elements in the given hash table. When you set a given
+value to 0 or "", it's removed from the hash table, so it won't count when
+calculating the size.
+
+Example:
+    .@len = htsize .@ht_id;
+
+
+---------------------------------------
+
+*htclear id
+
+Remove all elements (keys and values) from the given hash table. After it
+it's size will be 0.
+
+Example:
+    htclear(.@ht_id);
+
+---------------------------------------
+
+*htiterator id
+
+Create an iterator over a hash table keys, and return it's ID (don't confuse
+iterator ID with hash table ID, those are different). Iterators are used
+to traverse over hash tables, get keys and possibly modify values. Remember
+to use htidelete to remove the iterator and free the resources.
+
+Example: see below.
+
+---------------------------------------
+
+*htinextkey it
+
+Get the next key of the hash table, that the given iterator is attached to.
+If the iterator traversed over all elements, return "".
+
+Example: see below.
+
+---------------------------------------
+
+*hticheck it
+
+Check if the iterator traversed over all keys. Returns 1, if it didn't,
+0 otherwise.
+
+Example: see below
+
+---------------------------------------
+
+*htidelete it
+
+Delete the iterator and free resources.
+
+Example:
+
+    .@it = htiterator(.@ht_id);
+    for (.@key$ = htinextkey(.@it); hticheck(.@it); .@key$ = htinextkey(.@it))
+    {
+        .@oldval = htget(.@ht_id, .@key$);
+        htput(.@ht_id, .@key$, .@oldval + .@oldval);  // concatenate each value with itself
+    }
+    htidelete(.@it)
