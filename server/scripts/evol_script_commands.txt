@@ -657,7 +657,7 @@ Example:
 
 ---------------------------------------
 
-*checknpccell 
+*checknpccell
 
 Check given cell in map for flag for attached npc.
 Most time it used for check is this cell walkable for npc or not.
@@ -846,3 +846,17 @@ Example:
         htput(.@ht_id, .@key$, .@oldval + .@oldval);  // concatenate each value with itself
     }
     htidelete(.@it)
+
+---------------------------------------
+
+*setfakecells x1, y1 [, x2, y2 ], mask
+
+Send fake collision data to the client. Sets the cells of square
+area 'x1', 'y1' [, 'x2', 'y2'] to BlockType 'mask'. Only exists client-side.
+For real collision, use the setcells & delcells commands.
+
+Example:
+    setfakecells 25, 45, 29, 50, 1; // block
+    setfakecells 25, 45, 29, 50, 0; // allow
+
+---------------------------------------
