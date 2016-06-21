@@ -714,14 +714,14 @@ This command works same like hercules emotion command, except it removed limit f
 
 ---------------------------------------
 
-successremovecardsindex index
+*successremovecardsindex index
 
 This command remove all cards from item by inventory index and put all cards in inventory.
 Also show status effect 3.
 
 ---------------------------------------
 
-failedremovecardsindex index, flag
+*failedremovecardsindex index, flag
 
 This command remove all cards from item by inventory index.
 Also show status effect 2.
@@ -731,6 +731,29 @@ flag value:
     1 - will remove cards and keep item.
     2 - will remove item and keep cards.
     3 - do nothing except status effect.
+
+---------------------------------------
+
+*getcardbyindex itemIndex, cardIndex
+
+This command return card id by item index and card (slot) index.
+If no cards found or error happend, return zero.
+
+Example:
+    .@item = requestitemindex();
+    mes "slot 0 = card " + str(getcardbyindex(.@item, 0));
+
+---------------------------------------
+
+*removecardbyindex itemIndex, cardIndex
+
+This command remove card from invetory and slot index.
+If error happend, return -1.
+If no errors, return 0.
+
+Example:
+    .@item = requestitemindex();
+    removecardbyindex .@item, 0;
 
 ---------------------------------------
 
