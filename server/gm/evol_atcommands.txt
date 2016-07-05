@@ -10,3 +10,9 @@ Set skill level. Add skill to known skills if need.
 Quick move player to position x,y on same map. 
 Works like warp but without map reload.
 
+---------------------------------------
+
+@mapexit [code]
+
+Override command from hercules.
+Terminate map server and return 'code' or 0 if 'code' missing.
