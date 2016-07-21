@@ -1,6 +1,10 @@
-====== Evol script commands ======
+---------------------------------------
+//=====================================
+99 - Evol Script Commands
+//=====================================
+---------------------------------------
 
-*chatjoin chatId [, char [,password]]
+*chatjoin chatId [, char [,password]];
 
 Force player to join chat with id chatId.
 
@@ -9,7 +13,7 @@ Example:
 
 ---------------------------------------
 
-*setcamnpc [npcName [, x, y]]
+*setcamnpc [npcName [, x, y]];
 
 Enable camera moving mode in client and move camera to npc with name "npcName"
 and move relative from it in x and y pixels.
@@ -22,7 +26,7 @@ Example:
 
 ---------------------------------------
 
-*setcam x, y
+*setcam x, y;
 
 Move camera to absolute position x,y in pixels.
 
@@ -32,7 +36,7 @@ Example:
 
 ---------------------------------------
 
-*movecam x, y
+*movecam x, y;
 
 Enable camera moving mode in client and move camera relative to player
 position by x and y pixels.
@@ -42,7 +46,7 @@ Example:
 
 ---------------------------------------
 
-*restorecam
+*restorecam;
 
 Disable camera moving mode in client and set camera to default position.
 
@@ -51,7 +55,7 @@ Example:
 
 ---------------------------------------
 
-*npctalk3 text
+*npctalk3 text;
 
 Send chat message from current npc, visible only for attached player.
 Npc name will be translated.
@@ -61,7 +65,7 @@ Example:
 
 ---------------------------------------
 
-*closedialog
+*closedialog;
 
 Will close npc dialog in client. If npc script will continue after this command,
 dialog can be opened again.
@@ -72,7 +76,7 @@ Example:
 
 ---------------------------------------
 
-*clear
+*clear;
 
 Clear from text npc dialog for attached npc.
 Player must be attached.
@@ -82,7 +86,7 @@ Example:
 
 ---------------------------------------
 
-*shop npcName
+*shop npcName;
 
 Open if exists for attached player npc shop from npc with name "npcName"
 
@@ -91,8 +95,8 @@ Example:
 
 ---------------------------------------
 
-*getitemlink itemName [, cardName1 [, cardName2 [, cardName3 [, cardName4]]]]
-*getitemlink itemId [, cardName1 [, cardName2 [, cardName3 [, cardName4]]]]
+*getitemlink itemName [, cardName1 [, cardName2 [, cardName3 [, cardName4]]]];
+*getitemlink itemId [, cardName1 [, cardName2 [, cardName3 [, cardName4]]]];
 
 Return link for item id "itemId" or name "itemName" with cards.
 This link after can be used in mes or other commands what show messages in npc dialog.
@@ -103,7 +107,7 @@ Example:
 
 ---------------------------------------
 
-*getinvindexlink index
+*getinvindexlink index;
 
 Return link to item by player inventory index. Also return cards in link.
 This link after can be used in mes or other commands what show messages in npc dialog.
@@ -114,7 +118,7 @@ Example:
 
 ---------------------------------------
 
-*l text [, param1, ...]
+*l text [, param1, ...];
 
 Return translated formatted string.
 Player must be attached.
@@ -125,8 +129,8 @@ Example:
 
 ---------------------------------------
 
-*lg femaleText, makeText, [, param1, ...]
-*lg text
+*lg femaleText, makeText, [, param1, ...];
+*lg text;
 
 Return translated formatted string based on gender.
 Player must be attached.
@@ -140,7 +144,7 @@ Example:
 
 ---------------------------------------
 
-*requestlang
+*requestlang;
 
 Return selected language in client to server.
 Player must be attached.
@@ -150,7 +154,7 @@ Example:
 
 ---------------------------------------
 
-*requestitem
+*requestitem;
 
 Return selected item id by player. In client player move this item to npc.
 Player must be attached.
@@ -161,7 +165,7 @@ Example:
 
 ---------------------------------------
 
-*requestitems [n]
+*requestitems [n];
 
 Return n items from player what he moved to npc inventory separated by ";".
 If n missing it mean 1.
@@ -174,7 +178,7 @@ Example:
 
 ---------------------------------------
 
-*requestitemindex
+*requestitemindex;
 
 Return inventory index for selected item by player. In client player move this item to npc.
 Player must be attached.
@@ -184,7 +188,7 @@ Example:
 
 ---------------------------------------
 
-*requestitemsindex [n]
+*requestitemsindex [n];
 
 Return inventory indexes for n items from player what he moved to npc inventory separated by ";".
 If n missing it mean 1.
@@ -196,7 +200,7 @@ Example:
 
 ---------------------------------------
 
-*requestcraft [n]
+*requestcraft [n];
 
 Request selected craft items in string format.
 n is craft inventory size. If n missing, it mean 1.
@@ -208,7 +212,7 @@ Example:
 
 ---------------------------------------
 
-*initcraft str
+*initcraft str;
 
 Create craft object based on craft string sent from client.
 Return craft object id. Or -1 on error.
@@ -222,7 +226,7 @@ Example:
 
 ---------------------------------------
 
-*dumpcraft id
+*dumpcraft id;
 
 Dump to server console given craft object with id 'id'.
 Player must be attached.
@@ -235,7 +239,7 @@ Example:
 
 ---------------------------------------
 
-*deletecraft id
+*deletecraft id;
 
 Delete craft object.
 Player must be attached.
@@ -247,7 +251,7 @@ Example:
 
 ---------------------------------------
 
-*findcraftentry id, flag
+*findcraftentry id, flag;
 
 Search craft entry in craft db for craft object with id 'id' and flag 'flag'.
 Retrun craft entry id what was found. If error happend, return -1.
@@ -261,7 +265,7 @@ Example:
 
 ---------------------------------------
 
-*usecraft id
+*usecraft id;
 
 This command can be used after checked craft object and found craft entry.
 It apply craft entry. May delete or give items and do other things.
@@ -276,7 +280,7 @@ Example:
 
 ---------------------------------------
 
-*getcraftcode id
+*getcraftcode id;
 
 After craft object was used by function usecraft, this function based on craft entry id
 can return special number configured for craft entry in craft db.
@@ -293,7 +297,7 @@ Example:
 
 ---------------------------------------
 
-*getcraftslotid id, slot
+*getcraftslotid id, slot;
 
 Return item id selected in craft object 'id' and in slot 'slot'.
 On error return 0.
@@ -307,7 +311,7 @@ Example:
 
 ---------------------------------------
 
-*getcraftslotamount id, slot
+*getcraftslotamount id, slot;
 
 Return amount selected in craft object 'id' and in slot 'slot'.
 On error return 0.
@@ -322,7 +326,7 @@ Example:
 
 ---------------------------------------
 
-*validatecraft id
+*validatecraft id;
 
 Validate craft object and current player inventory.
 It can be used after "next" command between init and use craft.
@@ -343,7 +347,7 @@ Example:
 
 ---------------------------------------
 
-*getq quest
+*getq quest;
 
 Return quest state for attached player.
 
@@ -352,7 +356,7 @@ Example:
 
 ---------------------------------------
 
-*setq quest, value
+*setq quest, value;
 
 Set quest state for attached player.
 
@@ -361,7 +365,7 @@ Example:
 
 ---------------------------------------
 
-*setnpcdir [npc,] dir
+*setnpcdir [npc,] dir;
 
 Set direction 'dir' for npc with name 'npc' or attached npc.
 
@@ -371,7 +375,7 @@ Example:
 
 ---------------------------------------
 
-*npcsit [name]
+*npcsit [name];
 
 Set npc it sit state. 'name' is npc name. If 'name' missing it using attached npc.
 
@@ -381,7 +385,7 @@ Example:
 
 ---------------------------------------
 
-*npcstand [name]
+*npcstand [name];
 
 Set npc it stand state. 'name' is npc name. If 'name' missing it using attached npc.
 
@@ -391,7 +395,7 @@ Example:
 
 ---------------------------------------
 
-*setnpcsex npcName, gender
+*setnpcsex npcName, gender;
 
 Set gender 'gender' for npc 'npcName'
 Supported genders:
@@ -404,7 +408,7 @@ Example:
 
 ---------------------------------------
 
-*npcwalkto x, y
+*npcwalkto x, y;
 
 This command start walking attached npc to position x,y.
 
@@ -413,7 +417,7 @@ Example:
 
 ---------------------------------------
 
-*setnpcdialogtitle title
+*setnpcdialogtitle title;
 
 Set dialog title for attached npc to 'title'.
 Player must be attached.
@@ -423,7 +427,7 @@ Example:
 
 ---------------------------------------
 
-*rif condition, trueValue [, falseValue]
+*rif condition, trueValue [, falseValue];
 
 Check condition and if it true, then return 'trueValue' string
 If condition false, it return 'falseValue' if present, or empty string.
@@ -435,8 +439,8 @@ Example:
 
 ---------------------------------------
 
-*misceffect effect [, name]
-*misceffect effect [, id]
+*misceffect effect [, name];
+*misceffect effect [, id];
 
 Start paritcle effect with id 'effect' on any being with name 'name' or with id 'id'.
 
@@ -445,7 +449,7 @@ Example:
 
 ---------------------------------------
 
-*setmapmask mapName, mask
+*setmapmask mapName, mask;
 
 Allow change map mask. Based on this mask layers in client can be visible or hidden.
 Command 'setmapmask' set mask for 'mapName' to value 'mask'.
@@ -457,7 +461,7 @@ Example:
 
 ---------------------------------------
 
-*addmapmask mapName, mask
+*addmapmask mapName, mask;
 
 Allow change map mask. Based on this mask layers in client can be visible or hidden.
 Command 'addmapmask' add bit mask 'mask' to map 'mapName'.
@@ -470,7 +474,7 @@ Example:
 
 ---------------------------------------
 
-*removemapmask mapName, mask
+*removemapmask mapName, mask;
 
 Allow change map mask. Based on this mask layers in client can be visible or hidden.
 Command 'removemapmask' remove bit mask 'mask' from map 'mapName'.
@@ -484,7 +488,7 @@ Example:
 
 ---------------------------------------
 
-*getmapmask mapName
+*getmapmask mapName;
 
 Return current mask what was set to map 'mapName'.
 
@@ -493,7 +497,7 @@ Example:
 
 ---------------------------------------
 
-*showavatar [id]
+*showavatar [id];
 
 Show avatar in npc dialog for attached npc.
 if 'id' misisng or 0 it hide avatar.
@@ -505,7 +509,7 @@ Example:
 
 ---------------------------------------
 
-*setavatardir dir
+*setavatardir dir;
 
 Set avatar direction 'dir' in npc dialog for attached npc.
 Player must be attached.
@@ -515,7 +519,7 @@ Example:
 
 ---------------------------------------
 
-*setavataraction action
+*setavataraction action;
 
 Set avatar action to 'action' in npc dialog for attached npc.
 Player must be attached.
@@ -525,7 +529,7 @@ Example:
 
 ---------------------------------------
 
-*changemusic map, file
+*changemusic map, file;
 
 Change background music on map 'map' to file 'file'.
 
@@ -534,7 +538,7 @@ Example:
 
 ---------------------------------------
 
-*getmapname
+*getmapname;
 
 Return attached player current map name.
 
@@ -543,7 +547,7 @@ Example:
 
 ---------------------------------------
 
-*unequipbyid id
+*unequipbyid id;
 
 Unequip from attached player item with id 'id'.
 
@@ -552,13 +556,13 @@ Example:
 
 ---------------------------------------
 
-*ispcdead
+*ispcdead;
 
 Return true if attached player is dead. In other cases return false.
 
 ---------------------------------------
 
-*areatimer mapName, x1, y1, x2, y2, time, eventLabel
+*areatimer mapName, x1, y1, x2, y2, time, eventLabel;
 
 Create one time timer in map 'mapName' for players in rectangle (x1,y1) - (x2,y2)
 Timer will call label 'eventLabel' after time 'time'.
@@ -569,8 +573,8 @@ Example:
 
 ---------------------------------------
 
-*getareadropitem mapName, x1, y1, x2, y2, itemId [, delFlag]
-*getareadropitem mapName, x1, y1, x2, y2, itemName [, delFlag]
+*getareadropitem mapName, x1, y1, x2, y2, itemId [, delFlag];
+*getareadropitem mapName, x1, y1, x2, y2, itemName [, delFlag];
 
 Return number of floor items with id 'itemId' or name 'itemName' in map 'mapName'
 in rectangle (x1,y1) - (x2,y2). If delFlag set to 1, it also delete floor items.
@@ -581,7 +585,7 @@ Example:
 
 ---------------------------------------
 
-*clientcommand command
+*clientcommand command;
 
 Send client side command to client. It allow send only safe commands.
 Player must be attached.
@@ -591,7 +595,7 @@ Example:
 
 ---------------------------------------
 
-*isunitwalking [unitId]
+*isunitwalking [unitId];
 
 Return true if unit with id 'unitId' in walking progress.
 If 'unitId' missing it using attached npc.
@@ -602,7 +606,7 @@ Example:
 
 ---------------------------------------
 
-*failedrefindex index
+*failedrefindex index;
 
 This function do fail refine action on item with inventory index 'index'.
 Index start count from 0.
@@ -613,7 +617,7 @@ Example:
 
 ---------------------------------------
 
-*downrefindex index, levels
+*downrefindex index, levels;
 
 This function lower refine item level with inventory index 'index' for 'levels' levels.
 Index start count from 0.
@@ -624,7 +628,7 @@ Example:
 
 ---------------------------------------
 
-*successrefindex index, levels
+*successrefindex index, levels;
 
 This function up refine item level with inventory index 'index' for 'levels' levels.
 Index start count from 0.
@@ -635,7 +639,7 @@ Example:
 
 ---------------------------------------
 
-*isstr var
+*isstr var;
 
 Return true if 'var' is string, in other case return false.
 Can be usefull for check functions arguments.
@@ -657,7 +661,7 @@ Example:
 
 ---------------------------------------
 
-*checknpccell
+*checknpccell;
 
 Check given cell in map for flag for attached npc.
 Most time it used for check is this cell walkable for npc or not.
@@ -667,7 +671,7 @@ Example:
 
 ---------------------------------------
 
-*setcells mapName, x1, y1, x2, y2, mask, wallName
+*setcells mapName, x1, y1, x2, y2, mask, wallName;
 
 Add to map with name 'mapName' new "wall" in rectangle (x1,y1) - (x2,y2).
 Set to this rectangle mask 'mask'. 'wallName' is name for this "wall".
@@ -679,7 +683,7 @@ Example:
 
 ---------------------------------------
 
-*delcells wallName
+*delcells wallName;
 
 Remove wall created by command setcells.
 
@@ -689,7 +693,7 @@ Example:
 
 ---------------------------------------
 
-*setmount id
+*setmount id;
 
 Set mount (horse) for attached player.
 If id is zero, mount removed.
@@ -699,7 +703,7 @@ Example:
 
 ---------------------------------------
 
-*setskin name
+*setskin name;
 
 Set skin with name 'name' for attached npc for attached player.
 
@@ -708,20 +712,20 @@ Example:
 
 ---------------------------------------
 
-*emotion id [, flag [, name]]
+*emotion id [, flag [, name]];
 
 This command works same like hercules emotion command, except it removed limit for emotes.
 
 ---------------------------------------
 
-*successremovecardsindex index
+*successremovecardsindex index;
 
 This command remove all cards from item by inventory index and put all cards in inventory.
 Also show status effect 3.
 
 ---------------------------------------
 
-*failedremovecardsindex index, flag
+*failedremovecardsindex index, flag;
 
 This command remove all cards from item by inventory index.
 Also show status effect 2.
@@ -734,7 +738,7 @@ flag value:
 
 ---------------------------------------
 
-*getcardbyindex itemIndex, cardIndex
+*getcardbyindex itemIndex, cardIndex;
 
 This command return card id by item index and card (slot) index.
 If no cards found or error happend, return zero.
@@ -745,7 +749,7 @@ Example:
 
 ---------------------------------------
 
-*removecardbyindex itemIndex, cardIndex
+*removecardbyindex itemIndex, cardIndex;
 
 This command remove card from invetory and slot index.
 If error happend, return -1.
@@ -757,7 +761,7 @@ Example:
 
 ---------------------------------------
 
-*htnew
+*htnew;
 
 Create a new hash table (hash map, associative array), and return it's ID.
 All hashtable functions (htdelete, htget, htput, htclear, htsize, htiterator)
@@ -769,7 +773,7 @@ Example:
 
 ---------------------------------------
 
-*htdelete id
+*htdelete id;
 
 Delete a hashtable with given ID, and free the memory.
 
@@ -779,7 +783,7 @@ Example:
 
 ---------------------------------------
 
-*htget id, key [, default]
+*htget id, key [, default];
 
 Return the value, associated with the given key. If there is no such value,
 return 0. If the (optional) third argument is given, and no value was found,
@@ -792,7 +796,7 @@ Example:
 
 ---------------------------------------
 
-*htput id, key, newval
+*htput id, key, newval;
 
 Set a new value, associated with given key. If a previous value existed,
 it will be replaced. If newval is empty string or 0, the given key and
@@ -805,7 +809,7 @@ Example:
 
 ---------------------------------------
 
-*htsize id
+*htsize id;
 
 Get the number of elements in the given hash table. When you set a given
 value to 0 or "", it's removed from the hash table, so it won't count when
@@ -817,7 +821,7 @@ Example:
 
 ---------------------------------------
 
-*htclear id
+*htclear id;
 
 Remove all elements (keys and values) from the given hash table. After it
 it's size will be 0.
@@ -827,7 +831,7 @@ Example:
 
 ---------------------------------------
 
-*htiterator id
+*htiterator id;
 
 Create an iterator over a hash table keys, and return it's ID (don't confuse
 iterator ID with hash table ID, those are different). Iterators are used
@@ -838,7 +842,7 @@ Example: see below.
 
 ---------------------------------------
 
-*htinextkey it
+*htinextkey it;
 
 Get the next key of the hash table, that the given iterator is attached to.
 If the iterator traversed over all elements, return "".
@@ -847,7 +851,7 @@ Example: see below.
 
 ---------------------------------------
 
-*hticheck it
+*hticheck it;
 
 Check if the iterator traversed over all keys. Returns 1, if it didn't,
 0 otherwise.
@@ -856,7 +860,7 @@ Example: see below
 
 ---------------------------------------
 
-*htidelete it
+*htidelete it;
 
 Delete the iterator and free resources.
 
@@ -872,7 +876,7 @@ Example:
 
 ---------------------------------------
 
-*setfakecells x1, y1 [, x2, y2 ], mask
+*setfakecells x1, y1 [, x2, y2 ], mask;
 
 Send fake collision data to the client. Sets the cells of square
 area 'x1', 'y1' [, 'x2', 'y2'] to BlockType 'mask'. Only exists client-side.
