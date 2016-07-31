@@ -95,6 +95,9 @@ item_db: (
 	AllowCards: {
 		idNUM: amount         (NUM is id number, amount is amount)
 	}
+	AllowAmmo: {
+		idNUM: something      (NUM is id number)
+	}
 },
 ...
 )
