@@ -16,3 +16,22 @@ Works like warp but without map reload.
 
 Override command from hercules.
 Terminate map server and return 'code' or 0 if 'code' missing.
+
+---------------------------------------
+
+@serverexit code
+
+This command can be used for test servers.
+Servers must be launched with test_login, test_char, test_map wrappers.
+Supported codes:
+    100 - terminate all servers
+    101 - restart all servers
+    102 - restart char and map servers
+    103 - restart map server
+    104 - git pull and restart all servers
+    105 - build all and restart all servers
+    106 - rebuild all and restart all servers
+    107 - git pull and build all and restart all servers
+    108 - git pull and rebuild all and restart all servers
+    109 - build plugin and restart all servers
+    110 - git pull and build plugin and restart all servers
