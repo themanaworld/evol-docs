@@ -883,3 +883,22 @@ Example:
     setfakecells 25, 45, 29, 50, 0; // allow
 
 ---------------------------------------
+
+*getlabel label
+
+Get label and return int.
+
+Example:
+    .@var = getlabel(OnInit);
+
+---------------------------------------
+
+*tolabel num
+
+Get number and return label.
+
+Example:
+    goto tolabel(.@var);
+
+---------------------------------------
+
