@@ -3621,6 +3621,7 @@
 - `C_PURPLE`: 8388736
 - `C_RED`: 16711680
 - `C_SILVER`: 12632256
+- `C_SPRINGGREEN`: 65433
 - `C_TEAL`: 32896
 - `C_WHITE`: 16777215
 - `C_YELLOW`: 16776960
@@ -4841,7 +4842,7 @@
 - `GN_CRAZYWEED_ATK`: 2484
 - `GN_DEMONIC_FIRE`: 2485
 - `GN_FIRE_EXPANSION`: 2486
-- `GN_FIRE_EXPANSION_SMOKE_POWDE`: 2487
+- `GN_FIRE_EXPANSION_SMOKE_POWDER`: 2487
 - `GN_FIRE_EXPANSION_TEAR_GAS`: 2488
 - `GN_FIRE_EXPANSION_ACID`: 2489
 - `GN_HELLS_PLANT`: 2490
@@ -6253,6 +6254,20 @@
 - `MG_F_UNDEAD_KNIGHT`: 2474
 - `MG_CORRUPTION_ROOT`: 2475
 - `MG_AMDARAIS`: 2476
+- `NG_WANDER_MAN`: 2477
+- `NG_RIDEWORD`: 2478
+- `NG_MIMIC`: 2479
+- `NG_EVIL_DRUID`: 2480
+- `NG_WRAITH_DEAD`: 2481
+- `G_MG_KHALITZBURG`: 2482
+- `NG_BAPHOMET`: 2483
+- `G_NG_BAPHOMET_`: 2484
+- `NG_CHIMERA`: 2485
+- `IRENE_ELDER`: 2542
+- `PAYONSOLDIER`: 2543
+- `PAYONSOLDIER2`: 2544
+- `GUARDDOG`: 2545
+- `GUARDDOG2`: 2546
 - `GEFFEN_MAGE_1`: 2549
 - `GEFFEN_MAGE_2`: 2550
 - `GEFFEN_MAGE_3_1`: 2551
@@ -6582,6 +6597,13 @@
 - `C1_AGAV`: 2911
 - `C2_ACIDUS_`: 2912
 - `C3_ACIDUS_`: 2913
+- `BIG_BEN`: 2916
+- `BIG_BELL`: 2917
+- `TIME_KEEPER`: 2918
+- `NEO_PUNK`: 2919
+- `ARC_ELDER`: 2920
+- `OWL_VISCOUNT`: 2921
+- `OWL_MARQUEES`: 2923
 - `T_ELDER_WILOW`: 2924
 - `T_WILOW`: 2925
 - `T_HARPY`: 2926
@@ -6595,6 +6617,7 @@
 - `T_ARCHANGELING`: 2934
 - `T_EVIL_CLOUD_HERMIT`: 2935
 - `E_GHOSTRING`: 2936
+- `TIMEHOLDER`: 3074
 - `ORGANIC_JAKK`: 3202
 - `INORGANIC_JAKK`: 3203
 - `DARK_SOUL`: 3381
@@ -8606,6 +8629,7 @@
 - `TE_Ring_of_Protection`: 2944
 - `TE_Ring_Of_Rage`: 2945
 - `TE_Ring_Of_Defiance`: 2946
+- `Silversmith_Bracelet`: 2949
 - `Rune_Ring`: 2950
 - `Kvasir_Ring_Blue`: 2951
 - `Kvasir_Ring_Red`: 2952
@@ -11077,6 +11101,10 @@
 - `P_Cart_C`: 6606
 - `Temporal_Crystal`: 6607
 - `Coagulated_Spell`: 6608
+- `Glast_Decayed_Nail`: 6609
+- `Glast_Horrendous_Mouth`: 6610
+- `Gold_Coin_Basket`: 6612
+- `Colorful_Brooch`: 6613
 - `Siege_Guild_Coin`: 6615
 - `Lmtd_Manny_Card`: 6616
 - `Lmtd_Sid_Card`: 6617
@@ -11100,6 +11128,7 @@
 - `XMAS_Cookie`: 6681
 - `Bag_Of_Selling_Goods`: 6682
 - `Lovely_Stick`: 6712
+- `Contaminated_Magic`: 6755
 - `Organic_Pumpkin`: 6804
 - `Inorganic_Pumpkin`: 6805
 - `Solo_Troops_Badge`: 6821
@@ -13302,6 +13331,7 @@
 - `Metal_Dagger`: 13079
 - `Octo_kitchen_Knife`: 13081
 - `TE_Woe_Knife`: 13083
+- `Goldsmithing_Dagger`: 13086
 - `RWC_Memory_Knife`: 13092
 - `Thanatos_Dagger`: 13093
 - `Evil_Slayer_Stabber_Dagger`: 13094
@@ -13506,6 +13536,7 @@
 - `P_Saber3`: 13434
 - `Magical_Blade`: 13438
 - `TE_Woe_Sword`: 13439
+- `Ceremonial_Sword`: 13440
 - `Old_Parasol`: 13442
 - `Pala`: 13444
 - `Crimson_Saber`: 13454
@@ -14542,6 +14573,7 @@
 - `TE_Woe_Coat`: 15062
 - `TE_Woe_Chain_Mail`: 15063
 - `TE_Woe_Mage_Coat`: 15064
+- `Engraved_Armor`: 15066
 - `Rune_Suit`: 15067
 - `Adv_Angel's_Protection`: 15068
 - `Anti-Magic_Suit`: 15073
@@ -16604,3 +16636,5 @@
 - `EXP2`: 29027
 
 > End of list
+
+<!--GENERATED FILE DO NOT EDIT-->
