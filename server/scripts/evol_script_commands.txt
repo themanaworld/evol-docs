@@ -888,7 +888,7 @@ Example:
 
 ---------------------------------------
 
-*getlabel label
+*getlabel label;
 
 Get label and return int.
 
@@ -897,7 +897,7 @@ Example:
 
 ---------------------------------------
 
-*tolabel num
+*tolabel num;
 
 Get number and return label.
 
