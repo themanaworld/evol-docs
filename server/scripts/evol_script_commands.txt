@@ -67,12 +67,24 @@ Example:
 
 *closedialog;
 
-Will close npc dialog in client. If npc script will continue after this command,
-dialog can be opened again.
+Will close npc dialog in client and partially in server side.
+If npc script will continue after this command, dialog can be opened again,
+but not all actions may works.
 Player must be attached.
 
 Example:
     closedialog;
+
+---------------------------------------
+
+*closeclientdialog;
+
+Will close npc dialog in client only.
+If npc script will continue after this command, dialog can be opened again.
+Player must be attached.
+
+Example:
+    closeclientdialog;
 
 ---------------------------------------
 
