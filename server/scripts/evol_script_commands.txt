@@ -918,3 +918,14 @@ Example:
 
 ---------------------------------------
 
+*slide x, y;
+
+Moves a player within the same map.
+If warping players on a map where they already are, you should always prefer
+slide over warp, as warp makes the client reload and re-render the whole map
+while slide just tells the client to reposition the character.
+
+Example:
+    slide 25, 194;
+
+---------------------------------------
