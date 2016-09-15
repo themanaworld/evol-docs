@@ -15,6 +15,7 @@ Client versions:
  16  Jan 5  2016
  17  Apr 27 2016
  18  Jul 17 2016
+ 19  Sep 12 2016
 
 First supported version:
  2
