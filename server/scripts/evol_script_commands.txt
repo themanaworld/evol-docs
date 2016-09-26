@@ -361,19 +361,48 @@ Example:
 
 *getq quest;
 
-Return quest state for attached player.
+Return quest state (field 1) for attached player.
 
 Example:
     mes getq(ShipQuests_Julia);
 
 ---------------------------------------
 
-*setq quest, value;
+*getq2 quest;
 
-Set quest state for attached player.
+Return quest field 2 for attached player.
+
+Example:
+    mes getq2(ShipQuests_Julia);
+
+---------------------------------------
+
+*getq3 quest;
+
+Return quest field 3 for attached player.
+
+Example:
+    mes getq3(ShipQuests_Julia);
+
+---------------------------------------
+
+*getqtime quest;
+
+Return quest time for attached player.
+
+Example:
+    mes getqtime(ShipQuests_Julia);
+
+---------------------------------------
+
+*setq quest, value1 [, value2 [, value3 [, time]]];
+
+Set quest state and fields for attached player.
 
 Example:
     setq ShipQuests_Julia, 1;
+    setq ShipQuests_Julia, 1, 2;
+    setq ShipQuests_Julia, 1, 2, 3, 100;
 
 ---------------------------------------
 
