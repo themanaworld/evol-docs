@@ -1,21 +1,24 @@
-Client versions:
-  2  Nov 10 2014
-  3  Nov 28 2014
-  4  Jan 5  2015
-  5  Jan 20 2015
-  6  Feb 17 2015
-  7  Mar 2  2015
-  8  May 1  2015
-  9  Aug 12 2015
- 10  Aug 16 2015
- 11  Aug 21 2015
- 12  Sep 28 2015
- 14  Oct 15 2015
- 15  Oct 26 2015
- 16  Jan 5  2016
- 17  Apr 27 2016
- 18  Jul 17 2016
- 19  Sep 12 2016
+Client versions
 
-First supported version:
- 2
+protocol date           Ubuntu          Debian
+  2      Nov 10 2014
+  3      Nov 28 2014
+  4      Jan 5  2015
+  5      Jan 20 2015    15.04 (vivid)
+  6      Feb 17 2015
+  7      Mar 2  2015
+  8      May 1  2015
+  9      Aug 12 2015
+ 10      Aug 16 2015
+ 11      Aug 21 2015
+ 12      Sep 28 2015
+ 14      Oct 15 2015
+ 15      Oct 26 2015
+ 16      Jan 5  2016    16.04 (xenial)
+ 17      Apr 27 2016
+ 18      Jul 17 2016    16.10 (yakkety) stretch*
+ 19      Sep 12 2016
+                                        sid
+
+First supported protocol version by current server:
+  2
