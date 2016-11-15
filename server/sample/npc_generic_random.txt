@@ -1,0 +1,42 @@
+// Evol scripts.
+// Authors:
+//    Reid
+//
+// Description:
+//    Template for a generic non-important NPC.
+
+001-1,89,86,0	script	NPC Name	NPC_NO_SPRITE,{ // Set the NPC location and sprite ID.
+
+    function esperia_city
+    {
+        speech
+            l("This text is displayed on the NPC dialog window."),
+            l("You can use multiple lines, it is clearer than using an infinite amount of mes, mesn, mesq, next functions."),
+
+        return;
+    }
+
+    function not_so_loud
+    {
+        npctalkonce l("This text is displayed over the NPC's head.");
+
+        return;
+    }
+
+    switch (rand(2))
+    {
+        case 0:
+            dialog_npctalk();
+            break;
+        case 1:
+            dialog_speech();
+            break;
+    }
+
+    close;
+
+OnInit:
+    .sex = G_OTHER; // Set the NPC gender here.
+    .distance = 2; // Set the NPC max distance here.
+    end;
+}
