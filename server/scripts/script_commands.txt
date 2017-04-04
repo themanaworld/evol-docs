@@ -4321,7 +4321,7 @@ Example:
 
 ---------------------------------------
 
-*warpguild("<mapname>", <x>, <y>, <guild_id>)
+*warpguild("<mapname>", <x>, <y>, <guild_id>, {"<from_mapname>"})
 
 Warps a guild to specified map and coordinate given the guild id, which 
 you can get with getcharid(CHAR_ID_GUILD). You can also request another guild id given 
@@ -4335,9 +4335,12 @@ SavePoint:    All guild members are warped to the save point of the
               currently attached player (will fail if there's no player 
               attached).
 
+If you specify a from_mapname, warpguild() will only affect those on that map.
+
 Example:
 
 	warpguild("prontera", x, y, Guild_ID);
+	warpguild("prontera", x, y, Guild_ID, "payon"); // warp member from Payon map only.
 
 ---------------------------------------
 
@@ -6475,17 +6478,14 @@ Size is 0 = normal 1 = small 2 = big.
 //=====================================
 ---------------------------------------
 
-*addtimer(<ticks>, "NPC::OnLabel")
-*deltimer("NPC::OnLabel")
-*addtimercount("NPC::OnLabel", <ticks>)
+*addtimer(<ticks>, "NPC::OnLabel"{, <account id>})
 
-These commands will create, destroy, and delay a countdown timer - 
-addtimer() to create, deltimer() to destroy and addtimercount() to delay
-it by the specified number of ticks. For all three cases, the event label 
-given is the identifier of that timer. The timer runs on the character 
-object that is attached to the script, and can have multiple instances. 
-When the label is run, it is run as if the player that the timer runs on 
-has clicked the NPC.
+This command will create a countdown timer.
+The event label given is the identifier of that timer.
+The timer runs on the character object that is attached to the script,
+and can have multiple instances. If <acccount id> is passed, this player
+will be used instead. When the label is run, it is run as if the player
+that the timer runs on has clicked the NPC.
 
 When this timer runs out, a new execution thread will start in the 
 specified NPC object at the specified label.
@@ -6506,6 +6506,39 @@ On5secs:
 	dispbottom("5 seconds have passed!");
 	end;
 }
+
+---------------------------------------
+
+*deltimer("NPC::OnLabel"{, <account id>})
+
+Deletes timers created by addtimer() that matches the given event
+label. Refer to addtimer() for additional information.
+
+---------------------------------------
+
+*addtimercount("NPC::OnLabel", <ticks>{, <account id>})
+
+Delays a timer that was created with addtimer() by <ticks> ticks
+if it matches the given event label. Refer to addtimer() for additional
+information.
+
+---------------------------------------
+
+*gettimer(<type>{, <account id>{, "<event>"}})
+
+Returns informations on timers that were created by addtimer().
+
+valid <type> for gettimer() are:
+
+(0) TIMER_COUNT
+	Will return the total number of timers for the specified or
+	attached player. Can be filtered by <event>.
+(1) TIMER_TICK_NEXT
+	Will return the number of ticks until the next timer runs
+	for the specified or attached player. Can be filtered by <event>.
+(2) TIMER_TICK_LAST
+	Will return the number of ticks until the last timer runs
+	for the specified or attached player. Can be filtered by <event>.
 
 ---------------------------------------
 
