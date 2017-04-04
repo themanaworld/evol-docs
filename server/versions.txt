@@ -13,6 +13,7 @@ Plugin versions:
 12  Feb 14 2016
 14  Apr 27 2016
 15  Jul 19 2016
+16  Mar 6  2017
 
 First supported version by client:
  7
