@@ -18,7 +18,8 @@ protocol date           Ubuntu          Debian
  17      Apr 27 2016
  18      Jul 17 2016    16.10 (yakkety)
  19      Sep 12 2016
- 20      Sep 26 2016                    stretch
+ 20      Sep 26 2016    17.04 (zesty)   stretch
+ 21      Apr 4  2017
                                         sid
 
 First supported protocol version by current server:
