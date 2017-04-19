@@ -958,3 +958,55 @@ Example:
     slide 25, 194;
 
 ---------------------------------------
+
+*getitemoptionidbyindex invIndex, optIndex;
+
+Return option id for item with inventory index invIndex and option index optIndex.
+
+Example:
+    mes getitemoptionidbyindex(10, 0);
+    mes getitemoptionidbyindex(10, 1);
+    mes getitemoptionidbyindex(10, 2);
+    mes getitemoptionidbyindex(10, 3);
+    mes getitemoptionidbyindex(10, 4);
+
+---------------------------------------
+
+*getitemoptionvaluebyindex invIndex, optIndex;
+
+Return option value for item with inventory index invIndex and option index optIndex.
+
+Example:
+    mes getitemoptionvaluebyindex(10, 0);
+    mes getitemoptionvaluebyindex(10, 1);
+    mes getitemoptionvaluebyindex(10, 2);
+    mes getitemoptionvaluebyindex(10, 3);
+    mes getitemoptionvaluebyindex(10, 4);
+
+---------------------------------------
+
+*getitemoptionparambyindex invIndex, optIndex;
+
+Return option parameter for item with inventory index invIndex and option index optIndex.
+For now item parameters not saved and useless.
+
+Example:
+    mes getitemoptionparambyindex(10, 0);
+    mes getitemoptionparambyindex(10, 1);
+    mes getitemoptionparambyindex(10, 2);
+    mes getitemoptionparambyindex(10, 3);
+    mes getitemoptionparambyindex(10, 4);
+
+---------------------------------------
+
+*setitemoptionbyindex invIndex, optIndex, [optName,] optValue;
+
+Set option value and type for item with inventory index invIndex and option index optIndex.
+optName is item option name field from item_options.conf.
+optValue is any custom data for item option with given name.
+
+Example:
+    // .@item here is item inventory index
+    setitemoptionbyindex(.@item, 0, VAR_MAXHPAMOUNT, 200);
+    setitemoptionbyindex(.@item, 1, VAR_STRAMOUNT, 10);
+    setitemoptionbyindex(.@item, 2, VAR_VITAMOUNT, -5);
