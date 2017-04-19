@@ -23,4 +23,4 @@ protocol date           Ubuntu          Debian
                                         sid
 
 First supported protocol version by current server:
-  2
+  16
