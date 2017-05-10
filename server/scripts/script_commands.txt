@@ -540,7 +540,8 @@ allows you to replace lots of numbered arguments for many commands with
 easier to read text. The special variables most commonly used are all
 permanent character-based variables:
 
-Zeny        - Amount of Zeny.
+Zeny        - Amount of Zeny in the inventory.
+BankVault   - Amount of Zeny in the bank.
 Hp          - Current amount of hit points.
 MaxHp       - Maximum amount of hit points.
 Sp          - Current spell points.
@@ -707,7 +708,8 @@ MAX_STORAGE			- Maximum storage items
 MAX_GUILD_STORAGE	- Maximum guild storage items
 MAX_CART			- Maximum cart items
 MAX_INVENTORY		- Maximum inventory items
-MAX_ZENY			- Maximum Zeny
+MAX_ZENY			- Maximum Zeny in the inventory
+MAX_BANK_ZENY		- Maximum Zeny in the bank
 MAX_BG_MEMBERS		- Maximum BattleGround members 
 MAX_CHAT_USERS		- Maximum Chat users
 MAX_REFINE			- Maximum Refine level
@@ -2687,7 +2689,7 @@ Example 2: check party count (with a next() pause), before warping to event
 	}
 	
 	// Finally, it's safe to start the event!
-	warpparty("event_map", 0, 0, getcharid(CHAR_ID_PARTY));
+	warpparty("event_map", 0, 0, getcharid(CHAR_ID_PARTY), true);
 
 ---------------------------------------
 
@@ -3950,17 +3952,18 @@ things might in some cases be required.
 
 ---------------------------------------
 
-*checkoption(<option number>)
-*checkoption1(<option number>)
-*checkoption2(<option number>)
-*setoption(<option number>{, <flag>});
+*checkoption(<option number>{, <account id>})
+*checkoption1(<option number>{, <account id>})
+*checkoption2(<option number>{, <account id>})
+*setoption(<option number>{, <flag>{, <account id>}});
 
 The setoption() series of functions check for a so-called option that is
 set on the invoking character. 'Options' are used to store status 
 conditions and a lot of other non-permanent character data of the yes-no 
 kind. For most common cases, it is better to use checkcart(),
 checkfalcon(), checkmount() and other similar functions, but there are
-some options which you cannot get at this way.
+some options which you cannot get at this way. If <account id> is given,
+this player will be used instead of the invoking character.
 
 Option numbers valid for the first (option) version of this command are:
 
@@ -4289,8 +4292,9 @@ if <color> field is left out.
 
 *showscript("<message>"{, <GID>})
 
-Makes attached player or GID says a message like shouting a skill name, the message
-will be seen to everyone around but not in chat window.
+Makes the attached player or GID, display a message similiar to a chat,
+this will be seen by everyone near the invoking character but will not
+be displayed in the chat window.
 
 ---------------------------------------
 
@@ -4355,7 +4359,7 @@ See also warp().
 
 ---------------------------------------
 
-*warpparty("<to_mapname>", <x>, <y>, <party_id>, {"<from_mapname>"})
+*warpparty("<to_mapname>", <x>, <y>, <party_id>, "<from_mapname>", <include_leader>)
 
 Warps a party to specified map and coordinate given the party ID, which 
 you can get with getcharid(CHAR_ID_PARTY). You can also request another party id given 
@@ -4375,13 +4379,15 @@ Leader:       All party members are warped to the leader's position. The
 If you specify a from_mapname, warpparty() will only affect those on
 that map.
 
+You can exclude Party leader from warping, by keeping include_leader option as false.
+
 Example:
 
 	mes("[Party Warper]");
 	mes("Here you go!");
 	close2();
 	.@id = getcharid(CHAR_ID_PARTY);
-	warpparty("prontera", 150, 100, .@id);
+	warpparty("prontera", 150, 100, .@id, true);
 	close();
 
 ---------------------------------------
@@ -7757,6 +7763,68 @@ This command will unbind a NPC event label from an atcommand.
 This command will execute an atcommand binding on the attached RID from a 
 script. The three .@atcmd_***** variables will NOT be set when invoking 
 scripts-atcommands this way.
+
+---------------------------------------
+
+*can_use_command("<command>"{, <account id>})
+
+Checks if the attached or specified player can use the specified
+atcommand and returns true or false accordingly.
+
+---------------------------------------
+
+*has_permission(<permission>{, <account id>})
+*has_permission("<permission>"{, <account id>})
+
+Check if the attached or specified player has the specified permission
+and returns true or false accordingly. See doc/permissions.txt for
+details about permissions.
+
+Valid <permission> are:
+
+	PERM_TRADE
+	PERM_PARTY
+	PERM_ALL_SKILL
+	PERM_USE_ALL_EQUIPMENT
+	PERM_SKILL_UNCONDITIONAL
+	PERM_JOIN_ALL_CHAT
+	PERM_NO_CHAT_KICK
+	PERM_HIDE_SESSION
+	PERM_WHO_DISPLAY_AID
+	PERM_RECEIVE_HACK_INFO
+	PERM_WARP_ANYWHERE
+	PERM_VIEW_HPMETER
+	PERM_VIEW_EQUIPMENT
+	PERM_USE_CHECK
+	PERM_USE_CHANGEMAPTYPE
+	PERM_USE_ALL_COMMANDS
+	PERM_RECEIVE_REQUESTS
+	PERM_SHOW_BOSS
+	PERM_DISABLE_PVM
+	PERM_DISABLE_PVP
+	PERM_DISABLE_CMD_DEAD
+	PERM_HCHSYS_ADMIN
+	PERM_TRADE_BOUND
+	PERM_DISABLE_PICK_UP
+	PERM_DISABLE_STORE
+	PERM_DISABLE_EXP
+	PERM_DISABLE_SKILL_USAGE
+
+Example:
+
+	if (has_permission(PERM_WARP_ANYWHERE)) {
+		//do something
+	}
+
+It is also possible to pass a string for plugin permissions:
+
+	if (has_permission("show_version")) {
+		//do something
+	}
+
+** Passing a string is slower than passing a constant because
+   the engine has to loop through the array to find the permission.
+   In most cases you should use the PERM_ constants.
 
 ---------------------------------------
 

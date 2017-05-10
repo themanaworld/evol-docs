@@ -1316,6 +1316,7 @@
 - `SC_TUNAPARTY`: 649
 - `SC_SHRIMP`: 650
 - `SC_FRESHSHRIMP`: 651
+- `SC_DRESS_UP`: 652
 
 ### Emotes
 
@@ -3797,6 +3798,7 @@
 - `MAX_CART`: 100
 - `MAX_INVENTORY`: 100
 - `MAX_ZENY`: 2147483647
+- `MAX_BANK_ZENY`: 2147483647
 - `MAX_BG_MEMBERS`: 30
 - `MAX_CHAT_USERS`: 20
 - `MAX_REFINE`: 20
@@ -3827,11 +3829,12 @@
 - `Option_Dragon5`: 67108864
 - `Option_Hanbok`: 134217728
 - `Option_Oktoberfest`: 268435456
+- `Option_Summer2`: 536870912
 
 ### status option compounds
 
 - `Option_Dragon`: 126353408
-- `Option_Costume`: 402984960
+- `Option_Costume`: 939855872
 
 ### send_target
 
@@ -3945,6 +3948,35 @@
 - `BL_CHAR`: 539
 - `BL_ALL`: 4095
 
+### Player permissions
+
+- `PERM_TRADE`: 1
+- `PERM_PARTY`: 2
+- `PERM_ALL_SKILL`: 4
+- `PERM_USE_ALL_EQUIPMENT`: 8
+- `PERM_SKILL_UNCONDITIONAL`: 16
+- `PERM_JOIN_ALL_CHAT`: 32
+- `PERM_NO_CHAT_KICK`: 64
+- `PERM_HIDE_SESSION`: 128
+- `PERM_RECEIVE_HACK_INFO`: 512
+- `PERM_WARP_ANYWHERE`: 1024
+- `PERM_VIEW_HPMETER`: 2048
+- `PERM_VIEW_EQUIPMENT`: 4096
+- `PERM_USE_CHECK`: 8192
+- `PERM_USE_CHANGEMAPTYPE`: 16384
+- `PERM_USE_ALL_COMMANDS`: 32768
+- `PERM_RECEIVE_REQUESTS`: 65536
+- `PERM_SHOW_BOSS`: 131072
+- `PERM_DISABLE_PVM`: 262144
+- `PERM_DISABLE_PVP`: 524288
+- `PERM_DISABLE_CMD_DEAD`: 1048576
+- `PERM_HCHSYS_ADMIN`: 2097152
+- `PERM_TRADE_BOUND`: 4194304
+- `PERM_DISABLE_PICK_UP`: 8388608
+- `PERM_DISABLE_STORE`: 16777216
+- `PERM_DISABLE_EXP`: 33554432
+- `PERM_DISABLE_SKILL_USAGE`: 67108864
+
 ### Renewal
 
 - `RENEWAL`: 1
@@ -3974,6 +4006,7 @@
 - `SkillPoint`: [param]
 - `Class`: [param]
 - `Zeny`: [param]
+- `BankVault`: [param]
 - `Sex`: [param]
 - `NextBaseExp`: [param]
 - `NextJobExp`: [param]
