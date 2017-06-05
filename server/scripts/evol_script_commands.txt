@@ -480,16 +480,6 @@ Example:
 
 ---------------------------------------
 
-*misceffect effect [, name];
-*misceffect effect [, id];
-
-Start paritcle effect with id 'effect' on any being with name 'name' or with id 'id'.
-
-Example:
-    misceffect 4, getcharid(3);
-
----------------------------------------
-
 *setmapmask mapName, mask;
 
 Allow change map mask. Based on this mask layers in client can be visible or hidden.
@@ -603,17 +593,6 @@ Return true if attached player is dead. In other cases return false.
 
 ---------------------------------------
 
-*areatimer mapName, x1, y1, x2, y2, time, eventLabel;
-
-Create one time timer in map 'mapName' for players in rectangle (x1,y1) - (x2,y2)
-Timer will call label 'eventLabel' after time 'time'.
-This function probably will be removed in future.
-
-Example:
-    areatimer "test", 10, 10, 20, 20, 5, "npc1:AreaLabel"
-
----------------------------------------
-
 *getareadropitem mapName, x1, y1, x2, y2, itemId [, delFlag];
 *getareadropitem mapName, x1, y1, x2, y2, itemName [, delFlag];
 
@@ -677,16 +656,6 @@ Player must be attached.
 
 Example:
     successrefindex 3, 1;
-
----------------------------------------
-
-*isstr var;
-
-Return true if 'var' is string, in other case return false.
-Can be usefull for check functions arguments.
-
-Example:
-    mes "is string is string? " + isstr("text");
 
 ---------------------------------------
 
