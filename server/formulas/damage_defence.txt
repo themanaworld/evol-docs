@@ -1,0 +1,8 @@
+Formula for weapon damage.
+https://www.wolframalpha.com/input/?i=x+%3D+(100+-+y+%2F+(y+%2B+400)+*+90)+%2F+100+*+z+-+r),+y+%3D+1000,+z+%3D+60,+r+%3D+1
+x = (100 - y / (y + 400) * 90) / 100 * z - r), y = 1000, z = 60, r = 1
+
+x - final damage
+y - items defence
+z - initial damage
+r - vitality defence
