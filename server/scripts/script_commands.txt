@@ -3305,6 +3305,27 @@ Notice that NPC objects disabled with disablenpc() will still be located.
 
 ---------------------------------------
 
+*getmapinfo(<info>{, "<map name>"})
+*getmapinfo(<info>{, <map id>})
+
+This command returns various information about a specific map. If the second
+argument is omitted, it will try to use the map of the attached NPC, or the
+map of the attached player if the NPC can't be found.
+
+Valid <info> are:
+	MAPINFO_NAME     name of the map
+	MAPINFO_ID       numeric ID of the map
+	MAPINFO_ZONE     name of the zone used by the map
+	MAPINFO_SIZE_X   width of the map (cells on the x axis)
+	MAPINFO_SIZE_Y   height of the map (cells on the y axis)
+
+Examples:
+	getmapinfo(MAPINFO_ID, "map name"); // ID from name
+	getmapinfo(MAPINFO_NAME, 3); // name from ID
+	getmapinfo(MAPINFO_ZONE); // zone, ie Normal, PvP, Jail, ...
+
+---------------------------------------
+
 *getunits(<type>, <variable>, <limit>, "<map>"{, <x1>, <y1>, <x2>, <y2>})
 
 This function searches a whole map or area for units and adds their GID to
@@ -5622,6 +5643,23 @@ character.
 	end;
 
 ---------------------------------------
+
+*dressroom({<mode>})
+
+This command controls the dressing room for the attached player. If no <mode>
+is passed, DRESSROOM_OPEN is used by default.
+
+Valid <mode> for dressroom() are:
+	DRESSROOM_OPEN     opens the dressing room window
+	DRESSROOM_CLOSE    closes the dressing room window
+
+Example:
+	mes("Close this window to open the Dress Room window.");
+	close2();
+	dressroom(DRESSROOM_OPEN);
+	end;
+
+---------------------------------------
 //=====================================
 4.2 - Guild-Related Commands
 //=====================================
@@ -7489,13 +7527,21 @@ window). It will not be displayed anywhere else.
 	debugmes("\033[38D\033[K ==Message== \n"); // enable colour code.
 ---------------------------------------
 
-*logmes("<message>")
+*logmes("<message>"{, <log type>})
 
-This command will write the message given to the map server NPC log file,
-as specified in 'conf/map/logs.conf'. If SQL logging is enabled, the message
-will go to the 'npclog' table.
+This command will write the message given to the map server log files, as
+specified in 'conf/map/logs.conf'. If SQL logging is enabled, the message will
+go to the specified log table. If logs are not enabled, nothing will happen.
 
-If logs are not enabled for NPCs, nothing will happen.
+Log types are:
+
+LOGMES_NPC - log to the 'npclog' table (Default)
+LOGMES_ATCOMMAND - log to the 'atcommandlog' table
+
+Example:
+
+    logmes("foobar");
+    logmes("foobar", LOGMES_ATCOMMAND);
 
 ---------------------------------------
 
