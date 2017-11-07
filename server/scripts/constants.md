@@ -3543,7 +3543,12 @@
 - `QTYPE_EVENT`: 4
 - `QTYPE_EVENT2`: 5
 - `QTYPE_WARG`: 6
+- `QTYPE_CLICKME`: 6
+- `QTYPE_DAILYQUEST`: 7
 - `QTYPE_WARG2`: 8
+- `QTYPE_EVENT3`: 8
+- `QTYPE_JOBQUEST`: 9
+- `QTYPE_JUMPING_PORING`: 10
 
 ### Font weight
 
@@ -3782,6 +3787,8 @@
 - `UDT_LIFETIME`: 52
 - `UDT_MERC_KILLCOUNT`: 53
 - `UDT_STATADD`: 54
+- `UDT_ROBE`: 55
+- `UDT_BODY2`: 56
 
 
 ## Hardcoded Constants (source)

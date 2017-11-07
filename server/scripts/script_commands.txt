@@ -189,6 +189,7 @@ There are two optional fields for monster size and AI. Size can be 0
 
 Alternately, a monster spawned using 'boss_monster' instead of 'monster' is able to be
 detected on the map with the SC_CASH_BOSS_ALARM status (used by Convex Mirror, item ID# 12214).
+A monster spawned using 'miniboss_monster' is spawn monster as mini boss view.
 
 ** NPC names
 
@@ -3232,6 +3233,7 @@ Set an equipment's option index or value for the specified option slot.
 <equipment_index> For a list of equipment indexes see getequipid().
 <option_slot> can range from 1 to MAX_ITEM_OPTIONS
 <type> can be IT_OPT_INDEX (the ID of the option bonus, @see "Id" or "Name" in db/item_options.conf)
+       removes the equip option if type is 0.
 <value> The value of the type to be set.
 
 returns 0 if value couldn't be set, 1 on success.
@@ -9226,7 +9228,14 @@ No Icon		: QTYPE_NONE
 ! Event Icon	: QTYPE_EVENT
 ? Event Icon	: QTYPE_EVENT2
 Warg		: QTYPE_WARG
-Warg Face	: QTYPE_WARG2 (Only for packetver >= 20120410)
+Warg Face	: QTYPE_WARG2 (Only for packetver >= 20120410 && packetver < 20170315)
+
+- Only for packetver >= 20170315
+Click Me Icon      : QTYPE_CLICKME
+! Daily Quest Icon : QTYPE_DAILYQUEST
+! Green Event Icon : QTYPE_EVENT3
+! Job Quest Icon   : QTYPE_JOBQUEST
+Jumping Poring     : QTYPE_JUMPING_PORING
 
 Map Mark Color, when used, creates a mark in the user's mini map on the position of the NPC,
 the available color values are:
@@ -9335,7 +9344,14 @@ Remove Icon	: QTYPE_NONE
 ! Event Icon	: QTYPE_EVENT
 ? Event Icon	: QTYPE_EVENT2
 Warg		: QTYPE_WARG
-Warg Face	: QTYPE_WARG2 (Only for packetver >= 20120410)
+Warg Face	: QTYPE_WARG2 (Only for packetver >= 20120410 && packetver < 20170315)
+
+- Only for packetver >= 20170315
+Click Me Icon      : QTYPE_CLICKME
+! Daily Quest Icon : QTYPE_DAILYQUEST
+! Green Event Icon : QTYPE_EVENT3
+! Job Quest Icon   : QTYPE_JOBQUEST
+Jumping Poring     : QTYPE_JUMPING_PORING
 
 Mark Color:
 0 - No Mark
