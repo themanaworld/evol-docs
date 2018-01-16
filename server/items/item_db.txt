@@ -23,9 +23,41 @@ item_db: (
 	Matk: Magical Attack          (int, defaults to 0, ignored in pre-re)
 	Def: Defense                  (int, defaults to 0)
 	Range: Attack Range           (int, defaults to 0)
-	MinRange: Minimal Attack Range (int, defaults to 0)
 	Slots: Slots                  (int, defaults to 0)
-	Job: Job mask                 (int, defaults to all jobs = 0xFFFFFFFF)
+	Job: {                        (defaults to all job)
+		All: true/false               (boolean, defaults to false)
+		Novice: true/false            (boolean, defaults to false)
+		Swordsman: true/false         (boolean, defaults to false)
+		Magician: true/false          (boolean, defaults to false)
+		Archer: true/false            (boolean, defaults to false)
+		Acolyte: true/false           (boolean, defaults to false)
+		Merchant: true/false          (boolean, defaults to false)
+		Thief: true/false             (boolean, defaults to false)
+		Knight: true/false            (boolean, defaults to false)
+		Priest: true/false            (boolean, defaults to false)
+		Wizard: true/false            (boolean, defaults to false)
+		Blacksmith: true/false        (boolean, defaults to false)
+		Hunter: true/false            (boolean, defaults to false)
+		Assassin: true/false          (boolean, defaults to false)
+		Crusader: true/false          (boolean, defaults to false)
+		Monk: true/false              (boolean, defaults to false)
+		Sage: true/false              (boolean, defaults to false)
+		Rogue: true/false             (boolean, defaults to false)
+		Alchemist: true/false         (boolean, defaults to false)
+		Bard: true/false              (boolean, defaults to false)
+		Gunslinger: true/false        (boolean, defaults to false)
+		Ninja: true/false             (boolean, defaults to false)
+		Taekwon: true/false           (boolean, defaults to false)
+		Star_Gladiator: true/false    (boolean, defaults to false)
+		Soul_Linker: true/false       (boolean, defaults to false)
+		Gangsi: true/false            (boolean, defaults to false)
+		Death_Knight: true/false      (boolean, defaults to false)
+		Dark_Collector: true/false    (boolean, defaults to false)
+		Kagerou: true/false           (boolean, defaults to false)
+		Rebellion: true/false         (boolean, defaults to false)
+		Summoner: true/false          (boolean, defaults to false)
+	}
+	Job: Job mask                 (alternate synxtax, int, defaults to all jobs = 0xFFFFFFFF)
 	Upper: Upper mask             (bitmask array, string or int, defaults to "ITEMUPPER_ALL")
 	Gender: Gender                (string, defaults to "SEX_ANY")
 	Loc: Equip location           (bitmask array, string or int, required value for equipment)
@@ -33,7 +65,6 @@ item_db: (
 	EquipLv: Equip required level (int, defaults to 0)
 	EquipLv: [min, max]           (alternative syntax with min / max level)
 	Refine: Refineable            (boolean, defaults to true)
-	DisableOptions: true/false    (boolean, defaults to false !!for equipments only!!) [Smokexyz]
 	Subtype: Item Subtype         (int, defaults to 0)
 	ViewSprite: Sprite view ID    (int, defaults to 0)
 	BindOnEquip: true/false       (boolean, defaults to false)
@@ -42,40 +73,19 @@ item_db: (
 	Delay: Delay to use item      (int, defaults to 0)
 	KeepAfterUse: true/false      (boolean, defaults to false)
 	DropAnnounce: true/false      (boolean, defaults to false)
-	FloorLifeTime: Delay to remove item from ground (int, default flooritem_lifetime)
-	AllowPickup: true/false       (boolean, defaults to true)
-	Charm: true/false             (boolean, defaults to false)
-	MaxFloorOffset: [x, y]        (int, defaults to 8)
-	MaxFloorOffset: offset        (int, defaults to 8)
-	RequiredStr: minimal strength (int, default to 0)
-	RequiredAgi: minimal agility  (int, default to 0)
-	RequiredVit: minimal vitality (int, default to 0)
-	RequiredInt: minimal intellect (int, default to 0)
-	RequiredDex: minimal dexterity (int, default to 0)
-	RequiredLuk: minimal luck     (int, default to 0)
-	RequiredMaxHp: required max hp (int, default to 0)
-	RequiredMaxSp: required max sp (int, default to 0)
-	RequiredAtk: required attack   (int, default to 0)
-	RequiredMAtkMin: required minimal magic attack (int, default to 0)
-	RequiredMAtkMax: required maximum magic attack (int, default to 0)
-	RequiredDef: required defence  (int, default to 0)
-	RequiredMDef: required magic defence (int, default to 0)
-	RequiredSkill: required skill (int, default to 0)
-	UseEffect: effect if use/equip item success (int, default to -1)
-	UseFailEffect: effect if use/equip item failed (int, default to -1)
-	UnequipEffect: effect if unequip item success (int, default to -1)
-	UnequipFailEffect: effect if unequip item failed (int, default to -1)
+	ShowDropEffect: true/false    (boolean, defaults to false)
+	DropEffectMode: Effect Type   (int, default to 0)
 	Trade: {                      (defaults to no restrictions)
 		override: GroupID             (int, defaults to 100)
 		nodrop: true/false            (boolean, defaults to false)
 		notrade: true/false           (boolean, defaults to false)
-		partneroverride: true/false   (boolean, defaults to false)
-		noselltonpc: true/false       (boolean, defaults to false)
-		nocart: true/false            (boolean, defaults to false)
 		nostorage: true/false         (boolean, defaults to false)
-		nogstorage: true/false        (boolean, defaults to false)
+		nocart: true/false            (boolean, defaults to false)
+		noselltonpc: true/false       (boolean, defaults to false)
 		nomail: true/false            (boolean, defaults to false)
-		noauction: true/false         (boolean, defaults to false)
+		noauction: true/false         (boolean, defaults to false)		
+		nogstorage: true/false        (boolean, defaults to false)
+		partneroverride: true/false   (boolean, defaults to false)
 	}
 	Nouse: {                      (defaults to no restrictions)
 		override: GroupID             (int, defaults to 100)
@@ -89,27 +99,18 @@ item_db: (
 	">
 	OnEquipScript: <" OnEquip Script (can also be multi-line) ">
 	OnUnequipScript: <" OnUnequip Script (can also be multi-line) ">
-	OnDropScript: <" OnDrop Script (can also be multi-line) ">
-	OnTakeScript: <" OnTake Script (can also be multi-line) ">
-	OnInsertCardScript: <" OnInsert card Script (can also be multi-line) ">
 	// =================== Optional fields (item_db2 only) ================
 	Inherit: true/false           (boolean, if true, inherit the values
 	                              that weren't specified, from item_db.conf,
 	                              else override it and use default values)
-	AllowCards: {
-		idNUM: amount         (NUM is id number, amount is amount)
-	}
-	AllowAmmo: {
-		idNUM: something      (NUM is id number)
-	}
 },
 ...
 )
 
 Id: Item id
 
-AegisName: Server name to reference the item in scripts and lookups,
-           should use no spaces.
+AegisName: Server name to reference the item in scripts and lookups.
+           Allowed characters: [A-Za-z0-9_]
 
 Name: Name in English for displaying as output for @ and script commands.
 
@@ -145,42 +146,48 @@ Range: Weapon's attack range. When not specified, becomes 0.
 
 Slots: Amount of slots the item possesses. When not specified, becomes 0.
 
-Job: Equippable jobs. Uses the following bitmask table:
+Job:  Job restrictions. If this block is omitted, item can be equipped by all class
+		All the settings in this group are boolean values,
+		Default value is false (restriction not set) for any missing setting.
 
-	(S.) Novice    (2^00): 0x00000001
-	Swordman       (2^01): 0x00000002
-	Magician       (2^02): 0x00000004
-	Archer         (2^03): 0x00000008
-	Acolyte        (2^04): 0x00000010
-	Merchant       (2^05): 0x00000020
-	Thief          (2^06): 0x00000040
-	Knight         (2^07): 0x00000080
-	Priest         (2^08): 0x00000100
-	Wizard         (2^09): 0x00000200
-	Blacksmith     (2^10): 0x00000400
-	Hunter         (2^11): 0x00000800
-	Assassin       (2^12): 0x00001000
-	Unused         (2^13): 0x00002000
-	Crusader       (2^14): 0x00004000
-	Monk           (2^15): 0x00008000
-	Sage           (2^16): 0x00010000
-	Rogue          (2^17): 0x00020000
-	Alchemist      (2^18): 0x00040000
-	Bard/Dancer    (2^19): 0x00080000
-	Unused         (2^20): 0x00100000
-	Taekwon        (2^21): 0x00200000
-	Star Gladiator (2^22): 0x00400000
-	Soul Linker    (2^23): 0x00800000
-	Gunslinger     (2^24): 0x01000000
-	Ninja          (2^25): 0x02000000
-	Gangsi         (2^26): 0x04000000
-	Death Knight   (2^27): 0x08000000
-	Dark Collector (2^28): 0x10000000
-	Kagerou/Oboro  (2^29): 0x20000000
-	Rebellion      (2^30): 0x40000000
-	Some other commonly used values:
-	All except novice:     0xFFFFFFFE
-	All (default value):   0xFFFFFFFF
+	Alternate Format:
+		Equippable jobs. Uses the following bitmask table:
+
+		(S.) Novice    (2^00): 0x00000001
+		Swordman       (2^01): 0x00000002
+		Magician       (2^02): 0x00000004
+		Archer         (2^03): 0x00000008
+		Acolyte        (2^04): 0x00000010
+		Merchant       (2^05): 0x00000020
+		Thief          (2^06): 0x00000040
+		Knight         (2^07): 0x00000080
+		Priest         (2^08): 0x00000100
+		Wizard         (2^09): 0x00000200
+		Blacksmith     (2^10): 0x00000400
+		Hunter         (2^11): 0x00000800
+		Assassin       (2^12): 0x00001000
+		Unused         (2^13): 0x00002000
+		Crusader       (2^14): 0x00004000
+		Monk           (2^15): 0x00008000
+		Sage           (2^16): 0x00010000
+		Rogue          (2^17): 0x00020000
+		Alchemist      (2^18): 0x00040000
+		Bard/Dancer    (2^19): 0x00080000
+		Unused         (2^20): 0x00100000
+		Taekwon        (2^21): 0x00200000
+		Star Gladiator (2^22): 0x00400000
+		Soul Linker    (2^23): 0x00800000
+		Gunslinger     (2^24): 0x01000000
+		Ninja          (2^25): 0x02000000
+		Gangsi         (2^26): 0x04000000
+		Death Knight   (2^27): 0x08000000
+		Dark Collector (2^28): 0x10000000
+		Kagerou/Oboro  (2^29): 0x20000000
+		Rebellion      (2^30): 0x40000000
+		Summoner       (2^31): 0x80000000
+		Some other commonly used values:
+		All except novice:     0xFFFFFFFE
+		All (default value):   0xFFFFFFFF
 
 Upper: Equippable upper-types. Uses the following bitmasks:
 	Normal jobs:      ITEMUPPER_NORMAL     (0x01)
@@ -203,7 +210,7 @@ Gender: Gender restriction.
 	When not specified, becomes "SEX_ANY".
 
 Loc: Equipment's placement. A value needs to be specified if the item is an
-	equipment piece. Values are (bitmask arrays are supported):
+     equipment piece. Values are (bitmask arrays are supported):
 
 	Lower Headgear:       EQP_HEAD_LOW             (2^00 = 0x000001)
 	Weapon:               EQP_HAND_R or EQP_WEAPON (2^01 = 0x000002)
@@ -247,7 +254,7 @@ Refineable: true if the item can be refined, false otherwise. If no value is
             specified, it defaults to true.
 
 ViewSprite: Defines a replacement view-sprite for the item (eg:
-	Making apples look like apple juice).
+      Making apples look like apple juice).
 
 Subtype: For weapons and ammo, indicates the weapon-class of the item.
 
@@ -294,8 +301,8 @@ BindOnEquip: Whether the item will automatically bind to the character when it
              and, if accepted, the item will become character-bound.
 
 ForceSerial: Whether the item will be given new unique id or not. When the item
-             have this field as true, the item will be unstackable and new uniqueID
-             will be given to each item.
+			 have this field as true, the item will be unstackable and new uniqueID
+			 will be given to each item.
 
 BuyingStore: Whether the item can be sold via buyingstore, one must also edit
              data\buyingstoreitemlist.txt for client to accept item.
@@ -363,3 +370,12 @@ OnUnequipScript: Script to execute when the item is unequipped.
 Inherit: This can be used only in item_db2.conf, and if set to true, and the
          item already exists in item_db.conf, all the missing fields will be
          inherited from there rather than using their default values.
+
+ShowDropEffect: Allow showing an effect when the item dropped by a monster. [ZERO client only]
+DropEffectMode: Set attribute for ShowDropEffect. [ZERO client only]
+				0 - Client Based (itemInfo EffectID)
+				1 - White effect
+				2 - Blue effect
+				3 - Yellow effect
+				4 - Purple effect
+				5 - Orange effect
