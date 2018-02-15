@@ -979,3 +979,14 @@ Example:
     setitemoptionbyindex(.@item, 0, VAR_MAXHPAMOUNT, 200);
     setitemoptionbyindex(.@item, 1, VAR_STRAMOUNT, 10);
     setitemoptionbyindex(.@item, 2, VAR_VITAMOUNT, -5);
+
+---------------------------------------
+
+*isinstance id;
+
+Return true if id is correct instance id.
+Return false if id is not instance id.
+
+Example:
+    .instid = 1;
+    mes(str(isinstance(.instid));
