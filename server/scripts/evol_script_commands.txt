@@ -828,6 +828,16 @@ calculating the size.
 Example:
     .@len = htsize .@ht_id;
 
+---------------------------------------
+
+*htexists id;
+
+Check is given hash table exists.
+Return false if hash table not exists.
+Return true if hash table exists.
+
+Example:
+    .@exists = htexists .@ht_id;
 
 ---------------------------------------
 
