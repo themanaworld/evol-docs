@@ -3919,31 +3919,31 @@
 - `AREA_WOC`: 4
 - `AREA_WOSC`: 5
 - `AREA_CHAT_WOC`: 6
-- `CHAT`: 7
-- `CHAT_WOS`: 8
-- `PARTY`: 9
-- `PARTY_WOS`: 10
-- `PARTY_SAMEMAP`: 11
-- `PARTY_SAMEMAP_WOS`: 12
-- `PARTY_AREA`: 13
-- `PARTY_AREA_WOS`: 14
-- `GUILD`: 15
-- `GUILD_WOS`: 16
-- `GUILD_SAMEMAP`: 17
-- `GUILD_SAMEMAP_WOS`: 18
-- `GUILD_AREA`: 19
-- `GUILD_AREA_WOS`: 20
-- `GUILD_NOBG`: 21
-- `DUEL`: 22
-- `DUEL_WOS`: 23
-- `SELF`: 24
-- `BG`: 25
-- `BG_WOS`: 26
-- `BG_SAMEMAP`: 27
-- `BG_SAMEMAP_WOS`: 28
-- `BG_AREA`: 29
-- `BG_AREA_WOS`: 30
-- `BG_QUEUE`: 31
+- `CHAT`: 8
+- `CHAT_WOS`: 9
+- `PARTY`: 10
+- `PARTY_WOS`: 11
+- `PARTY_SAMEMAP`: 12
+- `PARTY_SAMEMAP_WOS`: 13
+- `PARTY_AREA`: 14
+- `PARTY_AREA_WOS`: 15
+- `GUILD`: 16
+- `GUILD_WOS`: 17
+- `GUILD_SAMEMAP`: 18
+- `GUILD_SAMEMAP_WOS`: 19
+- `GUILD_AREA`: 20
+- `GUILD_AREA_WOS`: 21
+- `GUILD_NOBG`: 22
+- `DUEL`: 23
+- `DUEL_WOS`: 24
+- `SELF`: 25
+- `BG`: 26
+- `BG_WOS`: 27
+- `BG_SAMEMAP`: 28
+- `BG_SAMEMAP_WOS`: 29
+- `BG_AREA`: 30
+- `BG_AREA_WOS`: 31
+- `BG_QUEUE`: 32
 
 ### LOOK_ constants, use in setlook/changelook script commands
 
@@ -4241,6 +4241,17 @@
 - `P_AIRSHIP_INVALID_END_MAP`: 3
 - `P_AIRSHIP_ITEM_NOT_ENOUGH`: 4
 - `P_AIRSHIP_ITEM_INVALID`: 5
+
+### questinfo types
+
+- `QINFO_JOB`: 0
+- `QINFO_SEX`: 1
+- `QINFO_BASE_LEVEL`: 2
+- `QINFO_JOB_LEVEL`: 3
+- `QINFO_ITEM`: 4
+- `QINFO_HOMUN_LEVEL`: 5
+- `QINFO_HOMUN_TYPE`: 6
+- `QINFO_QUEST`: 7
 
 ### Renewal
 
@@ -12313,6 +12324,7 @@
 - `Sacred_Rosary`: 6913
 - `Black_Soul`: 6914
 - `Captured_Soul`: 6915
+- `Costume_Change_Ticket`: 6959
 - `Mould_Powder`: 7001
 - `Ogre_Tooth`: 7002
 - `Anolian_Skin`: 7003
