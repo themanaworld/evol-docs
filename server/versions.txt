@@ -20,4 +20,4 @@ Plugin versions:
 20  Jan 5  2018
 
 First supported version by client:
- 14
+ 19
