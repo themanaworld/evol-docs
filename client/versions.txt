@@ -23,6 +23,8 @@ protocol date           Ubuntu          Debian
  22      Jul 12 2017    17.10 (artful)
  23      Aug 19 2017
  24      Feb 17 2018    18.04 (bionic)
+                        18.10 (cosmic)
+ 25      unreleased
                         sid
 
 First supported protocol version by current server:
