@@ -714,6 +714,8 @@ MAX_BANK_ZENY		- Maximum Zeny in the bank
 MAX_BG_MEMBERS		- Maximum BattleGround members
 MAX_CHAT_USERS		- Maximum Chat users
 MAX_REFINE			- Maximum Refine level
+MAX_MENU_OPTIONS    - Maximum NPC menu options
+MAX_MENU_LENGTH     - Maximum NPC menu string length
 
 Send targets and status options are also hard-coded and can be found
 in 'doc/constants.md'.
@@ -1600,21 +1602,24 @@ perfectly equivalent.
 ---------------------------------------
 
 *select("<option>"{, "<option>", ...})
-*prompt("<option>"{, "<option>", ...})
 
 This function is a handy replacement for 'menu' that doesn't use a complex
-label structure. It will return the number of menu option picked,
-starting with 1. Like 'menu', it will also set the variable @menu to
-contain the option the user picked.
+label structure. It will return the number of the menu option picked,
+starting with 1. If the player presses cancel, the script is terminated.
 
-    if (select("Yes:No") == 1)
+    if (select("Yes", "No") == 1)
         mes("You said yes, I know.");
 
 And like 'menu', the selected option is consistent with grouped options
 and empty options.
 
-'prompt' works almost the same as select, except that when a character
-clicks the Cancel button, this function will return 255 instead.
+---------------------------------------
+
+*prompt("<option>"{, "<option>", ...})
+
+This function behaves exactly like select(), but when a player presses cancel
+it returns MAX_MENU_OPTIONS and the script is not terminated. You almost always
+want to use select() rather than prompt().
 
 ---------------------------------------
 
@@ -3239,6 +3244,7 @@ Valid types are:
 	ITEMINFO_VIEWID     - View ID ("Sprite" field in the Item DB)
 	ITEMINFO_MATK       - MATK (only relevant if RENEWAL is set)
 	ITEMINFO_VIEWSPRITE - View Sprite ("ViewSprite" field in the Item DB)
+	ITEMINFO_TRADE      - Trade Restriction (see "doc/constant.md": item trade restriction)
 
 Check sample in doc/sample/getiteminfo.txt
 
@@ -5992,6 +5998,17 @@ Example usage:
 
 ---------------------------------------
 
+*removespecialeffect(<effect number>{, <send_target>{, <unit id>{, <account id>}}})
+*removespecialeffect(<effect number>{, <send_target>{, "<NPC Name>"{, <account id>}}})
+
+Works for:
+	main client from version 2018-10-02
+	re   client from version 2018-10-02
+This command will remove special effect. All parameters same with specialeffect.
+Examples and detailed explanation about parameters see in specialeffect.
+
+---------------------------------------
+
 *specialeffect2(<effect number>{, <send_target>{, "<Player Name>"}})
 
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -8114,7 +8131,7 @@ built-in atcommands and custom atcommands.
 *has_permission("<permission>"{, <account id>})
 
 Check if the attached or specified player has the specified permission
-and returns true or false accordingly. See doc/permissions.txt for
+and returns true or false accordingly. See doc/permissions.md for
 details about permissions.
 
 Valid <permission> are:
@@ -9418,6 +9435,7 @@ supported types: values
 	QINFO_HOMUN_LEVEL: min
 	QINFO_HOMUN_TYPE: homunculus_type (0 - regular, 1 - evolved, 2 - S)
 	QINFO_QUEST: quest_id, state // append to the quests list on each use
+	QINFO_MERCENARY_CLASS: mercenary_class
 
 ---------------------------------------
 
@@ -10170,5 +10188,43 @@ with optional <color>.
 Show in client message by <message_id> from msg string table.
 <param> is parameter for this message. Can be string or int.
 Optional <color> can be used for set color for whole message.
+
+---------------------------------------
+
+*camerainfo()
+
+Show or hide camera info window.
+Works for 20160525 clients or newer.
+
+---------------------------------------
+
+*changecamera(<range>, <rotation>, <latitude>{, <target>})
+
+Change camera range, rotation, latitude.
+The optional target parameter specifies who will get changed
+camera.
+Works for 20160525 clients or newer.
+
+---------------------------------------
+
+*achievement_progress(<ach_id>, <obj_idx>, <progress>, <incremental>{, <account_id>});
+
+Make the player progress in the specified achievement.
+aid         - achievement ID
+obj_idx     - achievement objective index.
+progress    - objective progress towards goal.
+incremental - (boolean) true to add the progress towards the goal,
+              false to use the progress only as a comparand.
+account_id  - (optional) AID to perform on (default to attached player).
+
+returns progress on success and false on failure
+
+---------------------------------------
+
+*itempreview(<index>)
+
+Update already opened preview window with item from
+ inventory with given index.
+Works for 20181017 RE and main clients or newer.
 
 ---------------------------------------
