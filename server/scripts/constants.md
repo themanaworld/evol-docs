@@ -3650,13 +3650,6 @@
 - `IOT_PARTY`: 2
 - `IOT_GUILD`: 3
 
-### tradertype
-
-- `NST_ZENY`: 0
-- `NST_CASH`: 1
-- `NST_MARKET`: 2
-- `NST_CUSTOM`: 3
-
 ### strcharinfo
 
 - `PC_NAME`: 0
@@ -3969,6 +3962,10 @@
 - `ACH_ACHIEVE`: 44
 - `ACH_ACHIEVEMENT_RANK`: 45
 
+### inventory expansion
+
+- `INVENTORY_INCREASE_STEP`: 10
+
 
 ## Hardcoded Constants (source)
 
@@ -3986,6 +3983,7 @@
 - `MAX_GUILD_STORAGE`: 600
 - `MAX_CART`: 100
 - `MAX_INVENTORY`: 100
+- `FIXED_INVENTORY_SIZE`: 100
 - `MAX_ZENY`: 2147483647
 - `MAX_BANK_ZENY`: 2147483647
 - `MAX_BG_MEMBERS`: 30
@@ -4392,6 +4390,30 @@
 - `ITR_NOMAIL`: 128
 - `ITR_NOAUCTION`: 256
 - `ITR_ALL`: 511
+
+### inventory expand ack responds
+
+- `EXPAND_INV_ASK_CONFIRMATION`: 0
+- `EXPAND_INV_FAILED`: 1
+- `EXPAND_INV_OTHER_WORK`: 2
+- `EXPAND_INV_MISSING_ITEM`: 3
+- `EXPAND_INV_MAX_SIZE`: 4
+
+### inventory expand final responds
+
+- `EXPAND_INV_RESULT_SUCCESS`: 0
+- `EXPAND_INV_RESULT_FAILED`: 1
+- `EXPAND_INV_RESULT_OTHER_WORK`: 2
+- `EXPAND_INV_RESULT_MISSING_ITEM`: 3
+- `EXPAND_INV_RESULT_MAX_SIZE`: 4
+
+### trader type
+
+- `NST_ZENY`: 0
+- `NST_CASH`: 1
+- `NST_MARKET`: 2
+- `NST_CUSTOM`: 3
+- `NST_BARTER`: 4
 
 ### Renewal
 
@@ -18344,6 +18366,7 @@
 - `Unsealing_Token`: 25735
 - `GH_Cursed_Crystal`: 25739
 - `GH_Cursed_Gemstone`: 25740
+- `Inventory_Extension_Coupon`: 25793
 - `Spectral_Spear_IL`: 26007
 - `Rebeginer_LG_Lance`: 26015
 - `Paradise_Foxtail_Staff_III`: 26101

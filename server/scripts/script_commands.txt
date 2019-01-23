@@ -323,10 +323,12 @@ The types that a trader object can have are the following:
 - NST_MARKET	(2) Normal NPC Market Shop (where items have limited availability
 		    and need to be refurbished)
 - NST_CUSTOM	(3) Custom Shop (any currency, item/var/etca, check sample)
+- NST_BARTER	(4) Barter Shop (each item with own item currency)
 Unless otherwise specified via *tradertype an trader object will be defined as
 NST_ZENY.
 
 Note: NST_MARKET is only available with PACKETVER 20131223 or newer.
+Note: NST_BARTER is only available with PACKETVER 20181226 zero or newer.
 See '12 - NPC Trader-Related Commands' and /doc/sample/npc_trader_sample.txt for
 more information regarding how to use this NPC type.
 
@@ -6048,6 +6050,22 @@ Amount can be negative. See statusup().
 
 ---------------------------------------
 
+*needed_status_point(<type>, <val>, {<char_id>});
+
+Returns the number of stat points needed to change the specified stat <type> by <val>.
+If <val> is negative, returns the number of stat points that would be needed to
+raise the specified stat from (current value - <val>) to current value.
+
+List of <type>:
+bStr -  Strength
+bVit -  Vitality
+bInt -  Intelligence
+bAgi -  Agility
+bDex -  Dexterity
+bLuk -  Luck
+
+---------------------------------------
+
 *bonus(<bonus type>, <val1>)
 *bonus2(<bonus type>, <val1>, <val2>)
 *bonus3(<bonus type>, <val1>, <val2>, <val3>)
@@ -9935,6 +9953,7 @@ when the optional NPC_Name param is used.
 ---------------------------------------
 
 *sellitem(<Item_ID>{, <price>{, <qty>}})
+*sellitem(<Item_ID>, <qty>, <currency_id>, <currency_amount>)
 
 adds (or modifies) <Item_ID> data to the shop,
 when <price> is not provided (or when it is -1) itemdb default is used.
@@ -9943,11 +9962,15 @@ qty is only necessary for NST_MARKET trader types.
 when <Item_ID> is already in the shop,
 the previous data (price/qty), is overwritten with the new.
 
+currency_id and currency_amount can be used only with shop type NST_BARTER
+
 ---------------------------------------
 
 *stopselling(<Item_ID>)
+*stopselling(<Item_ID>{, <currency_id>, <currency_amount>})
 
 attempts to remove <Item_ID> from the current shop list.
+currency_id and currency_amount can be used only with shop type NST_BARTER
 
 ---------------------------------------
 
@@ -10235,5 +10258,82 @@ returns progress on success and false on failure
 Update already opened preview window with item from
  inventory with given index.
 Works for 20181017 RE and main clients or newer.
+
+---------------------------------------
+
+*enchantitem(<equip_pos>, <card_slot>, <card_id>);
+
+Insert card into equipped item in EQI_* slot.
+card_slot - can be 0 to 3.
+card_id   - any card item id.
+
+returns true if all parameters correct
+false in other case.
+Works for 20160831 main, 20151118 RE, any zero version
+
+---------------------------------------
+
+*servicemessage("<message>", <color>{, <account_id>})
+*servicemessage("<message>", <color>{, <player_name>})
+
+That command will send a service message to the chat window of the character
+specified by account ID or name, or to connected to npc player.
+It will not be seen by anyone else.
+
+Works for 20170830 RE and main and for any zero clients
+
+---------------------------------------
+
+*expandInventoryAck(<result>{, <itemId>})
+
+Send initial inventory expansion result.
+Normally this function should be called from script label
+inventory_expansion::OnInventoryExpandRequest.
+
+Valid result statuses:
+ EXPAND_INVENTORY_ASK_CONFIRMATION - force client to ask player about inventory expansion
+ EXPAND_INVENTORY_FAILED - other failed reason
+ EXPAND_INVENTORY_OTHER_WORK - failed because player busy with other work
+ EXPAND_INVENTORY_MISSING_ITEM - failed because missing item
+ EXPAND_INVENTORY_MAX_SIZE - failed because inventory size already maximum
+
+ItemId make sense only if result is EXPAND_INVENTORY_ASK_CONFIRMATION
+Works for 20181212 zero clients
+
+---------------------------------------
+
+*expandInventoryResult(<result>)
+
+Send final inventory expansion result.
+Normally this function should be called from script label
+inventory_expansion::OnInventoryExpandConfirmed.
+
+Valid result values:
+ EXPAND_INVENTORY_RESULT_SUCCESS - success message
+ EXPAND_INVENTORY_RESULT_FAILED - other failed reason
+ EXPAND_INVENTORY_RESULT_OTHER_WORK - failed because player busy with other work
+ EXPAND_INVENTORY_RESULT_MISSING_ITEM - failed because missing item
+ EXPAND_INVENTORY_RESULT_MAX_SIZE - failed because inventory size already maximum
+
+Works for 20181212 zero clients
+
+---------------------------------------
+
+*expandInventory(<value>)
+
+Adjust player inventory to given value.
+Maximum inventory size is MAX_INVENTORY.
+Minimum inventory size is FIXED_INVENTORY_SIZE.
+For supported clients it send inventory change packet. For old clients,
+this change is silent.
+Current max inventory size can be read by function getInventorySize().
+
+---------------------------------------
+
+*getInventorySize()
+
+Return current player max inventory size.
+This value always smaller or equal to MAX_INVENTORY.
+Size can be changed by group of functions expandInventory*
 
 ---------------------------------------
