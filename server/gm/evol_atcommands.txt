@@ -35,3 +35,32 @@ Supported codes:
     108 - git pull and rebuild all and restart all servers
     109 - build plugin and restart all servers
     110 - git pull and build plugin and restart all servers
+
+---------------------------------------
+
+@hugo
+
+Warp to next player.
+---------------------------------------
+
+@linux
+
+Warp to previous player.
+
+---------------------------------------
+
+@log text
+
+Add given text to at commands log.
+
+---------------------------------------
+
+@tee text
+
+Say given text in general chat and add it to at commands log.
+
+---------------------------------------
+
+@getname ID
+
+Show name for given being/unit id.
