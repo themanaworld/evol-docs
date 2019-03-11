@@ -266,8 +266,8 @@ direction across Y. Walking into that area will trigger the NPC. If no
 'OnTouch:' special label is present in the NPC code, the execution will
 start from the beginning of the script, otherwise, it will start from the
 'OnTouch:' label. Monsters can also trigger the NPC, though the label
-'OnTouchNPC:' is used in this case. If player left area npc will called
-if present label 'OnUnTouch'.
+'OnTouchNPC:' is used in this case, and using mobattached() will return
+monster GID. If player left the area will trigger the label 'OnUnTouch'.
 
 The code part is the script code that will execute whenever the NPC is
 triggered. It may contain commands and function calls, descriptions of
@@ -718,6 +718,8 @@ MAX_CHAT_USERS		- Maximum Chat users
 MAX_REFINE			- Maximum Refine level
 MAX_MENU_OPTIONS    - Maximum NPC menu options
 MAX_MENU_LENGTH     - Maximum NPC menu string length
+MOB_CLONE_START     - Clone ID start from this range
+MOB_CLONE_END       - Clone ID end with this range
 
 Send targets and status options are also hard-coded and can be found
 in 'doc/constants.md'.
@@ -6074,7 +6076,7 @@ Amount can be negative. See statusup().
 
 ---------------------------------------
 
-*needed_status_point(<type>, <val>, {<char_id>});
+*needed_status_point(<type>, <val>);
 
 Returns the number of stat points needed to change the specified stat <type> by <val>.
 If <val> is negative, returns the number of stat points that would be needed to
@@ -6332,7 +6334,7 @@ Examples:
 	setpcblock(PCBLOCK_ATTACK|PCBLOCK_SKILL, true);
 
 // Re-enables attack, skills and item use
-	setpcblock(PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_ITEM, false);
+	setpcblock(PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, false);
 
 // checkpcblock related checks
 	if ((checkpcblock() & PCBLOCK_IMMUNE) != 0)
@@ -6505,6 +6507,14 @@ other number for this parameter won't be recognized.
 
 ---------------------------------------
 
+*killmonstergid(<GID>);
+
+This command will kill the specific monster GID. The difference between
+this command and 'unitkill', is this command does not trigger monster's
+event label.
+
+---------------------------------------
+
 *strmobinfo(<type>, <monster id>)
 
 This function will return information about a monster record in the
@@ -6590,6 +6600,17 @@ will run as if by donpcevent().
 
 // Will summon a poring to fight for the character.
 	summon("--ja--", PORING);
+
+---------------------------------------
+
+*mobattached()
+
+This command will return RID of the monster running from 'OnTouchNPC:' label.
+
+
+//	Kill any monster entering npc's trigger area
+OnTouchNPC:
+	killmonstergid mobattached();
 
 ---------------------------------------
 
@@ -9616,6 +9637,11 @@ is run when they relog.
 <On Death Event> refers to an NPC label that attaches to the character and
 is run when they die. Can be "" for empty.
 
+If "-" is supplied for <mapname>, this will remove the 1 second automatic
+respawn on the battleground map. This allows for better manipulation of
+<On Death Event>. The player will have to be warped to desired location
+at the end of <On Death Event>.
+
 Unlike the prior command, the latter will attach a GROUP in a waiting room
 to the battleground, and sets the array $@arenamembers[0] where 0 holds
 the IDs of the first group, and 1 holds the IDs of the second.
@@ -9747,6 +9773,8 @@ mapflag%TAB%<map_name>%TAB%battleground%TAB%2
 
 This command will create a new BG Team.
 When player dies, they will be respawned map_name,X,Y as mentioned.
+If "-" is supplied for the map name, this will remove the 1 second automatic
+respawn on the battleground map.
 
 Command will return -1 if BG Creation is failed,
 else it will return the BG ID(Also known as TeamID).
@@ -9836,17 +9864,18 @@ If char id is given, the information of that character is retrieved
 instead. Type specifies what information to retrieve and can be one of the
 following:
 
-	0 - Database ID
-	1 - Class
-	2 - Name
-	3 - Faith value for this mercenary's guild, if any
-	4 - Calls value for this mercenary's guild, if any
-	5 - Kill count
-	6 - Remaining life time in msec
-	7 - Level
+	MERCINFO_ID        - Mercenary Database ID
+	MERCINFO_CLASS     - Mercenary Class
+	MERCINFO_NAME      - Mercenary Name
+	MERCINFO_FAITH     - Mercenary faith value for this mercenary's guild, if any
+	MERCINFO_CALLS     - Mercenary calls value for this mercenary's guild, if any
+	MERCINFO_KILLCOUNT - Mercenary kill count
+	MERCINFO_LIFETIME  - Mercenary remaining life time in mili-second
+	MERCINFO_LEVEL     - Mercenary Level
+	MERCINFO_GID       - Mercenary Game ID
 
-If the character does not have a mercenary, the command returns ""
-for name and 0 for all other types.
+If the character does not have a mercenary, the command returns "" for MERCINFO_NAME
+and 0 for all other types.
 
 ---------------------------------------
 //=====================================
@@ -10033,133 +10062,129 @@ Returns the amount of still-available <Item_ID> in the shop (on a NST_MARKET tra
 
 ---------------------------------------
 
-*setunitdata(<GUID>, <DataType>, <Val1> {,<Val2>,<Val3>})
+*setunitdata(<GID>, <DataType>, <Val>)
 
 Sets or alters the data in real-time for game objects of the following types -
 NPCs, Pets, Monsters, Homunuculus', Mercenaries, Elementals.
 
 Applicable Data Types (available as constants) -
 	Data Types          Description (parameter type)
-	UDT_SIZE:           Unit Size (int)
-	UDT_LEVEL:          Level (int)
-	UDT_HP:             Current HP (int)
-	UDT_MAXHP:          Max HP (int)
-	UDT_SP:             SP (int)
-	UDT_MAXSP:          MAX SP (int)
-	UDT_MASTERAID:      Master Account ID (for Summons) (int)
-	UDT_MASTERCID:      Master Char ID (for Summons) (int)
-	UDT_MAPIDXY:        Warp a Unit to a map. (Val1 = (string) MapName, Val2 = (int) x, Val3 = (int) y)
-	UDT_WALKTOXY:       Make a unit walk to certain co-ordinates. (Val1 = (int) x, Val2 = (int) y)
-	UDT_SPEED:          Unit Speed. (int)
-	UDT_MODE:           Mode (Mobs only) (int)
+	UDT_SIZE:           Unit Size
+	UDT_LEVEL:          Level
+	UDT_HP:             Current HP
+	UDT_MAXHP:          Max HP
+	UDT_SP:             SP
+	UDT_MAXSP:          MAX SP
+	UDT_MASTERAID:      Master Account ID (for Summons)
+	UDT_MASTERCID:      Master Char ID (for Summons)
+	UDT_SPEED:          Unit Speed.
+	UDT_MODE:           Mode (Mobs only)
 	UDT_AI:             Unit AI Type (see doc/constants.md for Unit AI Types)
 	UDT_SCOPTION:       Status Options. (see doc/constants.md for Unit Option Types)
 	UDT_SEX:            Gender of the unit. (see doc/constants.md for Genders)
-	UDT_CLASS:          Class of the unit. (Monster ID) (int)
-	UDT_HAIRSTYLE:      Hair Style ID. (int)
-	UDT_HAIRCOLOR:      Hair Color ID. (int)
-	UDT_HEADBOTTOM:     Headgear Bottom Sprite ID. (int)
-	UDT_HEADMIDDLE:     Headgear Middle Sprite ID. (int)
-	UDT_HEADTOP:        Headgear Top Sprite ID. (int)
-	UDT_CLOTHCOLOR:     Cloth Color ID. (int)
-	UDT_SHIELD:         Shield Sprite ID. (int)
-	UDT_WEAPON:         Weapon Sprite ID. (int)
-	UDT_LOOKDIR:        Face direction. (int)
-	UDT_CANMOVETICK:    Stop a unit from move for n seconds. (int)
-	UDT_STR:            Unit STR. (int)
-	UDT_AGI:            Unit AGI. (int)
-	UDT_VIT:            Unit VIT. (int)
-	UDT_INT:            Unit INT. (int)
-	UDT_DEX:            Unit DEX. (int)
-	UDT_LUK:            Unit LUK. (int)
-	UDT_ATKRANGE:       Attack range of a unit. (int)
-	UDT_ATKMIN:         Min Atk of a unit. (int)
-	UDT_ATKMAX:         Max Atk of a unit. (int)
-	UDT_MATKMIN:        Min MATK of a unit. (int)
-	UDT_MATKMAX:        Max MATK of a unit. (int)
-	UDT_DEF:            DEF. (int)
-	UDT_MDEF:           MDEF. (int)
-	UDT_HIT:            HIT. (int)
-	UDT_FLEE:           FLEE. (int)
-	UDT_PDODGE:         Perfect Dodge. (int)
-	UDT_CRIT:           Critical Rate. (int)
-	UDT_RACE:           Race. (Eg. string constants RC_DemiHuman or Integer 7).
-	UDT_ELETYPE:        Element. (Eg. string constants Ele_Neutral or Integer 0).
-	UDT_ELELEVEL:       Element Level (int).
-	UDT_AMOTION:        AMotion Rate (int).
-	UDT_ADELAY:         ADelay Rate (int).
-	UDT_DMOTION:        DMotion Rate (int).
-	UDT_HUNGER:         Hunger Rate (int) - for summons.
-	UDT_INTIMACY:       Intimacy Rate (int) - for summons.
-	UDT_LIFETIME:       LifeTime (int) - for summons.
-	UDT_MERC_KILLCOUNT: Kill count for mercenaries (int).
-	UDT_STATADD:        Status Points (int) - for NPCs.
+	UDT_CLASS:          Class of the unit. (Monster ID)
+	UDT_HAIRSTYLE:      Hair Style ID.
+	UDT_HAIRCOLOR:      Hair Color ID.
+	UDT_HEADBOTTOM:     Headgear Bottom Sprite ID.
+	UDT_HEADMIDDLE:     Headgear Middle Sprite ID.
+	UDT_HEADTOP:        Headgear Top Sprite ID.
+	UDT_CLOTHCOLOR:     Cloth Color ID.
+	UDT_SHIELD:         Shield Sprite ID.
+	UDT_WEAPON:         Weapon Sprite ID.
+	UDT_LOOKDIR:        Face direction.
+	UDT_CANMOVETICK:    Stop a unit from move for n seconds.
+	UDT_STR:            Unit STR.
+	UDT_AGI:            Unit AGI.
+	UDT_VIT:            Unit VIT.
+	UDT_INT:            Unit INT.
+	UDT_DEX:            Unit DEX.
+	UDT_LUK:            Unit LUK.
+	UDT_ATKRANGE:       Attack range of a unit.
+	UDT_ATKMIN:         Min Atk of a unit.
+	UDT_ATKMAX:         Max Atk of a unit.
+	UDT_MATKMIN:        Min MATK of a unit.
+	UDT_MATKMAX:        Max MATK of a unit.
+	UDT_DEF:            DEF.
+	UDT_MDEF:           MDEF.
+	UDT_HIT:            HIT.
+	UDT_FLEE:           FLEE.
+	UDT_PDODGE:         Perfect Dodge.
+	UDT_CRIT:           Critical Rate.
+	UDT_RACE:           Race. (Eg. constants RC_DemiHuman or Integer 7).
+	UDT_ELETYPE:        Element. (Eg. constants Ele_Neutral or Integer 0).
+	UDT_ELELEVEL:       Element Level.
+	UDT_AMOTION:        AMotion Rate.
+	UDT_ADELAY:         ADelay Rate.
+	UDT_DMOTION:        DMotion Rate.
+	UDT_HUNGER:         Hunger Rate - for summons.
+	UDT_INTIMACY:       Intimacy Rate - for summons.
+	UDT_LIFETIME:       LifeTime - for summons.
+	UDT_MERC_KILLCOUNT: Kill count for mercenaries
+	UDT_STATADD:        Status Points - for NPCs.
 
 returns 0 if value could not be set, 1 if successful.
 
 ---------------------------------------
 
-*getunitdata (<GUID>,<DataType>{,<Variable>})
+*getunitdata (<GID>,<DataType>)
 
-Retrieves real-time data of a game object. For data with multiple return values,
-an array variable may be passed to store the data in.
+Retrieves real-time data of a game object.
 
 Applicable Data types (available as constants) -
 	Data Types          Description (return type)
-	UDT_SIZE:           Unit Size (int)
-	UDT_LEVEL:          Level (int)
-	UDT_HP:             Current HP (int)
-	UDT_MAXHP:          Max HP (int)
-	UDT_SP:             SP (int)
-	UDT_MAXSP:          MAX SP (int)
-	UDT_MASTERAID:      Master Account ID (for Summons) (int)
-	UDT_MASTERCID:      Master Char ID (for Summons) (int)
-	UDT_MAPIDXY:        Warp a Unit to a map. (Val1 = (string) MapName, Val2 = (int) x, Val3 = (int) y)
-	UDT_SPEED:          Unit Speed. (int)
-	UDT_MODE:           Mode (Mobs only) (int)
+	UDT_SIZE:           Unit Size
+	UDT_LEVEL:          Level
+	UDT_HP:             Current HP
+	UDT_MAXHP:          Max HP
+	UDT_SP:             SP
+	UDT_MAXSP:          MAX SP
+	UDT_MASTERAID:      Master Account ID (for Summons)
+	UDT_MASTERCID:      Master Char ID (for Summons)
+	UDT_SPEED:          Unit Speed.
+	UDT_MODE:           Mode (Mobs only)
 	UDT_AI:             Unit AI Type (see doc/constants.md for Unit AI Types)
 	UDT_SCOPTION:       Status Options. (see doc/constants.md for Unit Option Types)
 	UDT_SEX:            Gender of the unit. (see doc/constants.md for Genders)
-	UDT_CLASS:          Class of the unit. (Monster ID) (int)
-	UDT_HAIRSTYLE:      Hair Style ID. (int)
-	UDT_HAIRCOLOR:      Hair Color ID. (int)
-	UDT_HEADBOTTOM:     Headgear Bottom Sprite ID. (int)
-	UDT_HEADMIDDLE:     Headgear Middle Sprite ID. (int)
-	UDT_HEADTOP:        Headgear Top Sprite ID. (int)
-	UDT_CLOTHCOLOR:     Cloth Color ID. (int)
-	UDT_SHIELD:         Shield Sprite ID. (int)
-	UDT_WEAPON:         Weapon Sprite ID. (int)
-	UDT_LOOKDIR:        Face direction. (int)
-	UDT_CANMOVETICK:    Stop a unit from move for n seconds. (int)
-	UDT_STR:            Unit STR. (int)
-	UDT_AGI:            Unit AGI. (int)
-	UDT_VIT:            Unit VIT. (int)
-	UDT_INT:            Unit INT. (int)
-	UDT_DEX:            Unit DEX. (int)
-	UDT_LUK:            Unit LUK. (int)
-	UDT_ATKRANGE:       Attack range of a unit. (int)
-	UDT_ATKMIN:         Min Atk of a unit. (int)
-	UDT_ATKMAX:         Max Atk of a unit. (int)
-	UDT_MATKMIN:        Min MATK of a unit. (int)
-	UDT_MATKMAX:        Max MATK of a unit. (int)
-	UDT_DEF:            DEF. (int)
-	UDT_MDEF:           MDEF. (int)
-	UDT_HIT:            HIT. (int)
-	UDT_FLEE:           FLEE. (int)
-	UDT_PDODGE:         Perfect Dodge. (int)
-	UDT_CRIT:           Critical Rate. (int)
-	UDT_RACE:           Race. (Eg. string constants RC_DemiHuman or Integer 7).
-	UDT_ELETYPE:        Element. (Eg. string constants Ele_Neutral or Integer 0).
-	UDT_ELELEVEL:       Element Level (int).
-	UDT_AMOTION:        AMotion Rate (int).
-	UDT_ADELAY:         ADelay Rate (int).
-	UDT_DMOTION:        DMotion Rate (int).
-	UDT_HUNGER:         Hunger Rate (int) - for summons.
-	UDT_INTIMACY:       Intimacy Rate (int) - for summons.
-	UDT_LIFETIME:       LifeTime (int) - for summons.
-	UDT_MERC_KILLCOUNT: Kill count for mercenaries (int).
+	UDT_CLASS:          Class of the unit. (Monster ID)
+	UDT_HAIRSTYLE:      Hair Style ID.
+	UDT_HAIRCOLOR:      Hair Color ID.
+	UDT_HEADBOTTOM:     Headgear Bottom Sprite ID.
+	UDT_HEADMIDDLE:     Headgear Middle Sprite ID.
+	UDT_HEADTOP:        Headgear Top Sprite ID.
+	UDT_CLOTHCOLOR:     Cloth Color ID.
+	UDT_SHIELD:         Shield Sprite ID.
+	UDT_WEAPON:         Weapon Sprite ID.
+	UDT_LOOKDIR:        Face direction.
+	UDT_CANMOVETICK:    Stop a unit from move for n seconds.
+	UDT_STR:            Unit STR.
+	UDT_AGI:            Unit AGI.
+	UDT_VIT:            Unit VIT.
+	UDT_INT:            Unit INT.
+	UDT_DEX:            Unit DEX.
+	UDT_LUK:            Unit LUK.
+	UDT_ATKRANGE:       Attack range of a unit.
+	UDT_ATKMIN:         Min Atk of a unit.
+	UDT_ATKMAX:         Max Atk of a unit.
+	UDT_MATKMIN:        Min MATK of a unit.
+	UDT_MATKMAX:        Max MATK of a unit.
+	UDT_DEF:            DEF.
+	UDT_MDEF:           MDEF.
+	UDT_HIT:            HIT.
+	UDT_FLEE:           FLEE.
+	UDT_PDODGE:         Perfect Dodge.
+	UDT_CRIT:           Critical Rate.
+	UDT_RACE:           Race. (Eg. constants RC_DemiHuman or Integer 7).
+	UDT_ELETYPE:        Element. (Eg. constants Ele_Neutral or Integer 0).
+	UDT_ELELEVEL:       Element Level.
+	UDT_AMOTION:        AMotion Rate.
+	UDT_ADELAY:         ADelay Rate.
+	UDT_DMOTION:        DMotion Rate.
+	UDT_HUNGER:         Hunger Rate - for summons.
+	UDT_INTIMACY:       Intimacy Rate - for summons.
+	UDT_LIFETIME:       LifeTime - for summons.
+	UDT_MERC_KILLCOUNT: Kill count for mercenaries.
 
-returns 0 if value could not be retrieved.
+returns -1 if value could not be retrieved.
 
 ---------------------------------------
 
