@@ -1407,13 +1407,13 @@
 - `e_panic`: 79
 - `e_whisp`: 80
 
-### petstat
+### petstat - deprecated, use *getpetinfo
 
-- `PET_CLASS`: 1
-- `PET_NAME`: 2
-- `PET_LEVEL`: 3
-- `PET_HUNGRY`: 4
-- `PET_INTIMATE`: 5
+- `PET_CLASS`: 1 **(DEPRECATED)**
+- `PET_NAME`: 2 **(DEPRECATED)**
+- `PET_LEVEL`: 3 **(DEPRECATED)**
+- `PET_HUNGRY`: 4 **(DEPRECATED)**
+- `PET_INTIMATE`: 5 **(DEPRECATED)**
 
 ### getmonsterinfo
 
@@ -3989,6 +3989,7 @@
 - `MAX_BG_MEMBERS`: 30
 - `MAX_CHAT_USERS`: 20
 - `MAX_REFINE`: 20
+- `MAX_ITEM_ID`: 65535
 - `MAX_MENU_OPTIONS`: 255
 - `MAX_MENU_LENGTH`: 2048
 - `MOB_CLONE_START`: 4001
@@ -4293,6 +4294,22 @@
 - `MERCINFO_LIFETIME`: 6
 - `MERCINFO_LEVEL`: 7
 - `MERCINFO_GID`: 8
+
+### getpetinfo options
+
+- `PETINFO_ID`: 0
+- `PETINFO_CLASS`: 1
+- `PETINFO_NAME`: 2
+- `PETINFO_INTIMACY`: 3
+- `PETINFO_HUNGRY`: 4
+- `PETINFO_RENAME`: 5
+- `PETINFO_GID`: 6
+- `PETINFO_EGGITEM`: 7
+- `PETINFO_FOODITEM`: 8
+- `PETINFO_ACCESSORYITEM`: 9
+- `PETINFO_ACCESSORYFLAG`: 10
+- `PETINFO_EVO_EGGID`: 11
+- `PETINFO_AUTOFEED`: 12
 
 ### monster skill states
 
