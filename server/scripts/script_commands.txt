@@ -1231,7 +1231,7 @@ you have to set it back to black unless you want all the rest of the text be in
 that color:
 
     mes("This is ^FF0000 red ^000000 and this is ^00FF00 green, ^000000 so.");
-    mes(callfunc("F_MesColor", C_BLUE) +"This message is now in BLUE");
+    mesf("%sThis message is now in BLUE.", F_MesColor(C_BLUE));
 
 Notice that the text coloring is handled purely by the client. If you use
 non-English characters, the color codes might get screwed if they stick to
@@ -1254,6 +1254,14 @@ This will allow you to visit 'Google' with the in-game browser using default dim
     mes("You can <URL>Bing!<INFO>http://www.bing.com/,800,600</INFO></URL> anything");
 
 Clicking 'Bing!' will open the in-game browser using the specified dimensions. (800x600)
+
+If you're using client from 2013-01-30 onwards, you can also use <ITEMLINK> to show
+the item's description. Gravity changed this into <ITEM> since 2015-07-29 onwards.
+
+    mes("Bring me an <ITEM>Apple<INFO>512</INFO></ITEM>.");
+    mesf("Bring me an %s.", F_MesItemInfo(Apple));
+
+This will show the item name and a clickable link for the item description.
 
 ---------------------------------------
 
@@ -3129,7 +3137,8 @@ recreate these items perfectly if they are destroyed. Here's what you get:
                              made by a specific craftsman.
 @inventorylist_expire[]    - expire time (Unix time stamp). 0 means never
                              expires.
-@inventorylist_bound       - whether it is an account bounded item or not.
+@inventorylist_bound[]     - whether it is an account bounded item or not.
+@inventorylist_favorite[]  - whether it is favorite (inside favorite tab) or not. 
 @inventorylist_count       - the number of items in these lists.
 
 This could be handy to save/restore a character's inventory, since no
@@ -7775,6 +7784,10 @@ solution rather than sending the map and the monster_id.
 
 *debugmes("<format string>"{, <param>{, ...}})
 
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@ /!\ This command is deprecated @
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 This command will print a message in the server console (map-server window),
 after applying the same format-string replacements as sprintf(). It will not be
 displayed anywhere else. Returns true on success.
@@ -7785,6 +7798,29 @@ Example:
 	debugmes("%s has clicked me!", strcharinfo(PC_NAME));
 
 	debugmes("\033[0;32mHello World"); // supports ANSI escape sequences
+
+---------------------------------------
+
+*consolemes("<type>", "<format string>"{,<param>{, ...}})
+
+This command will print a message in the server console (map-server window),
+after applying the same format-string replacements as sprintf(). It will not be
+displayed anywhere else. Returns true on success.
+
+List of available <type> are:
+	CONSOLEMES_DEBUG   = 0
+	CONSOLEMES_ERROR   = 1
+	CONSOLEMES_WARNING = 2
+	CONSOLEMES_INFO    = 3
+	CONSOLEMES_STATUS  = 4
+	CONSOLEMES_NOTICE  = 5
+
+Example:
+
+	// Displays "NAME has clicked me!" in the map-server window.
+	consolemes(CONSOLEMES_DEBUG, "%s has clicked me!", strcharinfo(PC_NAME));
+
+	consolemes(CONSOLEMES_DEBUG, "\033[0;32mHello World"); // supports ANSI escape sequences
 
 ---------------------------------------
 
@@ -10138,6 +10174,7 @@ Applicable Data Types (available as constants) -
 	UDT_LIFETIME:       LifeTime - for summons.
 	UDT_MERC_KILLCOUNT: Kill count for mercenaries
 	UDT_STATADD:        Status Points - for NPCs.
+	UDT_GROUP:          group id
 
 returns 0 if value could not be set, 1 if successful.
 
@@ -10200,6 +10237,7 @@ Applicable Data types (available as constants) -
 	UDT_INTIMACY:       Intimacy Rate - for summons.
 	UDT_LIFETIME:       LifeTime - for summons.
 	UDT_MERC_KILLCOUNT: Kill count for mercenaries.
+	UDT_GROUP:          group id
 
 returns -1 if value could not be retrieved.
 
@@ -10401,5 +10439,33 @@ Current max inventory size can be read by function getInventorySize().
 Return current player max inventory size.
 This value always smaller or equal to MAX_INVENTORY.
 Size can be changed by group of functions expandInventory*
+
+---------------------------------------
+
+*getunittitle(<GID>)
+
+Return unit title string.
+Works for 20180207 main clients, 20171129 re clients, 20171130 zero clients
+
+---------------------------------------
+
+*setunittitle(<GID>, <title>)
+
+Set unit title string.
+Invisible for players, because current implimentation using title id only.
+Works for 20180207 main clients, 20171129 re clients, 20171130 zero clients
+
+---------------------------------------
+
+*closeroulette()
+
+Force close roulette window.
+Works for 20141008 main clients, 20140903 re, any zero.
+
+---------------------------------------
+*openrefineryui()
+
+Opens refinery user interface for the player
+returns true on success and false on failure
 
 ---------------------------------------
