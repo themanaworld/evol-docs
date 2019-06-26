@@ -362,6 +362,8 @@
 - `mf_noviewid`: 56
 - `mf_pairship_startable`: 57
 - `mf_pairship_endable`: 58
+- `mf_nostorage`: 59
+- `mf_nogstorage`: 60
 
 ### Cell Properties
 
@@ -3934,6 +3936,7 @@
 - `MAX_MENU_LENGTH`: 2048
 - `MOB_CLONE_START`: 4001
 - `MOB_CLONE_END`: 5000
+- `MAX_NPC_PER_MAP`: 512
 
 ### status options
 
@@ -4123,6 +4126,7 @@
 - `PERM_DISABLE_STORE`: 16777216
 - `PERM_DISABLE_EXP`: 33554432
 - `PERM_DISABLE_SKILL_USAGE`: 67108864
+- `PERM_BYPASS_NOSTORAGE`: 134217728
 
 ### Data types
 
@@ -4201,6 +4205,7 @@
 - `MAPINFO_SIZE_X`: 2
 - `MAPINFO_SIZE_Y`: 3
 - `MAPINFO_ZONE`: 4
+- `MAPINFO_NPC_COUNT`: 5
 
 ### consolemes options
 
@@ -4455,6 +4460,12 @@
 - `UDT_ROBE`: 55
 - `UDT_BODY2`: 56
 - `UDT_GROUP`: 57
+
+### getguildonline types
+
+- `GUILD_ONLINE_ALL`: 0
+- `GUILD_ONLINE_VENDOR`: 1
+- `GUILD_ONLINE_NO_VENDOR`: 2
 
 ### Renewal
 
@@ -17895,6 +17906,12 @@
 - `Chest_Of_Death`: 22679
 - `Solo_Christmas_Gift`: 22685
 - `Solo_Cookie`: 22686
+- `STR_Soul_Potion`: 22702
+- `AGI_Soul_Potion`: 22703
+- `VIT_Soul_Potion`: 22704
+- `INT_Soul_Potion`: 22705
+- `DEX_Soul_Potion`: 22706
+- `LUK_Soul_Potion`: 22707
 - `Bullet_Case_Blood_`: 22737
 - `Bullet_Case_Silver_`: 22738
 - `Sphere_Case_Wind_`: 22739

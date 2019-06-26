@@ -1301,6 +1301,21 @@ and the script will terminate.
 
 ---------------------------------------
 
+*mesclear();
+
+This command will clear the dialog text and continue the script without player interaction.
+
+Example:
+	mes("This is how the 'mesclear' script command works.");
+	sleep2 3000;
+	mesclear(); // This will clear the dialog and continue to the next one.
+	mes("I will show you again.");
+	sleep2 3000;
+	mesclear(); // This will clear the dialog and continue to the next one.
+	mes("Bye!");
+
+---------------------------------------
+
 *close()
 
 This command will create a 'close' button in the message window for the
@@ -3396,11 +3411,12 @@ argument is omitted, it will try to use the map of the attached NPC, or the
 map of the attached player if the NPC can't be found.
 
 Valid <info> are:
-	MAPINFO_NAME     name of the map
-	MAPINFO_ID       numeric ID of the map
-	MAPINFO_ZONE     name of the zone used by the map
-	MAPINFO_SIZE_X   width of the map (cells on the x axis)
-	MAPINFO_SIZE_Y   height of the map (cells on the y axis)
+	MAPINFO_NAME         name of the map
+	MAPINFO_ID           numeric ID of the map
+	MAPINFO_ZONE         name of the zone used by the map
+	MAPINFO_SIZE_X       width of the map (cells on the x axis)
+	MAPINFO_SIZE_Y       height of the map (cells on the y axis)
+	MAPINFO_NPC_COUNT    total number of NPC in the map
 
 Examples:
 	getmapinfo(MAPINFO_ID, "map name"); // ID from name
@@ -3783,6 +3799,18 @@ Be sure to use $@guildmembercount to go through this array, and not
 getarraysize(), because it is not cleared between runs of getguildmember().
 
 For usage examples, see getpartymember().
+
+---------------------------------------
+
+*getguildonline(<guild id>{, <type>});
+
+Returns the amount of players online in the specified guild id.
+Returns -1 if the guild was not found.
+
+Valid <type> are:
+	GUILD_ONLINE_ALL         Returns the total amount of players online in the guild.
+	GUILD_ONLINE_VENDOR      Returns the total amount of vendors online in the guild.
+	GUILD_ONLINE_NO_VENDOR   Returns the total amount of non-vendors online in the guild.
 
 ---------------------------------------
 //=====================================
@@ -5345,6 +5373,34 @@ Check getitem2() to understand its expanded parameters.
 
 ---------------------------------------
 
+*delitemidx(<index>{, <amount>{, <account id>}})
+
+This command will remove an item at the given inventory index. Unlike the
+'delitem()' counterpart, this doesn't check invalid Item ID, making it useful to remove
+invalid item IDs in player's inventory.
+
+If <amount> is not specified, this will remove all of the items at the specified index.
+Note that items with the 'ForceSerial' flag, not yet merged through 'mergeitem()', will only
+be removed at the given index.
+
+The only way to get the inventory index is by using 'getinventorylist()'. After deleting
+an item at the given index, that index can remain empty until the player relogs, so you
+should recall 'getinventorylist()' again. If you try to delete an item at an invalid index, the
+script will terminate with an error.
+
+This command is also useful to remove rental/bound items because 'delitem()'
+does not discriminate at choosing which item to remove.
+
+Example:
+
+	// This will remove all invalid Item ID in player's inventory
+	getinventorylist();
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i)
+		if (getiteminfo(@inventorylist_id[.@i], ITEMINFO_TYPE) == -1)
+			delitemidx(@inventorylist_idx[.@i]);
+
+---------------------------------------
+
 *countitem(<item id>)
 *countitem("<item name>")
 
@@ -5747,6 +5803,10 @@ storage window, to avoid any disruption when both windows overlap.
 	openstorage();
 	end;
 
+The mapflag 'nostorage' when set to type '2' (or 3), will not open the
+account storage. Unless the character group has the permission 'bypass_nostorage'.
+In case blocked by mapflag, returns 0.
+
 ---------------------------------------
 
 *openmail()
@@ -5807,6 +5867,10 @@ time.
 
 This will also fail and return 2 if the attached character does not belong
 to any guild.
+
+The mapflag 'nogstorage' when set to type '2' (or 3), will not open the
+guild storage. Unless the character group has the permission 'bypass_nostorage'.
+In case blocked by mapflag, returns 1.
 
 ---------------------------------------
 
@@ -6511,7 +6575,7 @@ This command will kill all monsters that were spawned with monster() or
 areamonster() and have a specified event label attached to them. Commonly
 used to get rid of remaining quest monsters once the quest is complete.
 
-If the label is given as "All", all monsters which have their respawn
+If the label is given as "all", all monsters which have their respawn
 times set to -1 (like all the monsters summoned with 'monster' or
 'areamonster' script command, and all monsters summoned with GM commands,
 but no other ones - that is, all non-permanent monsters) on the specified
@@ -8276,6 +8340,7 @@ Valid <permission> are:
 	PERM_DISABLE_STORE
 	PERM_DISABLE_EXP
 	PERM_DISABLE_SKILL_USAGE
+	PERM_BYPASS_NOSTORAGE
 
 Example:
 
@@ -8533,6 +8598,18 @@ Example:
 	.@minimum = min(1, -6, -2, 8, 2); // .@minimum will be equal to -6
 	.@maximum = max(0, 5, 10, 4); // .@maximum will be equal to 10
 	.@level = min(BaseLevel, 70); // .@level will be the character's base level, capped to 70
+
+---------------------------------------
+
+*cap_value(<number>, <min>, <max>)
+
+Returns the number but capped between <min> and <max>.
+
+Example:
+	// capped between 0 ~ 100
+	.@value = cap_value(10, 0, 100);   // .@value will be equal to 10
+	.@value = cap_value(1000, 0, 100); // .@value will be equal to 100
+	.@value = cap_value(-10, 3, 100);  // .@value will be equal to 3
 
 ---------------------------------------
 
@@ -10388,7 +10465,7 @@ Works for 20170830 RE and main and for any zero clients
 
 ---------------------------------------
 
-*expandInventoryAck(<result>{, <itemId>})
+*expandinventoryack(<result>{, <itemId>})
 
 Send initial inventory expansion result.
 Normally this function should be called from script label
@@ -10406,7 +10483,7 @@ Works for 20181212 zero clients
 
 ---------------------------------------
 
-*expandInventoryResult(<result>)
+*expandinventoryresult(<result>)
 
 Send final inventory expansion result.
 Normally this function should be called from script label
@@ -10423,7 +10500,7 @@ Works for 20181212 zero clients
 
 ---------------------------------------
 
-*expandInventory(<value>)
+*expandinventory(<value>)
 
 Adjust player inventory to given value.
 Maximum inventory size is MAX_INVENTORY.
@@ -10434,7 +10511,7 @@ Current max inventory size can be read by function getInventorySize().
 
 ---------------------------------------
 
-*getInventorySize()
+*getinventorysize()
 
 Return current player max inventory size.
 This value always smaller or equal to MAX_INVENTORY.
