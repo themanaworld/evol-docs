@@ -25,6 +25,7 @@ protocol date           Ubuntu          Debian
  24      Feb 17 2018    18.04 (bionic)
                         18.10 (cosmic)
  25      Dec 9  2018    19.04 (disco)   sid, buster
+ 26      unreleased
 
 First supported protocol version by current server:
-  21
+  23
