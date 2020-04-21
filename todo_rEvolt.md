@@ -88,7 +88,11 @@
 
 ## Guild system
 
-* [ ] Decide on guild system. [Reference: ML's Guild system].
+* [ ] Add guild house portal scroll item.
+* [ ] Add function on plugin which allow to manage roles.
+* [ ] Add guild house (WIP: Multiple variants per guild level)
+* [ ] Decide if we'll have guild vault or not.
+* [ ] Some way to obtain guild house portal scroll (consumable)...?
 
 ## Weather, seasons and day-night-cycle
 
