@@ -149,7 +149,8 @@
 
 * [ ] Add Sophialla to the lore, including the Flyer item (?).
 * Currently, the code is bypassing the Flyer part. I'm kinda happy with it. (Not really happy, but it can work for now with some polishing) ~ Jesusalva, 21/04/20
-* This still using rowboat code, what will we use exactly? (I'm too much of a layman to find weak spots on rowboat. Could use diagonal movement.) ~ Jesusalva, 21/04/20
+* [ ] This still using rowboat code, what will we use exactly? (I'm too much of a layman to find weak spots on rowboat. Could use diagonal movement.) ~ Jesusalva, 21/04/20
+    * afaik adding diagonal movent requires to much new sprites (all clothes need to be added i believe) plan is to replace rowboat code with a cutscene involving the rowboat. boat will only move east.  I'll try to come up with some stuff after i finished kfahr ~ Toams 21/04/20
 
 * [ ] Finish concept for Library bookfinding quest and add it.
 * I do not think this is a priority, to be honest, but the books ARE useless if this isn't at least referenced. ~ Jesusalva, 21/04/20
@@ -163,6 +164,8 @@
 * [ ] Add at least two or three quests related to sewer (i.e. the path from Sewers to Town hall can be used, etc.).
 
 * [ ] Do something to better implement Q'Anon after player finished Legion quests.
+
+* [ ] think about better legion training quests, current ones are boring and repetitive(low priority) ~Toams 21/04/20
 
 
 
