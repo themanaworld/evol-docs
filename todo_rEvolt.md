@@ -122,7 +122,15 @@
 
 * [ ] Decide on Monster points.
 
-* [ ] Decide on Karma (and / or Legion vs. Brotherhood "Points"?).
+* Gumi and Wushin wanted to burn Monster Point system (which is a side currency). Did you knew, however, that MobPt system
+  is the oldest system on The Mana World? Including, it is featured on the very first commit of tmwa-server-data.
+  We're speaking of a thing which existed since 2005, so I'm not sure if throwing it away is a good idea. ~ Jesusalva, 21/04/20
+
+* [ ] Decide on Karma (and / or Legion vs. Brotherhood "Points"?)
+
+* Karma system by itself we can't use (it cause PvP bugs). ~ Jesusalva, 21/04/20
+* We also had a few other guilds, right? IIRC, Legion based in Esperia, Brotherhood based in Hurnscald, and Mage Guild
+  based in Tulimshar. (And if I understood correctly, those stands for: Warrior, Ranger, and Mage class specializations) ~ Jesusalva, 21/04/20
 
 * [ ] Add gem powder for dyeable metal gear?
 
