@@ -1,0 +1,48 @@
+Following concept applies for map naming on rEvolt:
+
+FIRST PART: Three digits. Continents / regions will have a three-digit number; main regions will have multiples of 4, side regions will have numbers next to the aligned main region. 
+
+SECOND PART: One digit. Outside maps will have a 1, indoor maps will have a 2, caves and dungeons will have a 3.
+
+THIRD PART: One or Two digits. Unique numbering for every corresponding main / side region.
+
+EXAMPLES (current naming):
+
+000-x-xx Intro.
+
+001-1 Artis outdoor.
+001-2-xx Artis indoors.
+001-3-x Artis sewers.
+
+002-x-x UNUSED; could be Area between Artis and Esperia.
+
+004-x-x UNUSED; could be Esperia.
+
+005-x-x UNUSED; could be Noile-Volen.
+
+008-1 Hurnscald main outdoor map.
+008-1-x Woodland outdoors.
+008-2-xx Woodland / Hurns indoors.
+008-3-x Woodland caves.
+
+009-1-x Swamp / GY outdoors.
+009-2-x Swamp / GY indoors.
+009-3-x Swamp / GY caves + dungeons.
+
+010-x-x UNUSED; could be Ukar Mountain area.
+
+012-1 Candor outdoors.
+012-2-x Candor indoors.
+012-3-x Candor cave.
+
+016-x-x Nivalis.
+
+017-x-x UNUSED; could be Barbarians or Blue Sages Area.
+
+020-x-x Tulimshar.
+
+024-x-x UNUSED; could be Halizarno.
+
+
+
+
