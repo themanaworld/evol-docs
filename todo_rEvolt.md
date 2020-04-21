@@ -148,8 +148,11 @@
 * [ ] Add details to maps.
 
 * [ ] Add Sophialla to the lore, including the Flyer item (?).
+* Currently, the code is bypassing the Flyer part. I'm kinda happy with it. (Not really happy, but it can work for now with some polishing) ~ Jesusalva, 21/04/20
+* This still using rowboat code, what will we use exactly? (I'm too much of a layman to find weak spots on rowboat. Could use diagonal movement.) ~ Jesusalva, 21/04/20
 
 * [ ] Finish concept for Library bookfinding quest and add it.
+* I do not think this is a priority, to be honest, but the books ARE useless if this isn't at least referenced. ~ Jesusalva, 21/04/20
 
 * [ ] Add at least two NPCs to Brotherhood cave, one quest related, and one Leaving Artis related.
 
@@ -173,6 +176,10 @@
 
 * [ ] Add treasure system to Woodland.
 
+* [ ] Add Cutscene: Argaes Arrival.
+
+* [ ] Add Governor (Brotherhood NPC) somewhere to put the main story cliffhanger.
+
 * [ ] Implement the Sailor Stew to West Woodland.
 
 * [ ] Add first hints to cooking system to West Woodland (connected with Sailor Stew).
@@ -187,6 +194,7 @@
 
 * [ ] Add Hurnscald scripts:
     * [ ] Kfahr.
+    * Assigned to **toams**
     * [ ] Nurse - donating blood.
     * [ ] Malik - Main NPC for gemstone system.
     * [ ] Macgowan: Shop for gear, text about refining and / or crafting.
@@ -219,6 +227,7 @@
 * [ ] Add Asphodel Moor indoor maps, especially Reid's Inn and the Church.
 
 * [ ] Add two or three NPCs to Soren's town.
+* What will we call it? I suggested Migglemire from old wiki, but that's just a random suggestion.  ~ Jesusalva, 21/04/20
 
 * [ ] Find a place for Soren. 
 
@@ -291,6 +300,8 @@
 
 
 ## Copy/paste interesting points from Jesusalva's ML todo list
+
+[Source File](https://gitlab.com/TMW2/Docs/-/blob/master/todo.md)
 
 * [ ] quests.xml - take care on that.
 
