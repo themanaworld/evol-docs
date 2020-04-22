@@ -9,6 +9,7 @@
     * [ ] Skill points system for free-to-use skills.
     * [ ] Amount and type of teachers.
     * [ ] Skill trees for teachers.
+* [ ] Proposal: [1142p version](rEvolt_Magic.jpg)
 
 * [ ] Add skill tree for Master Skill book.
     * [ ] Add proper quest for Auldsbel.
