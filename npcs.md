@@ -386,6 +386,9 @@ All of these have placeholders or they wouldn't be listed in first place
 * [ ] Ian
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
+* [ ] Yalina
+    * [ ] Create NPC Placeholder
+    * [ ] NPC Quests etc.
 * [x] Milly
     * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
@@ -402,9 +405,8 @@ All of these have placeholders or they wouldn't be listed in first place
     * [x] Create NPC Placeholder
     * [x] Status Reset functionality
     * [ ] NPC Quests etc.
-* [ ] Entertainer
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Entertainer
+    * **Vanished in the Rewrite**
 * [x] Apprentice → **Donald** *Rewrite Rename*
     * [x] Create NPC Placeholder
     * [x] NPC Quests etc.
@@ -417,9 +419,9 @@ All of these have placeholders or they wouldn't be listed in first place
 * [x] Recepcionist → **Melania** *Rewrite Rename*
     * [x] Create NPC Placeholder
     * [x] NPC Quests etc.
-* [x] Apprentice → ***Macgowan** *Rewrite Rename*
+* [ ] Peter → ***Macgowan** *Rewrite Rename*
     * [x] Create NPC Placeholder
-    * [x] NPC Quests etc.
+    * [ ] NPC Quests etc.
 * [x] Nicholas
     * [x] Create NPC Placeholder
     * [x] NPC Quests etc.
@@ -438,9 +440,6 @@ All of these have placeholders or they wouldn't be listed in first place
     * [x] NPC Quests etc.
 * [ ] Selim
     * [x] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Peter
-    * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [x] Kfahr
     * [x] Create NPC Placeholder
@@ -464,9 +463,6 @@ All of these have placeholders or they wouldn't be listed in first place
     * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Trader
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Yalina
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [x] Bernard
