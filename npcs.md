@@ -224,16 +224,84 @@
 * [ ] Kane
 
 ## Argaes (025-028)
-* [ ] 
+* [ ] Julia
+* [ ] Clauquer
+* [ ] Blackwin
+* [ ] Forwin
+* [ ] Thurstan
+* [ ] Hamond
+* [ ] Soul Menhir (Asphodel Moors)
+* [ ] Styx the Traveler
+* [ ] Wolfgang
+* [ ] Lovers
+* [ ] Archibald
+* [ ] Darnel
+* [ ] Nigel
+* [ ] Golbenez
+* [ ] Cerhan
+* [ ] Eurni
+* [ ] Diary
+* [ ] Bennet
+* [ ] Edwin
+* [ ] Barbara Grey
+* [ ] J. P. Morbid
+* [ ] Aldred
+* [ ] Savaric
+* [ ] Reid's Ghost
+* [ ] Thurston
+* [ ] Caretaker
+* [ ] Joan
+* [ ] Alacrius
+* [ ] General Krukan
+* [ ] General Razha
+* [ ] General Terogan
+* [ ] Mirak (056-2)
 
 ## Candor (029)
+* We already finished it so I'll skip
 
-## Kaizei (030-036)
+## Kaizei (030-034)
+* [ ] Time Traveler (x2)
+* [ ] Jonathan
+* [ ] Avalia
+* [ ] Milis
+* [ ] Reino
+* [ ] Oswal
+* [ ] Taito
+* [ ] Rikhard
+* [ ] Akseli
+* [ ] Aaron
+* [ ] Iivo
+* [ ] Mo
+* [ ] Lorrie
+* [ ] Curlee
+* [ ] Vellamo
+* [ ] Ismo
+* [ ] Eljas
+* [ ] Chief Warrick
+* [ ] Veneri
+* [ ] Valjas
+* [ ] Halas
+* [ ] Kilis
+* [ ] Osmo
+* [ ] Urmas
+* [ ] Verneri
+* [ ] Orum's Homunculus
+* [ ] AniManOMat
+* [ ] Angela
+* [ ] Frozenbeard
+* [ ] Cindy
+* [ ] Kimarr
+* [ ] Birrod
+* [ ] Yerrnk
+* [ ] Khoenan the Traveler
 
-## Tonori (041-043)
-
-## Kaizei (045-047)
+## Ship (035-036)
+* [ ] Bunkmaster Phict
+* [ ] Bunkmaster Daban
 
 ## Iilia Inn (048-056)
+* Not important right now
 
 ## Doomsday (057-099)
+* Not important right now
