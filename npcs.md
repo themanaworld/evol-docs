@@ -1,3 +1,42 @@
+# Development Overview Checklist
+* [ ] Crafting
+    * [ ] Nicholas
+
+# Quest Playtesting Checklist
+* [ ] Hurnscald Robberies
+    * [ ] Old Man
+    * [ ] Old Woman
+    * [ ] Milly
+    * [ ] Inspector
+    * [ ] Sabine
+    * [ ] Nurse
+    * [ ] Malik
+    * [ ] bookcase
+    * [ ] Troupe Leader
+* [ ] Slime Soup
+    * [ ] Mikhail
+    * [ ] Bernard
+* [ ] Forest Bow
+    * [ ] Alan
+    * [ ] Jack
+* [ ] Wooden Shield
+    * [ ] Jack
+
+# New in TMW rEvolt
+All of these have placeholders or they wouldn't be listed in first place
+
+## Argaes
+* [x] Andrei
+* [ ] Snarfles
+* [x] Confused Tree
+* [ ] Galimatia
+* [ ] Morcant
+* [x] Yannika
+* [x] Barron
+* [ ] Thamas
+* [ ] Nunia
+
+
 # NPCs per Map and Region
 
 ## Tonori (001-006)
@@ -145,9 +184,10 @@
 * [ ] Nina the Traveler
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Troupe Leader
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Troupe Leader
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+    * **WARNING** NPC Moved
 * [ ] Candide
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
@@ -300,20 +340,24 @@
     * [ ] NPC Quests etc.
 
 ## Woodlands (007-009)
+* [ ] General Store
+    * [x] Placeholder
+    * [ ] Give him a name
+    * [ ] Give him some stocks
 * [ ] Voltain
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Valia
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] George the Pirate
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Banu
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Hinnak
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Diryn the Traveler
     * [ ] Create NPC Placeholder
@@ -321,89 +365,103 @@
 * [ ] Andra
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Mikhail
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Jack
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Old Woman
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Mikhail
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Jack
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Old Woman
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Water Pump
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Constable Bob
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Old Man
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Old Man
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Ian
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Milly
-    * [ ] Create NPC Placeholder
+* [x] Milly
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Sabine
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Soul Menhir
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Sabine
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Soul Menhir
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Bookcase → **Simon** *Rewrite Rename*
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Wyara
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
+    * [x] Status Reset functionality
     * [ ] NPC Quests etc.
 * [ ] Entertainer
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Alan
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Drinker 1 and 2
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Nicholas
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Apprentice → **Donald** *Rewrite Rename*
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Alan
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Drinker 1 and 2 → **Ledd and Mitz** *Rewrite Rename*
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Recepcionist → **Melania** *Rewrite Rename*
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Apprentice → ***Macgowan** *Rewrite Rename*
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+* [x] Nicholas
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Airlia
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Olana
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Doctor
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Melinda
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Doctor
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+    * [ ] Eyepatch and Axe Hat
+* [x] Melinda
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Selim
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Peter
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Kfahr
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Inspector
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Kfahr
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+    * [ ] Setzer Quest
+* [x] Inspector
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Richard
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Bar Note
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+    * [x] Create NPC Placeholder
+    * [ ] NPC Quests etc. (BANKER)
+* [x] Bar Note
 * [ ] 009-2 Book of potaffe transmutation
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Nurse
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Nurse
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+    * [ ] Axe Hat
 * [ ] Lena
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Trader
     * [ ] Create NPC Placeholder
@@ -411,9 +469,9 @@
 * [ ] Yalina
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Bernard
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [x] Bernard
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
 * [ ] Recptioninst
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
@@ -433,7 +491,7 @@
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Celestia
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 
 ## Woodlands (010-012)
@@ -474,10 +532,10 @@
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Auldsbel
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Oscar
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Rauk
     * [ ] Create NPC Placeholder
@@ -498,7 +556,7 @@
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Blossom
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Mana Seed
     * [ ] Create NPC Placeholder
@@ -582,17 +640,18 @@
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Angus
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Miners Bookcase (Bookcase 38, 018-2)
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Caul
-    * [ ] Create NPC Placeholder
+    * [x] Create NPC Placeholder
     * [ ] NPC Quests etc.
-* [ ] Malek
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
+* [ ] Malek → **Malik** *Rewrite Rename*
+    * [x] Create NPC Placeholder
+    * [x] NPC Quests etc.
+    * [ ] Gems dealing
 * [ ] Evil Obelisk
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
