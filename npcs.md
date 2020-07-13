@@ -207,7 +207,7 @@
 * [ ] Evil Sword
 * [ ] Mine Bookcase
 
-## Icelands (019-020)
+## Kaizei (019-020)
 * [ ] Snowman
 * [ ] Santa's Helper
 * [ ] Gobmel
@@ -223,6 +223,17 @@
 * [ ] Taylor
 * [ ] Kane
 
+## Argaes (025-028)
+* [ ] 
 
+## Candor (029)
 
+## Kaizei (030-036)
 
+## Tonori (041-043)
+
+## Kaizei (045-047)
+
+## Iilia Inn (048-056)
+
+## Doomsday (057-099)
