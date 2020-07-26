@@ -871,6 +871,24 @@ Example: see below.
 
 ---------------------------------------
 
+*htiprevkey it;
+
+Moves the hash table iterator back to the previous key.
+
+---------------------------------------
+
+*htifirstkey it;
+
+Moves the hash table iterator back to the first key.
+
+---------------------------------------
+
+*htilastkey it;
+
+Moves the hash table iterator to the very last key.
+
+---------------------------------------
+
 *hticheck it;
 
 Check if the iterator traversed over all keys. Returns 1, if it didn't,
@@ -1000,3 +1018,48 @@ Return false if id is not instance id.
 Example:
     .instid = 1;
     mes(str(isinstance(.instid));
+
+---------------------------------------
+
+*readbattleparam(<account id>, <UDT_ constant>)
+
+Returns the battle_status info of the target player for the given UDT_ type.
+
+---------------------------------------
+
+*instanceowner({<instance id>})
+
+Returns the account id of the player that owns the instance.
+
+---------------------------------------
+
+*aggravate(<mob GID>)
+
+Makes the target monster hostile towards the attached player, as if they
+attacked the monster.
+
+---------------------------------------
+
+*getnpcsubtype({<NPC id>})
+
+Returns the subtype (shop, script, ...) of the target NPC.
+
+0: warp
+1: shop
+2: script
+3: cash shop
+4: tomb
+
+---------------------------------------
+
+*kick(<account id>{, <reason>})
+*kick("<char name>"{, <reason>})
+
+Kicks the target player from the server (similar to @kick) for the specified
+reason:
+
+  0: Authentication failed
+  2: Already logged in (dual-login)
+  9: Too many connections from the same IP address
+ 15: Kicked by a GM (same as @kick)
+115: Player is banned
