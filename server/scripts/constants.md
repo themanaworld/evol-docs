@@ -364,6 +364,7 @@
 - `mf_pairship_endable`: 58
 - `mf_nostorage`: 59
 - `mf_nogstorage`: 60
+- `mf_nopet`: 61
 
 ### Cell Properties
 
@@ -577,6 +578,8 @@
 - `bSetMDefRace`: 2060
 - `bAddRaceTolerance`: 2061
 - `bAddMaxWeight`: 2062
+- `bSubDefEle`: 2063
+- `bMagicSubDefEle`: 2064
 
 ### Equip index
 
@@ -3657,7 +3660,7 @@
 - `MER_SWORDMAN09`: 6045
 - `MER_SWORDMAN10`: 6046
 
-### checkquest
+### questprogress
 
 - `HAVEQUEST`: 0
 - `PLAYTIME`: 1
@@ -5035,11 +5038,19 @@
 - `LANG_ON_SEA`: 1
 - `LANG_IN_SHIP`: 2
 
+### Language constants
+
+- `LANG_EN`: 0
+- `LANG_FR`: 1
+- `LANG_ES`: 2
+- `LANG_DE`: 3
+- `MAX_LANG`: 3
+
 ### Misc settings
 
 - `CHEST_WAITTIME`: 900
 - `debug`: 0
-- `SERVER_USES_VAULT`: 0
+- `SERVER_USES_VAULT`: 1
 
 
 ## Hardcoded Constants (source)
