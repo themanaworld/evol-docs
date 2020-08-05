@@ -3,24 +3,26 @@
     * [ ] Nicholas
 
 # Quest Playtesting Checklist
-* [ ] Hurnscald Robberies
-    * [ ] Old Man
-    * [ ] Old Woman
-    * [ ] Milly
-    * [ ] Inspector
-    * [ ] Sabine
-    * [ ] Nurse
-    * [ ] Malik
-    * [ ] bookcase
-    * [ ] Troupe Leader
-* [ ] Slime Soup
-    * [ ] Mikhail
-    * [ ] Bernard
-* [ ] Forest Bow
-    * [ ] Alan
-    * [ ] Jack
-* [ ] Wooden Shield
-    * [ ] Jack
+* [x] Hurnscald Robberies
+    * [x] Old Man
+    * [x] Old Woman
+    * [x] Milly
+    * [x] Inspector
+    * [x] Sabine
+    * [x] Nurse
+    * [x] Malik
+    * [x] bookcase
+    * [x] Troupe Leader
+* [x] Slime Soup
+    * [x] Mikhail
+    * [x] Bernard
+* [x] Forest Bow
+    * [x] Alan
+    * [x] Jack
+* [x] Wooden Shield
+    * [x] Jack
+* [x] Bone Knife
+    * [x] Kfahr
 
 # New in TMW rEvolt
 All of these have placeholders or they wouldn't be listed in first place
