@@ -449,12 +449,15 @@ Example:
 
 ---------------------------------------
 
-*npcwalkto x, y;
+*npcwalkto x, y{, "npc name"};
 
 This command start walking attached npc to position x,y.
+A NPC Name or NPC ID can also be supplied.
 
 Example:
     npcwalkto 10, 10;
+    npcwalkto 10, 10, "Andrei";
+    npcwalkto 10, 10, getnpcid("Andrei");
 
 ---------------------------------------
 
@@ -489,6 +492,18 @@ Default mask is 1.
 Example:
     setmapmask "test", 1;  // default
     setmapmask "test", 3;  // 1 + 2
+
+---------------------------------------
+
+*sendmapmask mask{, playerName};
+
+Send a custom map mask to a player only.
+These changes will not be saved and will vanish if player leaves map or refreshes.
+Defaults to attached player.
+
+Example:
+    sendmapmask 1;  // default
+    sendmapmask 3, "Andrei";  // 1 + 2 to Andrei
 
 ---------------------------------------
 
