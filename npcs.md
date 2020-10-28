@@ -32,10 +32,10 @@ All of these have placeholders or they wouldn't be listed in first place
 * [ ] Snarfles
 * [x] Confused Tree
 * [ ] Galimatia
-* [ ] Morcant
+* [x] Morcant
 * [x] Yannika
 * [x] Barron
-* [ ] Thamas
+* [x] Thamas
 * [ ] Nunia
 
 
@@ -266,48 +266,6 @@ All of these have placeholders or they wouldn't be listed in first place
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Sema
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Tybalt (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Nicolas (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Elanore (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Aisha (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Nina (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Ian (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Luca (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Ekinu (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Ryan (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Ishi (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Sandra (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Vincent (2006)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Time Traveler (X2)
-    * [ ] Create NPC Placeholder
-    * [ ] NPC Quests etc.
-* [ ] Ashley
     * [ ] Create NPC Placeholder
     * [ ] NPC Quests etc.
 * [ ] Old Chest (Crastur)
