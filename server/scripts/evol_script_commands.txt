@@ -1074,7 +1074,21 @@ Kicks the target player from the server (similar to @kick) for the specified
 reason:
 
   0: Authentication failed
+  1: No servers available.
   2: Already logged in (dual-login)
+  3: Speed hack detected.
+  4: Server full.
+  5: Sorry, you are underaged.
+  8: Duplicated login.
   9: Too many connections from the same IP address
+ 10: Not paid for this time.
+ 11: Pay suspended.
+ 12: Pay changed.
+ 13: Pay wrong ip.
+ 14: Pay game room.
  15: Kicked by a GM (same as @kick)
+ 16: Ban japan refuse.
+ 17: Ban japan refuse.
+ 18: Remained other account.
+100: Ip unfair.
 115: Player is banned
