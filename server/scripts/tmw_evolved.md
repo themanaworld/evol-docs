@@ -82,6 +82,7 @@ Sends the message if `TUTORIAL` is set.
 Came with Moubootaur Legends and is unused.
 
 #### narrator ( flag, str )
+```
 // Function to show narrator text. Accepts string args.
 // If first arg is a number N, then it represents bit flags.
 // Bit flags :
@@ -89,6 +90,7 @@ Came with Moubootaur Legends and is unused.
 //   0x2 -- blank line at the end
 //   0x4 -- use last "next;"
 //   0x8 -- don't use first "mesn;"
+```
 
 Came with Evol and is unused.
 
@@ -108,6 +110,7 @@ Checks if quest is current and updates to next if true.
 Returns true if it updated the quest.
 
 #### npctalkonce ( text{, delay=1{, function=npctalk3}} )
+```
 // Use a delay to prevent spams from NPC that display text without the
 // use of (a) close/next function(s).
 // Argument:
@@ -118,6 +121,7 @@ Returns true if it updated the quest.
 //      1 = npctalk
 //      2 = message
 // TODO: Use temp player var, because NPC var affect other players
+```
 
 #### rand2 ( min{, max} )
 Same as `rand` but for small numbers. Increases entropy.
@@ -204,10 +208,10 @@ Returns the merc link in M+
 Returns the homun link in M+
 
 #### mapexit ( )
-Does nothing. It won't even print a sensible error message in console.
+:warning: Deprecated. Does nothing. Error message in console won't be decent.
 
 #### destroy ( )
-Disable the current NPC.
+:warning: Deprecated. Disable the current NPC.
 
 #### npcaction
 Compatibility layer, do not use.
@@ -237,10 +241,10 @@ Alias for `setcamnpc` (if argument provided) or `restorecam` (otherwise)
 Alias for `sendmapmask`
 
 #### getmask
-Always return 1
+:warning: Deprecated. Always return 1
 
 #### if_then_else
-Alias for `(if ? then : else)` unary
+:warning: Deprecated. Alias for `(if ? then : else)` unary
 
 #### misceffect ( eff{, target} )
 Shows effect for everyone in area, centered in NPC or target if provided.
@@ -295,6 +299,47 @@ Creates a dummy monster for cutscenes. Returns the GID.
 Functions for ServerUpdate().
 
 ### String
+Safe string manipulation functions. Does not require PCRE.
+
+#### str(<int>)
+//     returns whatever is passed, converted to string
+
+#### startswith("<string>", "<search>")
+//     returns true if <string> begins with <search>
+
+#### endswith("<string>", "<search>")
+//     returns true if <string> ends with <search>
+
+#### capitalize("<string>")
+//     returns <string> with its first letter capitalized
+
+#### titlecase("<string>" {, "<delimiter>" {, <camel>}})
+returns <string> with the first letter of each word capitalized.
+if <camel> is true, the string is joined in a camelCase fashion
+
+#### camelcase("<string" {, "<delimiter>"})
+Alias for `titlecase` with camel set to True.
+
+#### zfill("<string>" {, <width> {, "<padding>"}})
+//     returns <string> padded to the left with <padding> up to width
+
+#### format_number(<integer> {, "<separator>"})
+//     formats a number properly
+
+#### fnum
+Alias for format_number
+
+#### strip("<string>")
+//     removes spaces at the start and end
+
+#### reverse("<string>")
+//     returns <string> reversed
+
+#### repeat("<string>", <multiplier>)
+//     repeats <string> many times and returns it
+
+#### shuffle("<string>")
+//     returns <string> shuffled
 
 ### Array
 Deals with arrays.
@@ -312,8 +357,8 @@ return the index of the first occurence of <needle> in <array>
 if not found it returns -1
 
 #### array_rfind(<array>, <needle>{, <neq>})
-//     return the index of the last occurence of <needle> in <array>
-//     if not found it returns -1
+return the index of the last occurence of <needle> in <array>
+if not found it returns -1
 
 #### array_exists(<array>, <needle>{, <neq>})
 //     return true or false accordingly if <needle> is found in <array>
@@ -340,15 +385,15 @@ if not found it returns -1
 //     returns the first element of the array and removes it, while shifting left
 
 #### array_unshift(<array>, <value>)
-//     adds <value> to the start of the array, while shifting right
-//     returns the new size
+adds <value> to the start of the array, while shifting right
+returns the new size
 
 #### array_pop(<array>)
 //     returns the last element of the array and removes it
 
 #### array_push(<array>, <value>)
-//     adds <value> to the end of the array
-//     returns the new size
+adds <value> to the end of the array
+returns the new size
 
 #### array_shuffle(<array>)
 //     shuffles the array
@@ -357,23 +402,48 @@ if not found it returns -1
 //     allows entries to appear up to <threshold> in the array
 
 #### array_diff(<array1>, <array2>{, <array>...}, <array>)
+```
 //     compares array1 against one or more other arrays and fills the last array
 //     with the values in array1 that are not present in any of the other arrays
 //     returns the number of entries not matching
+```
 
 #### array_filter(<array>, "<function>")
 //     filters the array using a callback function
 
 #### array_highest(<array>)
-//     Returns the index of the highest value in <array>
-//     NOTE: Array must be an INT array!
+Returns the index of the highest value in <array>\
+NOTE: Array must be an INT array!
 
 #### relative_array_random(<array: 0, {[value, probability]..}>)
+```
 //     returns a random entry from the array, by relative probability
 //     the first key of the array should be 0 and every entries are a tuple
 //     of [value, probability]
+```
 
 ### Math
+
+#### abs(<int>)
+//    returns the absolute value of the passed integer
+
+#### lognbaselvl({<multiplicator>{, <min value>}})
+//     returns BaseLevel * logn (BaseLevel * alpha).
+
+#### log2(<int>)
+//    returns the log base 2 of the passed integer, up to 20 (2**20=1.048.576) (round down always)
+
+#### is_between ( lower, higher, target)
+// result is: `lower < target <= higher`
+
+#### limit ( lower, target, higher)
+:warning: Deprecated. Use `cap_value` instead.
+
+// forces the equation: `lower <= target <= higher`.
+// Note it still works if higher and target values are swapped.
+
+#### ponderate_avg ( arg1, sub1, arg2, sub2)
+// result is the ponderate average.
 
 ### Bitwise
 
@@ -414,6 +484,21 @@ Returns bitwise_set
 
 ### Permissions
 
+#### is_admin ( {account ID} )
+Returns true if is an admin, with all permissions
+
+#### is_trusted ( {account ID} )
+Returns true if is a staff member and receives ClientVersion
+
+#### is_dev ( {account ID} )
+Returns true if is a dev, and can listen to `@wgm`
+
+#### is_evtc ( {account ID} )
+Returns true if is an event coordinator, and can spawn
+
+#### is_gm ( {account ID} )
+Returns true if is a game master, and can jail
+
 ## General Purpose Framework Functions
 These are tools used by NPCs and scripts; But generally not by other functions
 
@@ -431,8 +516,77 @@ Same as menuint, but arguments are strings. Uses `@menuret$`.
 Same as menuint but takes a single array and then extrapolates it.
 
 ### Time
+Contains utilites related to time management
+
+#### now ( )
+Same as `gettimetick(2)`
+
+#### santime ( )
+Same as `gettimetick(2)`. Unused, from Moubootaur Legends.
+
+#### time_from_ms ( )
+Undocumented
+
+#### time_from_seconds ( )
+Undocumented
+
+#### time_from_minutes ( )
+Undocumented
+
+#### time_from_hours ( )
+Undocumented
+
+#### time_from_days ( )
+Undocumented
+
+#### FuzzyTime(<unix timestamp>{, options=3{, precision=2}})
+```
+//     gives time in a human-readable  format
+//
+//     <options> is bitmasked:
+//     1  do not show "ago" when in past
+//     2  do not show "in" when in the future
+//     4  show "from now" instead of "in" when in the future
+//
+//     <precision> is the number of units to show,
+//     by default uses two (eg. 2m30s or 1h20m).
+//     Use '99' for max precision
+```
+
+#### time_stamp ( )
+Undocumented
+
+#### HumanTime
+:warning: Deprecated.
+The old version of FuzzyTime.
+DO NOT REUSE.
 
 ### Timer
+Expands the powers of `addtimer`
+
+#### areatimer("<map>", <x1>, <y1>, <x2>, <y2>, <tick>, "<npc>::<event>")
+`addtimer` in area
+
+#### areadeltimer("<map>", <x1>, <y1>, <x2>, <y2>, "<npc>::<event>")
+`deltimer` in area
+
+#### areatimer2
+Same as `areatimer` but cancels running timers of same event
+
+#### addtimer2
+Same as addtimer but deletes any existing timer with same event
+
+#### maptimer("<map>", <tick>, "<npc>::<event>")
+`addtimer` in whole map
+
+#### maptimer2
+Same as `maptimer` but cancels running timers of same event
+
+#### mapdeltimer("<map>", "<npc>::<event>")
+Cancels a timer event in the whole map
+
+####  partytimer("<map>", <tick>, "<npc>::<event>", partyid)
+A map timer, but filters the party
 
 ### Goodbye
 
@@ -460,11 +614,31 @@ Closes the dialog, then opens storage.
 //     can also display an emote
 
 #### goodbye2 ( {emote} )
+```
 //     Waits for the player to press close, displays a canned message,
 //     ends execution.
 //     Can also display an emote
+```
 
 ### Vault
+Contains the core functions for the Vault.
+
+#### getvaultid ( )
+Returns your Vault ID, or zero, if not a Vault user.
+
+#### getvaultexp ( exp )
+Grants Mirror Lake EXP points if you have a Vault ID.
+
+#### vaultOnLogin ( )
+Handles login for players using the Mirror Lake.
+
+#### vaultOnLogout ( )
+Flushes mirror lake data to TMW Vault.
+
+#### MirrorLakeSendTo ( World, Lake )
+Sends a signal to the Mana Launcher to move you to a different world.
+
+This signal is sent to ManaPlus and then relayed to the Launcher.
 
 ## Pre-Loading Functions
 Most of these are scripts, with some exceptions. They are pre-loading because they
@@ -493,10 +667,24 @@ Checks if player have enough space for the items.
 Closes dialog if false.
 
 ### random-talk
+Random dialog for various random NPCs.
+
+They take no arguments.
+
+#### Functions:
+-  hello
+-  moubootalk
+-  villagertalk
+-  sailortalk
+-  legiontalk
+-  asleep
+-  studenttalk
+
 
 ### inc_sc_bonus
 
 #### SC_Bonus ( delay, SC, min{, max} )
+```
 //    Applies effects for INC_* (STR doesn't exist)
 //    Valid values: INCAGI INCVIT INCINT INCDEX INCLUK INCHIT INCFLEE SC_FURY
 //    Doesn't works: SC_STRUP
@@ -509,6 +697,7 @@ Closes dialog if false.
 //    .@type     SC_*
 //    .@min      Min amount of type
 //    .@max      Max amount of type (optional)
+```
 
 #### SC_Bonus2(delay, SC1, val1, val2)
 Same as SC_Bonus, but when the SC takes two values.
@@ -563,6 +752,8 @@ Returns true if id is not a boss monster.
 
 ### quests
 
+Contains quest handles, such as `QuestSagatha`; `elanore_exp`; `Valon`; etc.
+
 ## Main Functions
 These are functions and scripts used largely by NPCs.
 
@@ -603,7 +794,7 @@ A barber NPC. If intro is not set, can be used by dialogs.
 
 ### dailyquest
 
-:warn: Deprecated.
+:warning: Deprecated.
 Requires a full rewrite.
 DO NOT REUSE.
 
@@ -612,6 +803,10 @@ DO NOT REUSE.
 Configures ferries.
 
 ### travelers
+Could use a rewrite.
+
+#### Traveler ( )
+The traveler NPC
 
 ### game_rules
 
@@ -622,25 +817,53 @@ Show the rules for the player.
 
 #### Inn ({price})
 
-And old function for inns; Should not be used.
+:warning: Deprecated. And old function for inns; Should not be used.
+Needs a rewrite.
 
 ### magic
 
-Contains the old functions for magic NPCs.
+:warning: Deprecated. Contains the old functions for magic NPCs.
 
 ### mob_points
 
+#### fix_mobkill(mobID)
+Manual fix for scripted mobs
+
+#### MobPoints ( )
+Core function, for monster points and monster-killing quests where map is ignored.
+
 ### process_equip
+
+:warning: Deprecated.
+Documentation does not exist.
+
+Seems to be a feeble attempt to extract dye colors for Inspector Quest.
 
 ### slot_machine
 
+#### SlotMachine ( )
+A Slot machine
+
+#### SlotMachineSymbol ( )
+Private.
+
 ### soul_menhir
+
+#### SoulMenhir ( )
+:warning: Deprecated.
+A Soul Menhir. Require `@Xs`, `@Ys` and `@map$`.
+
+It is affected by the weird TMWA mess regarding save positions and is not working
+fully. Touching it should set both respawn point as location system of 000-0.
 
 ### water_bottle
 
+#### WaterBottle ( )
+Tool for filling water bottles (wells, water pumps, etc)
+
 ### evil_obelisk
 
-:warn: Deprecated.
+:warning: Deprecated.
 Used solely for Hurnscald Evil Obelisk.
 Requires hidden, undocumented PC variables.
 DO NOT USE.
@@ -648,6 +871,8 @@ DO NOT USE.
 ### lockpicking
 
 #### LockPicking ( )
+
+:warning: Deprecated.
 This is the original Iilia's lockpicking function, not Moubootaur Legends version.
 Therefore, it is not flexible and not fit for reuse.
 
@@ -658,11 +883,15 @@ Same as setting `.distance` OnInit, but warn players they need to move closer.
 
 #### CheckInventory
 
-:warn: Deprecated.
+:warning: Deprecated.
 Used solely for Trick'n'Treat.
 DO NOT USE.
 
 ### undead_debug
+Contains the NPC for Crypt debug.
+
+#### UndeadDebug ( )
+Function to obtain the items for the crpyt boss fights.
 
 ### headstyles
 
@@ -673,11 +902,19 @@ Creates a few variables:
 
 ### stat_reset
 
+#### StatReset ( )
+A stat reset NPC
+
 ### quiz
+
+:warning: :x: Deprecated.
+The old Riddle System from TMWA.
+
+Must be replaced.
 
 ### dynamic_menu
 
-:warn: Deprecated.
+:warning: Deprecated.
 Use menuint and rif instead.
 DO NOT REUSE.
 
@@ -691,7 +928,17 @@ Creates a few variables:
 
 ### motd
 
+:warning: :x: Deprecated.
+Contains the old MOTD configuration which is not flexible.
+
+It needs to be replaced.
+
 ### motdconfig
+
+:warning: :x: Deprecated.
+Contains the old MOTD configuration which is not flexible.
+
+It needs to be replaced.
 
 ### miriam
 
@@ -736,8 +983,161 @@ Updates `LOCATION$` variable
 Warps home and updates LOCATION$
 
 ### weather
+Controls world seasons. But they are disabled in TMW.
+Therefore, it controls weather magic.
+
+A few commands are defined:
+- `@wsnow`
+- `@wrain`
+- `@wsand`
+- `@wevil`
+- `@wnight`
+- `@wclear`
+- `@wreset`
+- `@wset`
+
+#### "#WeatherCore"::climate(mapid)
+Returns the climate setting
+
+#### "#WeatherCore"::weather(weather{, mapid})
+Returns true if weather is present in map
+
+#### "#WeatherCore"::weather_override(weather, duration{, mapid, override=false})
+Modifies the weather on mapid for duration.
+If override is set, disregard climate restrictions.
 
 ### marriage
+Contain private functions for marriage.
+
+// to use, create a duplicate:
+```c
+001-1,30,31,0 duplicate(marriage)     name#x1,y1,x2,y2        NPCID
+001-1,30,31,0 duplicate(marriage)     name#range      NPCID
+```
+
+### npcmovegraph
+Contains the needed utilities for walking NPCs.
+
+#### initmovegraph ( )
+Initializes a walking NPC
+
+#### setmovegraphcmd ( fromPositionLabel, toPositionLabel [,moveChanceWeight [,moveFlags]], postCommand, ...);
+```
+ * This function manipulates NPC moving graph. Before calling it, make sure
+ * `initmovegraph' was called. The function accepts 3-5 parameters (many times):
+ * fromPositionLabel, toPositionLabel -- starting and ending position of NPC move
+ * moveChanceWeight -- positive integer, represents the chance of moving in given direction. (optional)
+ * moveFlags -- if .mg_flags & moveFlags != 0, move is possible. (optional)
+ * postCommand -- either "moveon" (start moving to next location straight after arriving from
+ *                fromPositionLabel to toPositionLabel) or a semicolon-separated set of commands
+ *                ("wait 3", "emote 5" etc, see `execmovecmd') that will be executed after arrival.
+ *                The commands don't have to end with ";moveon", it's executed in the end by default.
+```
+
+#### execmovecmd
+Private? Commands are:
+- moveon
+- dir
+- sit
+- stand
+- wait
+- emote
+- class
+- warp
+- call
+  - calls a function
+- speed
+- say
+- debugmes
+- flags
+- flags_0
+- flags_1
+
+#### firstmove
+```
+// initial actions for npc when using move graphs.
+// function can accept 2 arguments:
+//    1: action sequence, for example "speed 200; dir 4". Default is "moveon"
+//    2: start point label. Default is #0 from move graph labels
+```
+
+#### dographmovestep
+???
+
+#### npc_pausemove
+Pauses NPC move
+
+#### npc_resumemove
+Resumes NPC move
+
+#### npc_turntoxy (X, Y)
+Turn NPC towards an object at position (X,Y)
+
+#### getnextmovecmd
+Private?
+
+#### getrandompoint(x1,y1,x2,y2)
+Private?
+```
+//    -- Get a random walkable point within a map rectangle
+//    x1, y1 -- top-left corner of rectangle
+//    x2, y2 -- bottom-right corner of rectangle
+//  Returns 0 on success and -1 on error;
+//  Since we cannot return multiple values, the random
+//  coordinates are stored in NPC variables .move__rand_x, .move__rand_y
+```
+
+#### findmovegraphlabel
+Private?
+
+#### mg_npcwalkto
+Private?
+```
+// wrapper function for npcwalkto. It can accept 4 parameters.
+// If #3 and #4 params are set, the walkto location is chosen
+//   from rectangle (x1,y1,x2,y2).
+// It sets the npc variables .move_target_x, .move_target_y
+//   that are used to resume NPC walking
+// Returns 1 if walking is possible, 0 otherwise;
+```
+
+#### movetonextpoint
+Private?
+
+### npcmove
+Contains the needed utilities for walking NPCs.
+
+#### initpath
+No documentation available
+
+#### domoveaction
+No documentation available
+Internal commands exist.
+
+- move
+- dir
+- wait
+- emote
+- class
+- warp
+- goto
+- rmove
+- speed
+- sit
+- stand
+
+#### movetonextpos
+No documentation available
+
+#### initialmove
+No documentation available
+
+#### getmovecmd
+No documentation available
+
+#### domovestep
+No documentation available
+
 
 ## Items Functions
 used with callfunc(), when it was quite too much script code to be added on
@@ -764,6 +1164,19 @@ These are mostly NPCs responsible for cleaning up the whole script and functions
 interface so NPCs can be loaded after.
 
 ### Scoreboards
+
+Contains the Leaderboards and is one of the most expensive components.
+
+- HallOfGuild
+- HallOfFortune
+- HallOfLevel
+- HallOfJob
+- HallOfAcorns (not used)
+- HallOfLethality (removed)
+- HallOfAlmanach
+- HallOfGame
+
+Command: `@scoreboard` and `@scoreboards`
 
 ### Global Event Handler
 
