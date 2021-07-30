@@ -26,62 +26,62 @@ In other words: They are nested by NPCs, scripts and functions.
 
 ### Main
 
-#### menuimage ( image, string )
+#### \*menuimage ( image, string )
 
 Formatting for select
 
-#### dnext ( )
+#### \*dnext ( )
 Same as next, but honors `GSET_LONGMENU_DENSITY`
 
-#### menuaction ( str )
+#### \*menuaction ( str )
 Returns `[str]`
 
-#### setq1 ( quest, val )
+#### \*setq1 ( quest, val )
 Sets quest field 1.
 
-#### setq2 ( quest, val )
+#### \*setq2 ( quest, val )
 Sets quest field 2.
 
-#### setq3 ( quest, val )
+#### \*setq3 ( quest, val )
 Sets quest field 3.
 
-#### setqtime ( quest, val )
+#### \*setqtime ( quest, val )
 Sets quest time field. Unused and does not work properly.
 
-#### mesn ( {name} )
+#### \*mesn ( {name} )
 Header for NPC dialog. Use it before NPC start talking.
 
-#### mesq ( message )
+#### \*mesq ( message )
 Sends a NPC message enclosed in quotes. You should give it an `l()` function.
 
-#### g ( female, male )
+#### \*g ( female, male )
 Returns something variating with gender.
 Is totally useless, difficult to translate, and its use is generally frowned upon.
 
-#### b ( message )
+#### \*b ( message )
 Makes the message bold
 
-#### col( message{, color} )
+#### \*col( message{, color} )
 Send message in color. Defaults to color code 9.
 
-#### adddefaultskills ( )
+#### \*adddefaultskills ( )
 Ensure a player have the default skills (sit, walk, talk, resync, etc.)
 
-#### addremovemapmask ( map, mask, mask )
+#### \*addremovemapmask ( map, mask, mask )
 Updates map mask. I'm not sure how it actually works.
 
-#### mesc ( message, {color} )
+#### \*mesc ( message, {color} )
 Same as `mes(col(message{, color}))`
 
-#### get_race ( {class} )
+#### \*get_race ( {class} )
 Returns the human readable form of your race (from `$@allraces$`)
 Currently unused and broken.
 
-#### tutmes ( message, {header=Tutorial, headerfirst=True} )
+#### \*tutmes ( message, {header=Tutorial, headerfirst=True} )
 Sends the message if `TUTORIAL` is set.
 Came with Moubootaur Legends and is unused.
 
-#### narrator ( flag, str )
+#### \*narrator ( flag, str )
 ```
 // Function to show narrator text. Accepts string args.
 // If first arg is a number N, then it represents bit flags.
@@ -94,22 +94,22 @@ Came with Moubootaur Legends and is unused.
 
 Came with Evol and is unused.
 
-#### speech ( flag, string )
+#### \*speech ( flag, string )
 See narrator, but for NPCs
 
-#### npcdebug ( message )
+#### \*npcdebug ( message )
 Shows debug message on server console if `.debug` is set.
 
-#### askyesno ( )
+#### \*askyesno ( )
 Ask players to select between YES and NO.
 
 Returns the choice in `ASK_YES` or `ASK_NO` constants.
 
-#### compareandsetq ( quest, current, next )
+#### \*compareandsetq ( quest, current, next )
 Checks if quest is current and updates to next if true.
 Returns true if it updated the quest.
 
-#### npctalkonce ( text{, delay=1{, function=npctalk3}} )
+#### \*npctalkonce ( text{, delay=1{, function=npctalk3}} )
 ```
 // Use a delay to prevent spams from NPC that display text without the
 // use of (a) close/next function(s).
@@ -123,299 +123,299 @@ Returns true if it updated the quest.
 // TODO: Use temp player var, because NPC var affect other players
 ```
 
-#### rand2 ( min{, max} )
+#### \*rand2 ( min{, max} )
 Same as `rand` but for small numbers. Increases entropy.
 
-#### any( <arg>{, ...<arg>} )
+#### \*any( <arg>{, ...<arg>} )
 returns one argument randomly
 
-#### any_of( <array> )
+#### \*any_of( <array> )
 returns any member of the array
 
-#### die ( )
+#### \*die ( )
 Kills the player. If `$HARDCORE` is true, it'll set `@grace` variable.
 This allows hardcore servers to NOT send players to the abyss when they were
 killed by script.
 
-#### ispvpmap( {mapid} )
+#### \*ispvpmap( {mapid} )
 Returns true if the map has PVP enabled.
 
-#### msObjective ( condition , message )
+#### \*msObjective ( condition , message )
 Function from Moubootaur Legends, colors `message` based if `condition` is true
 or not.
 
-#### getmap ( )
+#### \*getmap ( )
 Same as `getmapname()` but using `getmapxy()` instead.
 Performance was not measured.
 
-#### isin ( map, x1, y1, {[x2, y2][radius]} )
+#### \*isin ( map, x1, y1, {[x2, y2][radius]} )
 Verifies if the player is in the specific rectangle (or square, if radius is
 provided instead of a x2,y2 tuple)
 
-#### isat ( map, x1, y1 )
+#### \*isat ( map, x1, y1 )
 Same as `isin` but only for the specific tile.
 
-#### delinventorylist ( )
+#### \*delinventorylist ( )
 Clear output of getinventorylist()
 
-#### gf_accid / gf_charnameid / gf_charname / gf_charid / validatepin
+#### \*gf_accid / gf_charnameid / gf_charname / gf_charid / validatepin
 Moubootaur Legends functions. Should never be used.
 
-####  Exception( Message, {Flags{, Return Code}} )
+#### \* Exception( Message, {Flags{, Return Code}} )
 Error handling. See RB_ constants for flags which may be used.
 
-#### mescordialog ( text, color, {dialog=1} )
+#### \*mescordialog ( text, color, {dialog=1} )
 If dialog is set, sends text as a mesc. Otherwise, sends it as a dispbottom.
 
-#### itheal ( hp{, mp{, time}} )
+#### \*itheal ( hp{, mp{, time}} )
 // Delayed healing. Takes 3~5 seconds. Variates with Vit up to +100%.
 // The vit can have an additional 20% bonus as well.
 Mana regenerates instantly.
 
-#### sqldate ( {day variation, month variation} )
+#### \*sqldate ( {day variation, month variation} )
 Offsets and returns current date in SQL format
 
-#### set_aggro( monster{, mode=MD_AGGRESSIVE} )
+#### \*set_aggro( monster{, mode=MD_AGGRESSIVE} )
 Makes a monster aggressive. Can set other monster mobs as well, such as MD_LOOTER
 and MD_ASSIST.
 
-#### numdate ( )
+#### \*numdate ( )
 Special function which makes current date (ISO) a progressive number.
 eg. `20210730`.
 
 If `$@OVERRIDE_NUMDATE` is set, it'll return that instead.
 
-#### json_encode ( {varname, varvalue}, {varname 2, varvalue 2}... )
+#### \*json_encode ( {varname, varvalue}, {varname 2, varvalue 2}... )
 Formats a dictionary in JSON format.
 
-#### api_send ( code, data )
+#### \*api_send ( code, data )
 Dumps data into `api_export` table. Used by Mirror Lake.
 Code is an integer and data is a JSON-string.
 
-#### getquestlink ( quest )
+#### \*getquestlink ( quest )
 Returns the quest link in M+
 
-#### getmonsterlink ( mob )
+#### \*getmonsterlink ( mob )
 Returns the mob link in M+
 
-#### getpetlink ( pet )
+#### \*getpetlink ( pet )
 Returns the pet link in M+
 
-#### getmercenarylink ( merc )
+#### \*getmercenarylink ( merc )
 Returns the merc link in M+
 
-#### gethomunculuslink ( homun )
+#### \*gethomunculuslink ( homun )
 Returns the homun link in M+
 
-#### mapexit ( )
+#### \*mapexit ( )
 :warning: Deprecated. Does nothing. Error message in console won't be decent.
 
-#### destroy ( )
+#### \*destroy ( )
 :warning: Deprecated. Disable the current NPC.
 
-#### npcaction
+#### \*npcaction
 Compatibility layer, do not use.
 
-#### gmlog ( message )
+#### \*gmlog ( message )
 Writes message to GM Log.
 
-#### getx ( )
+#### \*getx ( )
 Returns X position
 
-#### gety ( )
+#### \*gety ( )
 Returns Y position
 
-#### getnpcx ( )
+#### \*getnpcx ( )
 Returns .x variable
 
-#### getnpcy ( )
+#### \*getnpcy ( )
 Returns .y variable
 
-#### title
+#### \*title
 Alias for `setnpcdialogtitle`
 
-#### camera
+#### \*camera
 Alias for `setcamnpc` (if argument provided) or `restorecam` (otherwise)
 
-#### mapmask
+#### \*mapmask
 Alias for `sendmapmask`
 
-#### getmask
+#### \*getmask
 :warning: Deprecated. Always return 1
 
-#### if_then_else
+#### \*if_then_else
 :warning: Deprecated. Alias for `(if ? then : else)` unary
 
-#### misceffect ( eff{, target} )
+#### \*misceffect ( eff{, target} )
 Shows effect for everyone in area, centered in NPC or target if provided.
 
-#### selfeffect ( eff{, target} )
+#### \*selfeffect ( eff{, target} )
 Shows effect for yourself, centered in NPC or target if provided.
 
-#### fakenpcname
+#### \*fakenpcname
 Alias for `setnpcdisplay`
 
-#### npcwarp ( x, y{, npcid} )
+#### \*npcwarp ( x, y{, npcid} )
 Warps a NPC without animations.
 
-#### get
+#### \*get
 Alias for `getvariableofnpc`
 
-#### sc_check
+#### \*sc_check
 Alias for `getstatus`. If the second argument is not passed, defaults to `0`.
 
-#### wgm
+#### \*wgm
 Sends a `@request`.
 
-#### registercmd
+#### \*registercmd
 Alias for `bindatcmd`.
 
-#### iscollision
+#### \*iscollision
 Alias for `checknpccell` (with `cell_chkpass`)
 
-#### readparam2
+#### \*readparam2
 Alias for `readbattleparam` but without asking for account ID.
 
-#### updateskill
+#### \*updateskill
 Alias for `skill` with flag 0.
 
-#### npctalk2
+#### \*npctalk2
 Same as `npctalk` but with arguments swapped.
 
-#### learnskill
+#### \*learnskill
 Same as `updateskill`, but only runs if your skill level is less than provided.
 If no skill level is given, defaults to 1.
 
-#### spawndummy ( map, x, y, ID{, name{, event}} )
+#### \*spawndummy ( map, x, y, ID{, name{, event}} )
 Creates a dummy monster for cutscenes. Returns the GID.
 
-#### DelItemFromEveryPlayer( ID )
-#### DelAccRegFromEveryPlayer( KEY )
-#### DelChrRegFromEveryPlayer( KEY )
-#### DelQuestFromEveryPlayer( ID )
-#### ReplaceItemFromEveryPlayer( OldID, NewID )
-#### ReplaceSkillFromEveryPlayer( OldID, NewID )
+#### \*DelItemFromEveryPlayer( ID )
+#### \*DelAccRegFromEveryPlayer( KEY )
+#### \*DelChrRegFromEveryPlayer( KEY )
+#### \*DelQuestFromEveryPlayer( ID )
+#### \*ReplaceItemFromEveryPlayer( OldID, NewID )
+#### \*ReplaceSkillFromEveryPlayer( OldID, NewID )
 
 Functions for ServerUpdate().
 
 ### String
 Safe string manipulation functions. Does not require PCRE.
 
-#### str(<int>)
+#### \*str(<int>)
 //     returns whatever is passed, converted to string
 
-#### startswith("<string>", "<search>")
+#### \*startswith("<string>", "<search>")
 //     returns true if <string> begins with <search>
 
-#### endswith("<string>", "<search>")
+#### \*endswith("<string>", "<search>")
 //     returns true if <string> ends with <search>
 
-#### capitalize("<string>")
+#### \*capitalize("<string>")
 //     returns <string> with its first letter capitalized
 
-#### titlecase("<string>" {, "<delimiter>" {, <camel>}})
+#### \*titlecase("<string>" {, "<delimiter>" {, <camel>}})
 returns <string> with the first letter of each word capitalized.
 if <camel> is true, the string is joined in a camelCase fashion
 
-#### camelcase("<string" {, "<delimiter>"})
+#### \*camelcase("<string" {, "<delimiter>"})
 Alias for `titlecase` with camel set to True.
 
-#### zfill("<string>" {, <width> {, "<padding>"}})
+#### \*zfill("<string>" {, <width> {, "<padding>"}})
 //     returns <string> padded to the left with <padding> up to width
 
-#### format_number(<integer> {, "<separator>"})
+#### \*format_number(<integer> {, "<separator>"})
 //     formats a number properly
 
-#### fnum
+#### \*fnum
 Alias for format_number
 
-#### strip("<string>")
+#### \*strip("<string>")
 //     removes spaces at the start and end
 
-#### reverse("<string>")
+#### \*reverse("<string>")
 //     returns <string> reversed
 
-#### repeat("<string>", <multiplier>)
+#### \*repeat("<string>", <multiplier>)
 //     repeats <string> many times and returns it
 
-#### shuffle("<string>")
+#### \*shuffle("<string>")
 //     returns <string> shuffled
 
 ### Array
 Deals with arrays.
 
-#### array_pad ( array, size, value )
+#### \*array_pad ( array, size, value )
 prepend or append <value> until the array is of <size> size
 returns the amount added on success, or false (0) if nothing changed
 
-#### array_replace ( <array>, <needle>, <replace>{, <neq>} )
+#### \*array_replace ( <array>, <needle>, <replace>{, <neq>} )
 replace every occurence of <needle> with <replace>
 returns the number of replaced elements
 
-#### array_find ( <array>, <needle>{, <neq>} )
+#### \*array_find ( <array>, <needle>{, <neq>} )
 return the index of the first occurence of <needle> in <array>
 if not found it returns -1
 
-#### array_rfind(<array>, <needle>{, <neq>})
+#### \*array_rfind(<array>, <needle>{, <neq>})
 return the index of the last occurence of <needle> in <array>
 if not found it returns -1
 
-#### array_exists(<array>, <needle>{, <neq>})
+#### \*array_exists(<array>, <needle>{, <neq>})
 //     return true or false accordingly if <needle> is found in <array>
 
-#### array_count(<array>, <needle>{, <neq>})
+#### \*array_count(<array>, <needle>{, <neq>})
 //     counts the number of occurrence of <needle> in the <array>
 
-#### array_entries(<array>)
+#### \*array_entries(<array>)
 //     returns the number of non-empty entries
 
-#### array_remove(<array>, <needle>{, <neq>})
+#### \*array_remove(<array>, <needle>{, <neq>})
 //     removes every occurrence of <needle> in the <array> while shifting left
 
-#### array_reverse(<array>)
+#### \*array_reverse(<array>)
 //     reverses the array
 
-#### array_sum(<array>)
+#### \*array_sum(<array>)
 //     return the sum of every element of the array
 
-#### array_difference(<array>)
+#### \*array_difference(<array>)
 //     return the difference of every element of the array
 
-#### array_shift(<array>)
+#### \*array_shift(<array>)
 //     returns the first element of the array and removes it, while shifting left
 
-#### array_unshift(<array>, <value>)
+#### \*array_unshift(<array>, <value>)
 adds <value> to the start of the array, while shifting right
 returns the new size
 
-#### array_pop(<array>)
+#### \*array_pop(<array>)
 //     returns the last element of the array and removes it
 
-#### array_push(<array>, <value>)
+#### \*array_push(<array>, <value>)
 adds <value> to the end of the array
 returns the new size
 
-#### array_shuffle(<array>)
+#### \*array_shuffle(<array>)
 //     shuffles the array
 
-#### array_unique(<array>{, <threshold>})
+#### \*array_unique(<array>{, <threshold>})
 //     allows entries to appear up to <threshold> in the array
 
-#### array_diff(<array1>, <array2>{, <array>...}, <array>)
+#### \*array_diff(<array1>, <array2>{, <array>...}, <array>)
 ```
 //     compares array1 against one or more other arrays and fills the last array
 //     with the values in array1 that are not present in any of the other arrays
 //     returns the number of entries not matching
 ```
 
-#### array_filter(<array>, "<function>")
+#### \*array_filter(<array>, "<function>")
 //     filters the array using a callback function
 
-#### array_highest(<array>)
+#### \*array_highest(<array>)
 Returns the index of the highest value in <array>\
 NOTE: Array must be an INT array!
 
-#### relative_array_random(<array: 0, {[value, probability]..}>)
+#### \*relative_array_random(<array: 0, {[value, probability]..}>)
 ```
 //     returns a random entry from the array, by relative probability
 //     the first key of the array should be 0 and every entries are a tuple
@@ -424,79 +424,79 @@ NOTE: Array must be an INT array!
 
 ### Math
 
-#### abs(<int>)
+#### \*abs(<int>)
 //    returns the absolute value of the passed integer
 
-#### lognbaselvl({<multiplicator>{, <min value>}})
+#### \*lognbaselvl({<multiplicator>{, <min value>}})
 //     returns BaseLevel * logn (BaseLevel * alpha).
 
-#### log2(<int>)
+#### \*log2(<int>)
 //    returns the log base 2 of the passed integer, up to 20 (2**20=1.048.576) (round down always)
 
-#### is_between ( lower, higher, target)
+#### \*is_between ( lower, higher, target)
 // result is: `lower < target <= higher`
 
-#### limit ( lower, target, higher)
+#### \*limit ( lower, target, higher)
 :warning: Deprecated. Use `cap_value` instead.
 
 // forces the equation: `lower <= target <= higher`.
 // Note it still works if higher and target values are swapped.
 
-#### ponderate_avg ( arg1, sub1, arg2, sub2)
+#### \*ponderate_avg ( arg1, sub1, arg2, sub2)
 // result is the ponderate average.
 
 ### Bitwise
 
-#### bitwise_get ( variable, mask, {shift} )
+#### \*bitwise_get ( variable, mask, {shift} )
 Gets a bitmasked value in from an integer. If the shift is omitted, it will be
 deduced from the mask.
 
-#### bitwise_set ( variable, mask, shift, new value )
+#### \*bitwise_set ( variable, mask, shift, new value )
 Sets a bitmasked value in a variable.
 
 Returns a reference to the variable.
 
-#### bitwise_count ( int )
+#### \*bitwise_count ( int )
 //    returns the number of bits set in <int>
 
-#### get_nibble ( VAR, NIBBLEID )
+#### \*get_nibble ( VAR, NIBBLEID )
 Gets a nibble from a bitmasked variable.
 
 // A Nibble can go up to 15. There are 7 nibbles.
 
-#### get_byte ( VAR, BYTEID )
+#### \*get_byte ( VAR, BYTEID )
 Gets a byte from a bitmasked variable.
 
 // A Byte can go up to 255. There are 3 bytes, and a fourth going up to 127.
 
-#### get_bitword ( VAR )
+#### \*get_bitword ( VAR )
 // A Bitword can go up to 65535 and is fixed in position to handle Soul EXP.
 
-#### set_nibble ( VAR, NIBBLEID, VAL )
+#### \*set_nibble ( VAR, NIBBLEID, VAL )
 Returns bitwise_set
 
-#### set_byte ( VAR, BYTEID, VAL )
+#### \*set_byte ( VAR, BYTEID, VAL )
 Returns bitwise_set
 
-#### set_bitword ( VAR, VAL )
+#### \*set_bitword ( VAR, VAL )
 Returns bitwise_set
 
 
 ### Permissions
 
-#### is_admin ( {account ID} )
+#### \*is_admin ( {account ID} )
 Returns true if is an admin, with all permissions
 
-#### is_trusted ( {account ID} )
+#### \*is_trusted ( {account ID} )
 Returns true if is a staff member and receives ClientVersion
 
-#### is_dev ( {account ID} )
+#### \*is_dev ( {account ID} )
 Returns true if is a dev, and can listen to `@wgm`
 
-#### is_evtc ( {account ID} )
+#### \*is_evtc ( {account ID} )
 Returns true if is an event coordinator, and can spawn
 
-#### is_gm ( {account ID} )
+#### \*is_gm ( {account ID} )
 Returns true if is a game master, and can jail
 
 ## General Purpose Framework Functions
@@ -504,42 +504,42 @@ These are tools used by NPCs and scripts; But generally not by other functions
 
 ### Input
 
-#### menuint ( «struct» )
+#### \*menuint ( «struct» )
 Composed by tuples of (string, int); Causes a menu to show up.
 Will save the int from selected option in `@menuret` variable.
 And then, return it.
 
-#### menustr ( «struct» )
+#### \*menustr ( «struct» )
 Same as menuint, but arguments are strings. Uses `@menuret$`.
 
-#### menuint2 ( array )
+#### \*menuint2 ( array )
 Same as menuint but takes a single array and then extrapolates it.
 
 ### Time
 Contains utilites related to time management
 
-#### now ( )
+#### \*now ( )
 Same as `gettimetick(2)`
 
-#### santime ( )
+#### \*santime ( )
 Same as `gettimetick(2)`. Unused, from Moubootaur Legends.
 
-#### time_from_ms ( )
+#### \*time_from_ms ( )
 Undocumented
 
-#### time_from_seconds ( )
+#### \*time_from_seconds ( )
 Undocumented
 
-#### time_from_minutes ( )
+#### \*time_from_minutes ( )
 Undocumented
 
-#### time_from_hours ( )
+#### \*time_from_hours ( )
 Undocumented
 
-#### time_from_days ( )
+#### \*time_from_days ( )
 Undocumented
 
-#### FuzzyTime(<unix timestamp>{, options=3{, precision=2}})
+#### \*FuzzyTime(<unix timestamp>{, options=3{, precision=2}})
 ```
 //     gives time in a human-readable  format
 //
@@ -553,10 +553,10 @@ Undocumented
 //     Use '99' for max precision
 ```
 
-#### time_stamp ( )
+#### \*time_stamp ( )
 Undocumented
 
-#### HumanTime
+#### \*HumanTime
 :warning: Deprecated.
 The old version of FuzzyTime.
 DO NOT REUSE.
@@ -564,56 +564,56 @@ DO NOT REUSE.
 ### Timer
 Expands the powers of `addtimer`
 
-#### areatimer("<map>", <x1>, <y1>, <x2>, <y2>, <tick>, "<npc>::<event>")
+#### \*areatimer("<map>", <x1>, <y1>, <x2>, <y2>, <tick>, "<npc>::<event>")
 `addtimer` in area
 
-#### areadeltimer("<map>", <x1>, <y1>, <x2>, <y2>, "<npc>::<event>")
+#### \*areadeltimer("<map>", <x1>, <y1>, <x2>, <y2>, "<npc>::<event>")
 `deltimer` in area
 
-#### areatimer2
+#### \*areatimer2
 Same as `areatimer` but cancels running timers of same event
 
-#### addtimer2
+#### \*addtimer2
 Same as addtimer but deletes any existing timer with same event
 
-#### maptimer("<map>", <tick>, "<npc>::<event>")
+#### \*maptimer("<map>", <tick>, "<npc>::<event>")
 `addtimer` in whole map
 
-#### maptimer2
+#### \*maptimer2
 Same as `maptimer` but cancels running timers of same event
 
-#### mapdeltimer("<map>", "<npc>::<event>")
+#### \*mapdeltimer("<map>", "<npc>::<event>")
 Cancels a timer event in the whole map
 
-####  partytimer("<map>", <tick>, "<npc>::<event>", partyid)
+#### \* partytimer("<map>", <tick>, "<npc>::<event>", partyid)
 A map timer, but filters the party
 
 ### Goodbye
 
-#### goodbye_msg ( )
+#### \*goodbye_msg ( )
 Returns a random goodbye message.
 
-#### cwarp ( {x,y}/{map, x, y} )
+#### \*cwarp ( {x,y}/{map, x, y} )
 Closes the dialog, then warps the player.
 - If map is not specified, will slide to coordinates.
 - If no coordinates are passed, will warp randomly.
 
-#### cshop ( {name} )
+#### \*cshop ( {name} )
 Closes the dialog, then opens a shop.
 It is optimized for evol use, so {name} should always be supplied.
 
-#### cstorage ( )
+#### \*cstorage ( )
 Closes the dialog, then opens storage.
 
-#### bye ( {emote} )
+#### \*bye ( {emote} )
 //     closes the dialog without waiting for the player to press close
 //     can also display an emote
 
-#### goodbye ( {emote} )
+#### \*goodbye ( {emote} )
 //     same as bye, but also displays a canned message
 //     can also display an emote
 
-#### goodbye2 ( {emote} )
+#### \*goodbye2 ( {emote} )
 ```
 //     Waits for the player to press close, displays a canned message,
 //     ends execution.
@@ -623,19 +623,19 @@ Closes the dialog, then opens storage.
 ### Vault
 Contains the core functions for the Vault.
 
-#### getvaultid ( )
+#### \*getvaultid ( )
 Returns your Vault ID, or zero, if not a Vault user.
 
-#### getvaultexp ( exp )
+#### \*getvaultexp ( exp )
 Grants Mirror Lake EXP points if you have a Vault ID.
 
-#### vaultOnLogin ( )
+#### \*vaultOnLogin ( )
 Handles login for players using the Mirror Lake.
 
-#### vaultOnLogout ( )
+#### \*vaultOnLogout ( )
 Flushes mirror lake data to TMW Vault.
 
-#### MirrorLakeSendTo ( World, Lake )
+#### \*MirrorLakeSendTo ( World, Lake )
 Sends a signal to the Mana Launcher to move you to a different world.
 
 This signal is sent to ManaPlus and then relayed to the Launcher.
@@ -646,23 +646,23 @@ may be needed by other scripts.
 
 ### clear_vars
 
-#### ClearVariables ( )
+#### \*ClearVariables ( )
 Post-login updater for players
 
-#### ServerUpdate ( )
+#### \*ServerUpdate ( )
 Post-Init updater for server
 
 ### asklanguage
 
-#### languagecode()
+#### \*languagecode()
 Returns the string language code of user's language.
 
-#### asklanguage()
+#### \*asklanguage()
 Allows player to change their game language.
 
 ### inventoryplace
 
-#### inventoryplace ( {item, number, item, number, item, number...} )
+#### \*inventoryplace ( {item, number, item, number, item, number...} )
 Checks if player have enough space for the items.
 Closes dialog if false.
 
@@ -671,7 +671,7 @@ Random dialog for various random NPCs.
 
 They take no arguments.
 
-#### Functions:
+#### \*Functions:
 -  hello
 -  moubootalk
 -  villagertalk
@@ -683,7 +683,7 @@ They take no arguments.
 
 ### inc_sc_bonus
 
-#### SC_Bonus ( delay, SC, min{, max} )
+#### \*SC_Bonus ( delay, SC, min{, max} )
 ```
 //    Applies effects for INC_* (STR doesn't exist)
 //    Valid values: INCAGI INCVIT INCINT INCDEX INCLUK INCHIT INCFLEE SC_FURY
@@ -699,7 +699,7 @@ They take no arguments.
 //    .@max      Max amount of type (optional)
 ```
 
-#### SC_Bonus2(delay, SC1, val1, val2)
+#### \*SC_Bonus2(delay, SC1, val1, val2)
 Same as SC_Bonus, but when the SC takes two values.
 
 ### commands/kami
@@ -708,31 +708,31 @@ Same as SC_Bonus, but when the SC takes two values.
 
 Filters for array_filter and other callbacks.
 
-#### filter_always( id )
+#### \*filter_always( id )
 Always return true.
 
-#### filter_onlyme( id )
+#### \*filter_onlyme( id )
 Returns true if id is your account id.
 
-#### filter_notme( id )
+#### \*filter_notme( id )
 Returns true if id is not your account id.
 
-#### filter_sameguild( id )
+#### \*filter_sameguild( id )
 Returns true if id is in the same guild as you, incl. yourself.
 
-#### filter_sameguildnotyou( id )
+#### \*filter_sameguildnotyou( id )
 Returns true if id is in the same guild as you, excl. yourself.
 
-#### filter_sameparty( id )
+#### \*filter_sameparty( id )
 Returns true if id is in the same party as you, incl. yourself.
 
-#### filter_sameguildorparty( id )
+#### \*filter_sameguildorparty( id )
 Returns true if id is in the same guild or party as you, incl. yourself.
 
-#### filter_sameguildorpartynotyou( id )
+#### \*filter_sameguildorpartynotyou( id )
 See above. Excludes yourself.
 
-#### filter_hostile( id )
+#### \*filter_hostile( id )
 Returns true if id is:
 - An hostile player in a PvP map, honoring noparty and noguild subrules
 - A monster
@@ -744,10 +744,10 @@ Returns true if id is:
 
 Always return false for npcs.
 
-#### filter_friendly( id )
+#### \*filter_friendly( id )
 Returns true if id is not hostile (See above)
 
-#### filter_notboss( id )
+#### \*filter_notboss( id )
 Returns true if id is not a boss monster.
 
 ### quests
@@ -760,36 +760,36 @@ These are functions and scripts used largely by NPCs.
 ### alchemy
 Handles **all** alchemy tables in the world.
 
-#### AlchemySystem ( )
+#### \*AlchemySystem ( )
 Invokes Alchemy system, even without a table.
 Returns `true` if concatenation was successful.
 
 ### banker
 
-#### Banking ( )
+#### \*Banking ( )
 Handles GP operations
 
-#### Banker ( )
+#### \*Banker ( )
 Handles a Bank - Complete: GP, storage, mail, quests if any.
 
 ### barber
 
-#### BarberSayStyle ( {what} )
+#### \*BarberSayStyle ( {what} )
 // what: 1 = Style; 2 = Color; 3 = Style + Color in dialog
 
-#### BarberChangeStyle ( )
+#### \*BarberChangeStyle ( )
 Private function
 
-#### BarberChangeColor ( )
+#### \*BarberChangeColor ( )
 Private function
 
-#### BarberChangeBodyType ( )
+#### \*BarberChangeBodyType ( )
 Private function
 
-#### BarberChangeRace ( )
+#### \*BarberChangeRace ( )
 Private function
 
-#### Barber ( {intro=True} )
+#### \*Barber ( {intro=True} )
 A barber NPC. If intro is not set, can be used by dialogs.
 
 ### dailyquest
@@ -805,17 +805,17 @@ Configures ferries.
 ### travelers
 Could use a rewrite.
 
-#### Traveler ( )
+#### \*Traveler ( )
 The traveler NPC
 
 ### game_rules
 
-#### GameRules ( )
+#### \*GameRules ( )
 Show the rules for the player.
 
 ### inn
 
-#### Inn ({price})
+#### \*Inn ({price})
 
 :warning: Deprecated. And old function for inns; Should not be used.
 Needs a rewrite.
@@ -826,10 +826,10 @@ Needs a rewrite.
 
 ### mob_points
 
-#### fix_mobkill(mobID)
+#### \*fix_mobkill(mobID)
 Manual fix for scripted mobs
 
-#### MobPoints ( )
+#### \*MobPoints ( )
 Core function, for monster points and monster-killing quests where map is ignored.
 
 ### process_equip
@@ -841,15 +841,15 @@ Seems to be a feeble attempt to extract dye colors for Inspector Quest.
 
 ### slot_machine
 
-#### SlotMachine ( )
+#### \*SlotMachine ( )
 A Slot machine
 
-#### SlotMachineSymbol ( )
+#### \*SlotMachineSymbol ( )
 Private.
 
 ### soul_menhir
 
-#### SoulMenhir ( )
+#### \*SoulMenhir ( )
 :warning: Deprecated.
 A Soul Menhir. Require `@Xs`, `@Ys` and `@map$`.
 
@@ -858,7 +858,7 @@ fully. Touching it should set both respawn point as location system of 000-0.
 
 ### water_bottle
 
-#### WaterBottle ( )
+#### \*WaterBottle ( )
 Tool for filling water bottles (wells, water pumps, etc)
 
 ### evil_obelisk
@@ -870,7 +870,7 @@ DO NOT USE.
 
 ### lockpicking
 
-#### LockPicking ( )
+#### \*LockPicking ( )
 
 :warning: Deprecated.
 This is the original Iilia's lockpicking function, not Moubootaur Legends version.
@@ -878,10 +878,10 @@ Therefore, it is not flexible and not fit for reuse.
 
 ### default_npc_checks
 
-#### PCtoNPCRange ( {distance=4} )
+#### \*PCtoNPCRange ( {distance=4} )
 Same as setting `.distance` OnInit, but warn players they need to move closer.
 
-#### CheckInventory
+#### \*CheckInventory
 
 :warning: Deprecated.
 Used solely for Trick'n'Treat.
@@ -890,7 +890,7 @@ DO NOT USE.
 ### undead_debug
 Contains the NPC for Crypt debug.
 
-#### UndeadDebug ( )
+#### \*UndeadDebug ( )
 Function to obtain the items for the crpyt boss fights.
 
 ### headstyles
@@ -902,7 +902,7 @@ Creates a few variables:
 
 ### stat_reset
 
-#### StatReset ( )
+#### \*StatReset ( )
 A stat reset NPC
 
 ### quiz
@@ -958,28 +958,28 @@ Sets a few arrays:
 - `$@LOCMASTER_X`
 - `$@LOCMASTER_Y`
 
-#### ResaveRespawn ( )
+#### \*ResaveRespawn ( )
 Resaves your respawn point
 
-#### ReturnTown ( )
+#### \*ReturnTown ( )
 Warps you to the town saved in `LOCATION$`
 
-#### LocToMap ( LocName )
+#### \*LocToMap ( LocName )
 Retrieves map name from location name
 
-#### MapToLoc ( MapName )
+#### \*MapToLoc ( MapName )
 Retrieves location name from map name
 
-#### TPToLoc ( TPCode )
+#### \*TPToLoc ( TPCode )
 Retrieves map name from TP constant
 
-#### POL_LocToTP ( TOWNCODE )
+#### \*POL_LocToTP ( TOWNCODE )
 Actually, a manual conversion from location name to its TP code.
 
-#### EnterTown( LocName )
+#### \*EnterTown( LocName )
 Updates `LOCATION$` variable
 
-#### teleporthome ( )
+#### \*teleporthome ( )
 Warps home and updates LOCATION$
 
 ### weather
@@ -996,13 +996,13 @@ A few commands are defined:
 - `@wreset`
 - `@wset`
 
-#### "#WeatherCore"::climate(mapid)
+#### \*"#WeatherCore"::climate(mapid)
 Returns the climate setting
 
-#### "#WeatherCore"::weather(weather{, mapid})
+#### \*"#WeatherCore"::weather(weather{, mapid})
 Returns true if weather is present in map
 
-#### "#WeatherCore"::weather_override(weather, duration{, mapid, override=false})
+#### \*"#WeatherCore"::weather_override(weather, duration{, mapid, override=false})
 Modifies the weather on mapid for duration.
 If override is set, disregard climate restrictions.
 
@@ -1018,10 +1018,10 @@ Contain private functions for marriage.
 ### npcmovegraph
 Contains the needed utilities for walking NPCs.
 
-#### initmovegraph ( )
+#### \*initmovegraph ( )
 Initializes a walking NPC
 
-#### setmovegraphcmd ( fromPositionLabel, toPositionLabel [,moveChanceWeight [,moveFlags]], postCommand, ...);
+#### \*setmovegraphcmd ( fromPositionLabel, toPositionLabel [,moveChanceWeight [,moveFlags]], postCommand, ...);
 ```
  * This function manipulates NPC moving graph. Before calling it, make sure
  * `initmovegraph' was called. The function accepts 3-5 parameters (many times):
@@ -1034,7 +1034,7 @@ Initializes a walking NPC
  *                The commands don't have to end with ";moveon", it's executed in the end by default.
 ```
 
-#### execmovecmd
+#### \*execmovecmd
 Private? Commands are:
 - moveon
 - dir
@@ -1053,7 +1053,7 @@ Private? Commands are:
 - flags_0
 - flags_1
 
-#### firstmove
+#### \*firstmove
 ```
 // initial actions for npc when using move graphs.
 // function can accept 2 arguments:
@@ -1061,22 +1061,22 @@ Private? Commands are:
 //    2: start point label. Default is #0 from move graph labels
 ```
 
-#### dographmovestep
+#### \*dographmovestep
 ???
 
-#### npc_pausemove
+#### \*npc_pausemove
 Pauses NPC move
 
-#### npc_resumemove
+#### \*npc_resumemove
 Resumes NPC move
 
-#### npc_turntoxy (X, Y)
+#### \*npc_turntoxy (X, Y)
 Turn NPC towards an object at position (X,Y)
 
-#### getnextmovecmd
+#### \*getnextmovecmd
 Private?
 
-#### getrandompoint(x1,y1,x2,y2)
+#### \*getrandompoint(x1,y1,x2,y2)
 Private?
 ```
 //    -- Get a random walkable point within a map rectangle
@@ -1087,10 +1087,10 @@ Private?
 //  coordinates are stored in NPC variables .move__rand_x, .move__rand_y
 ```
 
-#### findmovegraphlabel
+#### \*findmovegraphlabel
 Private?
 
-#### mg_npcwalkto
+#### \*mg_npcwalkto
 Private?
 ```
 // wrapper function for npcwalkto. It can accept 4 parameters.
@@ -1101,16 +1101,16 @@ Private?
 // Returns 1 if walking is possible, 0 otherwise;
 ```
 
-#### movetonextpoint
+#### \*movetonextpoint
 Private?
 
 ### npcmove
 Contains the needed utilities for walking NPCs.
 
-#### initpath
+#### \*initpath
 No documentation available
 
-#### domoveaction
+#### \*domoveaction
 No documentation available
 Internal commands exist.
 
@@ -1126,16 +1126,16 @@ Internal commands exist.
 - sit
 - stand
 
-#### movetonextpos
+#### \*movetonextpos
 No documentation available
 
-#### initialmove
+#### \*initialmove
 No documentation available
 
-#### getmovecmd
+#### \*getmovecmd
 No documentation available
 
-#### domovestep
+#### \*domovestep
 No documentation available
 
 
